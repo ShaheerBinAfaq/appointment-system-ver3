@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 Route::get('/firebase','FirebaseController@index');
 Route::view('/patients', 'patients');
+Route::view('/appointment', 'appointment');

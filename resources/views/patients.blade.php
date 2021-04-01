@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <title>Laravel RealTime CRUD Using Google Firebase</title>
-
+@laravelPWA
 </head>
 <body>
 

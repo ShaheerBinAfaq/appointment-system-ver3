@@ -14,7 +14,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "kreait/firebase-php": "4.16.0",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "silviolleite/laravelpwa": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

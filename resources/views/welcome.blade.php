@@ -62,6 +62,7 @@
                 margin-bottom: 30px;
             }
         </style>
+        @laravelPWA
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -97,4 +98,7 @@
             </div>
         </div>
     </body>
+
+<script src="serviceworker.js"></script>
+
 </html>
