@@ -8,14 +8,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-    <title>Laravel RealTime CRUD Using Google Firebase</title>
+    <title>Patient | Admin</title>
 @laravelPWA
 </head>
 <body>
 
 <div class="container" style="margin-top: 50px;">
 
-    <h4 class="text-center">Laravel RealTime CRUD Using Google Firebase</h4><br>
+    <!-- <h4 class="text-center">Laravel RealTime CRUD Using Google Firebase</h4><br> -->
 
     <h5># Add Patient</h5>
     <div class="card card-default">

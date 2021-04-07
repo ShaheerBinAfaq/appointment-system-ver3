@@ -73,15 +73,7 @@
         var date = values[0].value;
         var time = values[1].value;
         var id = lastIndex + 1;
-        // try{
-        //     var date = document.getElementById('datepicker');
-        //     var time = document.getElementById('time');
-        //     var id = lastIndex + 1;
-        //     console.log(date, time);
-        // }
-        // catch(e) {
-        //     console.log(e);
-        // }
+        
         firebase.database().ref('appointments/' + id).set({
             date: date,
             time: time,
