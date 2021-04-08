@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Sign Up</title>
 	<!-- <link rel="stylesheet" type="text/css" href="Style1.css"> -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -250,8 +250,28 @@ a:hover{
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<h5>Username</h5>
+           		   		<h5>Email</h5>
            		   		<input type="text" id="email" class="input">
+           		   </div>
+                    <div class="div">
+           		   		<h5>First Name</h5>
+           		   		<input type="text" id="fname" class="input">
+           		   </div>
+                    <div class="div">
+           		   		<h5>Last Name</h5>
+           		   		<input type="text" id="lname" class="input">
+           		   </div>
+                    <div class="div">
+           		   		<h5>NIC Number</h5>
+           		   		<input type="text" id="nic" class="input">
+           		   </div>
+                    <div class="div">
+           		   		<h5>Phone Number</h5>
+           		   		<input type="text" id="phone" class="input">
+           		   </div>
+                    <div class="div">
+           		   		<h5>Address</h5>
+           		   		<input type="text" id="address" class="input">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -262,17 +282,21 @@ a:hover{
            		    	<h5>Password</h5>
            		    	<input type="password" id="password" class="input">
             	   </div>
+                   <div class="div">
+           		    	<h5>Confirm Password</h5>
+           		    	<input type="password" id="pass" class="input">
+            	   </div>
             	</div>
-            	<a href="#">Forgot Password?</a>
-            	<input type="submit" class="btn" value="Login">
-              <button onClick="signUp()" class="btnReg" id="register">Sign Up</button>
+            	
+            	<input type="submit" class="btn" value="Sign Up">
+              <!-- <input type="submit" class="btnReg" value="Register"> -->
             </form>
 			<div id="error"> </div>
         </div>
     </div>
     <!-- <script type="text/javascript" src="js/main.js"></script> -->
 </body>
-
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script>
     // Initialize Firebase
@@ -283,8 +307,8 @@ a:hover{
         storageBucket: "{{ config('services.firebase.storage_bucket') }}",
     };
     firebase.initializeApp(config);
-</script>
-<script>
+
+
     const loginform = document.querySelector('#login-form');
 	loginform.addEventListener('submit', (e)=>{
 		e.preventDefault();
@@ -292,30 +316,45 @@ a:hover{
 		const email= loginform['email'].value;
     	const password= loginform['password'].value;
 
-		firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
-			// Logged in
+		firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
+			// Signed up
 			console.log(userCredential);
-			//location.href = 'http://localhost:8000/appointment';
-			var user = firebase.auth().currentUser;
-    if(user){
-        console.log(user.uid);
-		window.location = '/home?uid=' + user.uid;
-    }
-    else{
-        console.log('user does not exist')
-    }
-		})
-		.catch((error) => {
+			
+            var database = firebase.database();
+            var lastIndex = 0;
+            //Get Data
+            firebase.database().ref('patients/').on('value', function (snapshot) {
+                var value = snapshot.val();
+                 $.each(value, function (index, value) {
+                 lastIndex = index;
+                });
+            // var values = $("#login-form").serializeArray();
+            console.log(loginform['fname'].value);
+            var email = loginform['email'].value;
+            var fname = loginform['fname'].value;
+            var lname = loginform['lname'].value;
+            var nic = loginform['nic'].value;
+            var phone = loginform['phone'].value;
+            var address = loginform['address'].value;
+            var userID = lastIndex + 1;
+            firebase.database().ref('patients/' + userID).set({
+                email: email,
+                fname: fname,
+                lname: lname,
+                nic: nic,
+                phone: phone,
+                address: address
+            });
+            
+            location.href = 'http://localhost:8000/appointment';
+		}).catch((error) => {
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			document.getElementById('error').innerHTML = errorMessage;
 		});
 	});
-	
-    //Route to sign up
-	function signUp(){
-		location.replace('http://localhost:8000/signup');
-	}
+    });
+    
   
 </script>
 

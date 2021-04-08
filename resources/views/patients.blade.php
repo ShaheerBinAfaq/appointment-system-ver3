@@ -151,7 +151,7 @@
         });
         // Reassign lastID value
         lastIndex = userID;
-        $("#addCustomer input").val("");
+        $("#addPatient input").val("");
     });
     // Update Data
     var updateID = 0;
