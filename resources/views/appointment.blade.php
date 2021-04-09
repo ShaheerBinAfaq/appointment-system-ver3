@@ -110,6 +110,7 @@
             pat_id: uid,
         });
         lastIndex = id;
+        window.location = '/home?uid=' + user.uid;
     });
 
     // Get Doctors

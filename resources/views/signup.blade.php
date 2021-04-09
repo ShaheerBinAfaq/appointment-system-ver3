@@ -346,7 +346,7 @@ a:hover{
                 address: address
             });
             
-            location.href = 'http://localhost:8000/appointment';
+            location.href = 'http://localhost:8000/home';
 		}).catch((error) => {
 			var errorCode = error.code;
 			var errorMessage = error.message;
