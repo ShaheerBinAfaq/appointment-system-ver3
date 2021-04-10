@@ -36,7 +36,7 @@
 		window.location = '/viewappointment?uid=' + uid;
 	}
     function pharmacy(){
-		window.open('http://127.0.0.1:8887/index.html');
+		window.location = '/pharmacy';
 	}
     function prescription() {
         var url = 'http://127.0.0.1:8887/Presc.html';
