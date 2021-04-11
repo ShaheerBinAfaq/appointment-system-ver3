@@ -87,22 +87,21 @@
             </div>
         </div>
     </div> -->
-    <table>
-        <div class="dr_card_all">
-            <div class="dr_card_img">
-                <!-- <img width="100%" src="images/Capture.PNG" alt=""> -->
-            </div>
-                <tbody id='drtable'>
-                    
-                </tbody>
+    <button class="dr_card_all">
+        <div class="dr_card_img">
+            <img width="100%" src="images/Capture.PNG" alt="profile">
         </div>
-    </table>
-
+        <div class="dr card_text">
+            <h3>Echan John</h3>
+            <p>Gastroenterologists</p>
+        </div>
+    </button>
+    
 
     
     <!-- ********** | JOIN SECTION | ********** -->
 
-    <div class="main_join">
+    <div id="joinsection" class="main_join">
         <div class="main_join_text">
             <h1>Join Our Newsletter</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
@@ -225,15 +224,24 @@ var config = {
         var htmls = [];
         $.each(value, function (index, value) {
             if (value) {                
-                    htmls.push('<tr class="dr card_text">\
-                        <td><strong>' + value.Name + '</strong><br/>\
-                        ' + value.Speciality + '</td>\
-                    </tr>');
+                    // htmls.push('<tr class="dr card_text">\
+                    //     <td><strong>' + value.Name + '</strong><br/>\
+                    //     ' + value.Speciality + '</td>\
+                    // </tr>');
+                    var drbutton = document.createElement("BUTTON");
+                    var card = document.createElement("DIV");
+                    var cardheading = document.createElement("H3");
+                    var cardpara = document.createTextNode(value.Speciality);
+                    cardheading.innerHTML = value.Name;
+                    card.appendChild(cardpara);
+                    card.appendChild(cardheading);
+                    drbutton.appendChild(card);
+                    var join = document.getElementById('#joinsection');
+                    body.insertBefore(drbutton, join);
             }
             lastIndex = index;
         });
         document.getElementById('drtable').innerHTML = htmls;
-        // $("#submitPatient").removeClass('desabled');
     });
 </script>
 </html>

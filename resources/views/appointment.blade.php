@@ -5,26 +5,12 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
-<script> 
-
-    $(document).ready(function(){
-    $('#time').timepicker({
-        interval: 15,
-        // minTime: new Date().toLocaleTimeString(),
-        scrollbar: true,
-    })});
-
-</script>
-
 <!-- Date -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-    $(function(){
-    $("#datepicker").datepicker();
-});
+    
 </script>
 
 <!-- Bootstrap CSS -->
@@ -57,7 +43,7 @@
     </div>
 </form>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <!-- Firebase Tasks -->
 <!-- <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script> -->
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
@@ -73,6 +59,32 @@
                 
         }
     };
+
+    function FilterTime(doctorId){
+        // if(doctorId == value.doc_id){
+        //         alert("Same")
+        //     }
+        
+    firebase.database().ref('appointments/').on('value', function(snapshot){
+        var value = snapshot.val();
+        var Datecs = $("#datepicker").val();
+        $.each(value, function(index,value){
+            
+            if(value){
+             if(doctorId == value.doc_id && Datecs == value.date){
+                $("#time").focus();
+                $(".ui-timepicker li").each(function(){
+                    var text = $(this).text();
+                    if(text == value.time){
+                        $(this).hide();
+                    }
+                })
+            }
+        console.log(value);
+    }
+        });
+    })
+    }
     
     // Initialize Firebase
     var config = {
@@ -110,7 +122,8 @@
             pat_id: uid,
         });
         lastIndex = id;
-        window.location = '/home?uid=' + user.uid;
+        alert("Your appointment has been booked");
+        window.location = '/home?uid=' + uid;
     });
 
     // Get Doctors
@@ -119,11 +132,21 @@
         var htmls = [];
         $.each(value, function(index,value){
             if(value) {
-                htmls.push('<option value="' + index + '">' + value.Name + '</option>');
+                htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.Name + '</option>');
             }
         console.log(index);
         });
         document.getElementById('doctors').innerHTML = htmls;
+        var DefStartTime = $("#doctors option:selected").attr("fromtime");
+        var DefEndTime = $("#doctors option:selected").attr("endtime");
+        var DocId = $("#doctors").val();
+        $('#time').timepicker({
+            interval: 15,
+            minTime: DefStartTime,
+            maxTime: DefEndTime,
+            // scrollbar: true,
+        });
+        FilterTime(DocId)
         
     });
 
@@ -136,7 +159,40 @@
     //         console.log('no user');
     //     }
     // }
+
+    $("#datepicker").datepicker();
+    $("#doctors").change(function(){
+        var StartTime = $(this).find("option:selected").attr("fromtime");
+        var endTime = $(this).find("option:selected").attr("endtime");
+        var DoctorId = $(this).val();
+        $('#time').timepicker().destroy();
+        $('#time').timepicker({
+        interval: 15,
+        minTime: StartTime,
+        maxTime: endTime,
+        scrollbar: true,
+    });
+    FilterTime(DoctorId)
+    })
+
+    $("#datepicker").change(function(){
+        var DefStartTime = $("#doctors option:selected").attr("fromtime");
+        var DefEndTime = $("#doctors option:selected").attr("endtime");
+        var DocId = $("#doctors").val();
+        $('#time').timepicker({
+            interval: 15,
+            minTime: DefStartTime,
+            maxTime: DefEndTime,
+            scrollbar: true,
+        });
+        FilterTime(DocId)
+    })
+
+    $(document).ready(function(){
+        
+        
+    });
 </script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </body>
 </html>

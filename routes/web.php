@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/firebase','FirebaseController@index');
 Route::view('/patients', 'patients');
-Route::view('/appointment', 'viewdoctors');
+Route::view('/appointment', 'appointment');
 Route::view('/signup', 'register');
 Route::view('/home', 'home1');
 Route::view('/viewappointment', 'viewappointment');
