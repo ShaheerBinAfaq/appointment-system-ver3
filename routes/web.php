@@ -25,3 +25,7 @@ Route::view('/viewappointment', 'viewappointment');
 Route::view('/pharmacy', 'pharmacy');
 Route::view('/reportupload', 'reportupload');
 Route::view('/prescription', 'prescription');
+Route::view('/presMedicine', 'presMedicine');
+Route::view('/presTest', 'presTest');
+Route::view('/presSurgery', 'presSurgery');
+Route::view('/presPdf', 'presPdf');

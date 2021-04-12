@@ -98,7 +98,7 @@ form {
   border: 2px solid #fafafa;
   background: none;
   padding: 0.6rem 1.2rem;
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-weight: 500;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
@@ -195,15 +195,15 @@ textarea.input {
   right: 50%;
 }
 
-.input-container.focus label {
+.input-container label {
   top: 0;
   transform: translateY(-50%);
   left: 25px;
   font-size: 0.8rem;
 }
 
-.input-container.focus span:before,
-.input-container.focus span:after {
+.input-container span:before,
+.input-container span:after {
   width: 50%;
   opacity: 1;
 }

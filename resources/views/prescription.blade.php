@@ -22,26 +22,16 @@
           <span class="circle one"></span>
           <span class="circle two"></span>
   
-          <form action="index.html" autocomplete="off">
+          <form action="index.html" id="prescription" autocomplete="off">
             <h3 class="title" style="font-size: 40px">Medical Prescription</h3>
             <hr>
             <div class="input-container">
-              <input type="text" id="IDENTIFIER" name="IDENTIFIER" class="input" />
-              <label for="">IDENTIFIER</label>
-              <span>IDENTIFIER</span>
-            </div>
-            <div class="input-container">
-              <input type="text" id="DATEWRITTEN" name="DATEWRITTEN" class="input" />
+              <input type="date" id="DATEWRITTEN" name="DATEWRITTEN" class="input" />
               <label for="">DATEWRITTEN</label>
               <span>DATEWRITTEN</span>
             </div>
             <div class="input-container">
-              <input type="text" id="STATUS" name="STATUS" class="input" />
-              <label for="">STATUS</label>
-              <span>STATUS</span>
-            </div>
-            <div class="input-container">
-              <input type="text" id="PATIENT" name="PATIENT" class="input" />
+              <input type="text" id="patient" name="PATIENT" class="input" > </input>
               <label for="">PATIENT</label>
               <span>PATIENT</span>
             </div>
@@ -52,120 +42,17 @@
               <span>PRESCRIBER</span>
             </div>
             <div class="input-container textarea">
-              <textarea id="REASON" name="REASON" class="input"></textarea>
-              <label for="">REASON</label>
-              <span>REASON</span>
+              <textarea style="color: aliceblue;" id="REASON" placeholder="REASON" class="input"></textarea>
+              <label for=""></label>
+              <span></span>
             </div>
-            <div class="input-container">
-              <input type="text" id="ENCOUNTER" name="ENCOUNTER" class="input" />
-              <label for="">ENCOUNTER</label>
-              <span>ENCOUNTER</span>
-            </div>
-            <div class="input-container textarea">
-              <textarea id="MEDICATION" name="MEDICATION" class="input"></textarea>
-              <label for="">MEDICATION</label>
-              <span>MEDICATION</span>
-            </div>
-  
           </form>
         </div>
-  
-        <div class="contact-form">
-          <span class="circle one"></span>
-          <span class="circle two"></span>
-  
-          <form action="index.html" autocomplete="off" style="margin-top: 55px;">
-            <h3 class="title">Dosage-Instructions</h3>
-            <hr>
-            <div class="input-container">
-              <input type="text" name="TEXT" class="input" />
-              <label for="">TEXT</label>
-              <span>TEXT</span>
-            </div>
-            <div class="input-container">
-              <input id="ADDITIONALINSTRUCTIONS" type="text" name="ADDITIONAL-INSTRUCTIONS" class="input" />
-              <label for="">ADDITIONAL-INSTRUCTIONS</label>
-              <span>ADDITIONAL-INSTRUCTIONS</span>
-            </div>
-            <div class="input-container">
-              <input id="TIMING" type="text" name="TIMING" class="input" />
-              <label for="">TIMING</label>
-              <span>TIMING</span>
-            </div>
-            <div class="input-container">
-              <input id="ASNEEDED" type="text" name="AS-NEEDED" class="input" />
-              <label for="">AS-NEEDED</label>
-              <span>AS-NEEDED</span>
-            </div>
-  
-            <div class="input-container">
-              <input id="SITE" type="text" name="SITE" class="input" />
-              <label for="">SITE</label>
-              <span>SITE</span>
-            </div>
-            <div class="input-container">
-              <input type="text" name="ROUTE" class="input" />
-              <label for="">ROUTE</label>
-              <span>ROUTE</span>
-            </div>
-            <div class="input-container">
-              <input id="METHOD" type="text" name="METHOD" class="input" />
-              <label for="">METHOD</label>
-              <span>METHOD</span>
-            </div>
-  
-            <div class="input-container">
-              <input id="DOSEQUANTITY" type="text" name="DOSE-QUANTITY" class="input" />
-              <label for="">DOSE-QUANTITY</label>
-              <span>DOSE-QUANTITY</span>
-            </div>
-  
-            <div class="input-container">
-              <input id="RATE" type="text" name="RATE" class="input" />
-              <label for="">RATE</label>
-              <span>RATE</span>
-            </div>
-  
-            <div class="input-container">
-              <input id="MAX_DOSE_PER_PERIOD" type="text" name="MAX-DOSE-PER-PERIOD" class="input" />
-              <label for="">MAX-DOSE-PER-PERIOD</label>
-              <span>MAX-DOSE-PER-PERIOD</span>
-            </div>
-  
-            <h3 class="title">Dosage-Instructions</h3>
-            <hr>
-  
-            <div class="input-container">
-              <input id="MEDICATION2" type="text" name="MEDICATION" class="input" />
-              <label for="">MEDICATION</label>
-              <span>MEDICATION</span>
-            </div>
-  
-            <div class="input-container">
-              <input id="VALIDITY_PERIOD" type="text" name="VALIDITY-PERIOD" class="input" />
-              <label for="">VALIDITY-PERIOD</label>
-              <span>VALIDITY-PERIOD</span>
-            </div>
-  
-            <div class="input-container">
-              <input id="REPEATS_ALLOWED" type="text" name="NUMBER-OF-REPEATS-ALLOWED" class="input" />
-              <label for="">NUMBER-OF-REPEATS-ALLOWED</label>
-              <span>NUMBER-OF-REPEATS-ALLOWED</span>
-            </div>
-  
-            <div class="input-container">
-              <input id="QUANTITY" type="text" name="QUANTITY" class="input" />
-              <label for="">QUANTITY</label>
-              <span>QUANTITY</span>
-            </div>
-  
-  
-            <div class="input-container">
-              <input id="EXPECTED_SUPPLY_DURATION" type="text" name="EXPECTED-SUPPLY-DURATION" class="input" />
-              <label for="">EXPECTED-SUPPLY-DURATION</label>
-              <span>EXPECTED-SUPPLY-DURATION</span>
-            </div>
             <!-- <input type="submit" value="Generate Report" class="btn"/> -->
+            <button id="save" class="btn">Save</button>
+            <button onclick="medicine()" class="btn">Enter Medicines</button>
+            <button onclick="test()" class="btn">Enter Tests</button>
+            <button onclick="surgery()" class="btn">Enter Surgery</button>
             <button onclick="SubmitAll()" class="btn"><a href="pdf.html">Generate Report</a></button>
           </form>
         </div>
@@ -175,7 +62,113 @@
   </body>
 </html>
 <script>
-    const inputs = document.querySelectorAll(".input");
+var uid;
+var presID;
+  function getId () {
+      
+        if (window.location.search.split('?').length > 0) {
+            var params = window.location.search.split('?')[1];
+            return params.split('=')[1];                              
+      }
+  };
+  
+  function getDrname(id) {
+      firebase.database().ref('doctors/' + id).on('value', function (snapshot) {
+        var value = snapshot.val();
+      
+        document.getElementById('PRESCRIBER').value = value.Name; 
+      });
+    }
+  function getPatName(id) {
+    firebase.database().ref('users/' + id).on('value', function (snapshot) {
+      var value = snapshot.val();
+      console.log('value', value);
+      document.getElementById('patient').value = value.fname + " " + value.lname; 
+    });
+  }
+</script>
+  {{--Firebase Tasks--}}
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+  <script>
+    //Getting Appointment id
+  
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "{{ config('services.firebase.api_key') }}",
+        authDomain: "{{ config('services.firebase.auth_domain') }}",
+        databaseURL: "{{ config('services.firebase.database_url') }}",
+        storageBucket: "{{ config('services.firebase.storage_bucket') }}",
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    var lastIndex = 0;
+    var presId;
+    var drname;
+    lastIndex = 0;
+    uid = getId();
+        // Get Data
+        firebase.database().ref('prescriptions/').on('value', function (snapshot) {
+        var value = snapshot.val();
+        $.each(value, function (index, value) {
+            if (value && uid == value.appointment_id) {
+                document.getElementById('DATEWRITTEN').innerHTML = value.date_written;
+                document.getElementById('patient').innerHTML = value.pat_name;
+                document.getElementById('PRESCRIBER').innerHTML = value.doc_name;
+                document.getElementById('REASON').innerHTML = value.reason;
+            }
+            lastIndex = index;
+            console.log(lastIndex,'getting');
+        });
+    });
+    
+    
+    console.log('uid', uid);
+    // Get Appointment Data
+    firebase.database().ref('appointments/' + uid).on('value', function (snapshot) {
+        var value = snapshot.val();
+        var htmls = [];
+        getDrname(value.doc_id);
+        getPatName(value.pat_id);
+        console.log(value); 
+        $('#patient').html(htmls);
+        $("#submitPatient").removeClass('desabled');
+    });
+    
+    // Add Prescription Data
+    $('#save').on('click', function () {
+        
+        var values = $("#prescription").serializeArray();
+        var appointment_id = uid;
+        var date_written = values[0].value;
+        var pat_name = values[1].value;
+        var doc_name = values[2].value;
+        var reason = document.getElementById('REASON').value;
+        console.log(lastIndex);
+        presID = lastIndex + 1;
+        console.log(values);
+        firebase.database().ref('prescriptions/' + presID).set({
+            appointment_id: appointment_id,
+            date_written: date_written,
+            pat_name: pat_name,
+            doc_name: doc_name,
+            reason: reason,
+        });
+        // Reassign lastID value
+        lastIndex = presID;
+    });
+    function medicine() {
+    window.location = 'presMedicine?presId=' + lastIndex;
+  }
+  function test() {
+    window.location = 'presTest?presId=' + lastIndex;
+  }
+  function surgery() {
+    window.location = 'presSurgery?presId=' + lastIndex;
+  }
+// ----------------------------------------------
+const inputs = document.querySelectorAll(".input");
 
 function focusFunc() {
   let parent = this.parentNode;
