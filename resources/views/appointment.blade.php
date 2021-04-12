@@ -1,3 +1,4 @@
+<style><?php include public_path('css/StyleAppointment.css') ?></style>
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,8 +20,10 @@
 
 </head>
 <body>
+<button onClick="home()" style=" position: fixed; right: 90px; top: 20px; height: 30px;">Home</button>
 <form id="addAppointment" method="POST" action="">
-    <div class="app_time_Date_main card card-default container">
+    <div style="top: 100px;" class="app_time_Date_main card card-default container">
+        <h2 class="title">BOOK APPOINTMENT</h2>
         <label>Choose a Doctor:</label>
 
             <select id="doctors">
@@ -38,8 +41,9 @@
             
             <input type="text" id="time" name="time" placeholder="Choose Appointment Time">
             <br><br>
-
-        <button id="submitAppointment" type="button" class="btn btn-primary mb-2">Book Appointment</button>
+        <div class="button">
+            <button id="submitAppointment" type="button" class="btn">Book Appointment</button>
+        </div>
     </div>
 </form>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
@@ -192,6 +196,9 @@
         
         
     });
+    function home() {
+        window.location = '/home?uid=' + uid;
+    }
 </script>
 
 </body>

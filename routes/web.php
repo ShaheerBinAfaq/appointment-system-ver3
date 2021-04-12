@@ -23,3 +23,5 @@ Route::view('/signup', 'register');
 Route::view('/home', 'home1');
 Route::view('/viewappointment', 'viewappointment');
 Route::view('/pharmacy', 'pharmacy');
+Route::view('/reportupload', 'reportupload');
+Route::view('/prescription', 'prescription');

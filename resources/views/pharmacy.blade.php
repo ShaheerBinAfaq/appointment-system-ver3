@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="sweetalert2.min.css">
     <title>CareX Pharmacy</title>
 </head>
-<body onload="render()">
+<body>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success text-white">
             <a class="text-white navbar-brand" href="#">
@@ -48,7 +48,7 @@
             </div>
         </nav>
     </header>
-
+    
 <main role="main">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">

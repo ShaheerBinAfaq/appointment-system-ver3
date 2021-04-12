@@ -10,10 +10,12 @@
         <title>View Appointments</title>
     </head>
     <body>
+    <button onClick="home()" style=" position: fixed; right: 90px; top: 20px; height: 30px;">Home</button>
         <div class="container" style="margin-top: 50px;">
             <h5># Appointments</h5>
             <table class="table table-bordered">
                 <tr>
+                    <th>Doctor</th>
                     <th>Date</th>
                     <th>Time</th>
                     <th width="180" class="text-center">Action</th>
@@ -71,6 +73,17 @@
 <script>
     //Getting User id
     var uid;
+    var doctors = {};
+    firebase.database().ref('doctors/').on('value', function (snapshot) {
+        var value = snapshot.val();
+        
+        $.each(value, function (index, value) {
+            doctors[index] = value.Name;
+            // doctors.push(doctor);
+            // console.log(doctors);
+        });
+    });
+        
     window.onload = function () {
         
             if (window.location.search.split('?').length > 0) {
@@ -85,8 +98,9 @@
                     var htmls = [];                   
                     $.each(value, function (index, value) {
                         if (value && value.pat_id == uid) {    
-                            // doc_name = async getDoctor(value.doc_id);
+                            // doc_name = getDoctor(value.doc_id);
                             htmls.push('<tr>\
+                            <td>' + doctors[value.doc_id] + '</td>\
                             <td>' + value.date + '</td>\
                             <td>' + value.time + '</td>\
                             <td><button data-toggle="modal" data-target="#remove-modal" class="btn btn-danger removeData" data-id="' + index + '">Cancel Appointment</button></td>\
@@ -101,11 +115,11 @@
     };
     // function getDoctor(id) {
         
-    //                     console.log('doc id',id);
-    //                     firebase.database().ref('doctors/' + id).on('value', function (snapshot) {
-    //                     var value = snapshot.val();
-    //                     console.log(value.Name);
-    //                     return value.Name;
+    //     console.log('doc id',id);
+    //     firebase.database().ref('doctors/' + id).on('value', function (snapshot) {
+    //     var value = snapshot.val();
+    //     console.log(value.Name);
+    //     return value.Name;
     // });
 
     // Remove Data
@@ -123,5 +137,9 @@
     $('.remove-data-from-delete-form').click(function () {
         $('body').find('.patients-remove-record-model').find("input").remove();
     });
+
+    function home() {
+        window.location = '/home?uid=' + uid;
+    }
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

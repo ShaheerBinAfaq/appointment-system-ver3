@@ -88,7 +88,7 @@
 	
     //Route to sign up
 	function signUp(){
-		location.replace('http://localhost:8000/signup');
+		window.location = 'signup';
 	}
   
 </script>

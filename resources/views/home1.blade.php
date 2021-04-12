@@ -40,6 +40,7 @@
 				</ul>
 			</nav>
 		</div>
+		<button onClick="logout()" style=" position: fixed; right: 90px; top: 20px; height: 30px;">Logout</button>
 		
 		<!--Features-->
 		<section id="feature">
@@ -99,7 +100,7 @@
 					<img src="\images\img\home\consultdoc.jpg" style="height: 320px">
 					<div class="overlay"></div>
 					<div class="service-desc">
-						<h3>Books Appointment</h3>
+						<h3>Book Appointment</h3>
 						<hr>
 						<p>Choose the speciality you want to book your online doctor appointment with in Karachi.We will give you the easiest experience of appointment booking.</p>
 					</div>
@@ -114,26 +115,27 @@
 						
 					</div>
                 </button>
+				<button onClick="viewappointments()" class="single-service">
+					<img src="\images\img\home\book.jpg"style="height: 320px">
+					<div class="overlay"></div>
+					<div class="service-desc">
+						<h3>View My Appointments</h3>
+						<hr>
+						<p>It takes less than 1 minute and Nothing can really give you a feel for whether you’ve selected the right doctor like a face-to-face meeting.</p>
+						
+					</div>
+                </button>
 				<button onClick="test()" class="single-service">
 					<img src="\images\img\home\cons2.jpg"style="height: 320px">
 					<div class="overlay"></div>
 					<div class="service-desc">
 						<h3>Book Test</h3>
 						<hr>
-						<!-- <p>Save time & money. Here experienced and specialised  doctors are available. Find a Doctor with expertise that meets your health needs</p> -->
+						<p>Save time & money. Here experienced and specialised  doctors are available. Find a Doctor with expertise that meets your health needs</p>
 
 					</div>
                 </button>
-				<!-- <button class="single-service">
-					<img src="\images\img\home\book.jpg"style="height: 320px">
-					<div class="overlay"></div>
-					<div class="service-desc">
-						<h3>Book Appointment</h3>
-						<hr>
-						<p>It takes less than 1 minute and Nothing can really give you a feel for whether you’ve selected the right doctor like a face-to-face meeting.</p>
-						
-					</div>
-                </button> -->
+				
 			</div>
 		 </section>
 
@@ -213,17 +215,75 @@
 
 
         
-        <script src="web.js"></script>
+        <!-- <script src="web.js"></script> -->
 	</body>
 </html>
 <script>
+	//Getting User id
+    var uid;
+    window.onload = function () {
+        
+            if (window.location.search.split('?').length > 0) {
+                var params = window.location.search.split('?')[1];
+                uid = params.split('=')[1];                                
+        }
+    };
     function pharmacy() {
-        location.replace('http://localhost:8000/pharmacy');
+        window.location = '/pharmacy';
     }
 	function appointment() {
-        location.replace('http://localhost:8000/appointment');
+		window.location = '/appointment?uid=' + uid;
     }
 	function test() {
-        location.replace('http://localhost:8000/test');
+        window.location = '/reportupload?uid=' + uid;
     }
+	function viewappointments() {
+		window.location = '/viewappointment?uid=' + uid;
+	}
+</script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+<script>
+	var close = document.getElementById("closeb")
+var open = document.getElementById("openb")
+
+function openbtn() {
+    open.style.display = "none"
+    var navbar = document.getElementById("sideNav").style.width = "250px"
+    
+//    open.display:none;
+//    close.remove()
+    
+}
+
+function closebtn() {
+    
+    var navbar = document.getElementById("sideNav").style.width = "0px"
+    open.style.display = "block"
+//    open.remove()
+}
+
+	var scroll = new SmoothScroll('a[href*="#"]', {
+	speed: 1000,
+	speedAsDuration: true
+});
+
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "{{ config('services.firebase.api_key') }}",
+        authDomain: "{{ config('services.firebase.auth_domain') }}",
+        databaseURL: "{{ config('services.firebase.database_url') }}",
+        storageBucket: "{{ config('services.firebase.storage_bucket') }}",
+    };
+    firebase.initializeApp(config);
+
+function logout() {
+	firebase.auth().signOut().then(() => {
+	// Sign-out successful.
+	window.location='/';
+	}).catch((error) => {
+	// An error happened.
+});
+}
+
 </script>
