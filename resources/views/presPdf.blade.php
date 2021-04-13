@@ -75,25 +75,19 @@
                                     <th>Timing</th>                                                                                            
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr id="medicine">                                    
-                                    
-                                   
-                                </tr>
-                                <tr>
-                                     <th>Test Name</th>                           
-                                </tr>
-                                <tr id="test">                                    
-                                                                       
-                                </tr>
-                                <tr >
-                                     <th>Surgery</th>                           
-                                </tr>
-                                <tr id="surgery">                                    
-                                    
-                                </tr>
-
-
+                            <tbody id="medicine">
+                            </tbody>
+                            <tr>
+                                    <th>Test Name</th>                           
+                            </tr>
+                            <tbody id="test">                                    
+                                                                    
+                            </tbody>
+                            <tr >
+                                    <th>Surgery</th>                           
+                            </tr>
+                            <tbody id="surgery">                                    
+                                
                             </tbody>
                         </table>
                     </div>
@@ -167,10 +161,11 @@ window.addEventListener('load', () => {
         var htmls = [];
         $.each(value, function (index, value) {
             if (value && presId == value.pres_id) {
-                htmls.push('<td>' + value.name + '</td>\
+                htmls.push('<tr>\
+                <td>' + value.name + '</td>\
         		<td>' + value.power + '</td>\
                 <td>' + value.timing + '</td>\
-                ');
+                <tr>');
             }
             lastIndex = index;
         });
@@ -182,9 +177,9 @@ window.addEventListener('load', () => {
         var htmls = [];
         $.each(value, function (index, value) {
             if (value && presId == value.pres_id) {
-                htmls.push('\
+                htmls.push('<tr>\
         		<td>' + value.name + '</td>\
-                ');
+                </tr>');
             }
             lastIndex = index;
         });
@@ -196,9 +191,9 @@ window.addEventListener('load', () => {
         var htmls = [];    
         $.each(value, function (index, value) {
             if (value && presId == value.pres_id) {
-                htmls.push('\
+                htmls.push('<tr>\
         		<td>' + value.name + '</td>\
-                ');
+                </tr>');
             }
             lastIndex = index;
         });

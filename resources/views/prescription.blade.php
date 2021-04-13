@@ -53,7 +53,7 @@
             <button onclick="medicine()" class="btn">Enter Medicines</button>
             <button onclick="test()" class="btn">Enter Tests</button>
             <button onclick="surgery()" class="btn">Enter Surgery</button>
-            <button onclick="SubmitAll()" class="btn"><a href="pdf.html">Generate Report</a></button>
+            <button onclick="SubmitAll()" class="btn">Generate Report</button>
           </form>
         </div>
       </div>
@@ -190,50 +190,7 @@ inputs.forEach((input) => {
 
 
 function SubmitAll() {
-  const IDENTIFIER = document.getElementById("IDENTIFIER").value;
-  const DATEWRITTEN = document.getElementById("DATEWRITTEN").value;
-  const STATUS = document.getElementById("STATUS").value;
-  const PATIENT = document.getElementById("PATIENT").value;
-  const PRESCRIBER = document.getElementById("PRESCRIBER").value;
-  const REASON = document.getElementById("REASON").value;
-  const ENCOUNTER = document.getElementById("ENCOUNTER").value;
-  const MEDICATION = document.getElementById("MEDICATION").value;
-  const ADDITIONALINSTRUCTIONS = document.getElementById("ADDITIONALINSTRUCTIONS").value;
-  const TIMING = document.getElementById("TIMING").value;
-  const ASNEEDED = document.getElementById("ASNEEDED").value;
-  const SITE = document.getElementById("SITE").value;
-  const METHOD = document.getElementById("METHOD").value;
-  const DOSEQUANTITY = document.getElementById("DOSEQUANTITY").value;
-  const MAX_DOSE_PER_PERIOD = document.getElementById("MAX_DOSE_PER_PERIOD").value;
-  const RATE = document.getElementById("RATE").value;
-  const MEDICATION2 = document.getElementById("MEDICATION2").value;
-  const VALIDITY_PERIOD = document.getElementById("VALIDITY_PERIOD").value;
-  const QUANTITY = document.getElementById("QUANTITY").value;
-  const REPEATS_ALLOWED = document.getElementById("REPEATS_ALLOWED").value;
-  const EXPECTED_SUPPLY_DURATION = document.getElementById("EXPECTED_SUPPLY_DURATION").value;
-  
-  
-  localStorage.setItem("IDENTIFIER", IDENTIFIER);
-  localStorage.setItem("DATEWRITTEN", DATEWRITTEN);
-  localStorage.setItem("STATUS", STATUS);
-  localStorage.setItem("PATIENT", PATIENT);
-  localStorage.setItem("PRESCRIBER", PRESCRIBER);
-  localStorage.setItem("REASON", REASON);
-  localStorage.setItem("ENCOUNTER", ENCOUNTER);
-  localStorage.setItem("MEDICATION", MEDICATION);
-  localStorage.setItem("ADDITIONALINSTRUCTIONS", ADDITIONALINSTRUCTIONS);
-  localStorage.setItem("TIMING", TIMING);
-  localStorage.setItem("ASNEEDED", ASNEEDED);
-  localStorage.setItem("SITE", SITE);
-  localStorage.setItem("METHOD", METHOD);
-  localStorage.setItem("DOSEQUANTITY", DOSEQUANTITY);
-  localStorage.setItem("MAX_DOSE_PER_PERIOD", MAX_DOSE_PER_PERIOD);
-  localStorage.setItem("RATE", RATE);
-  localStorage.setItem("MEDICATION2", MEDICATION2);
-  localStorage.setItem("VALIDITY_PERIOD", VALIDITY_PERIOD);
-  localStorage.setItem("QUANTITY", QUANTITY);
-  localStorage.setItem("REPEATS_ALLOWED", REPEATS_ALLOWED);
-  localStorage.setItem("EXPECTED_SUPPLY_DURATION", EXPECTED_SUPPLY_DURATION);
+  window.location = 'presPdf?presid=' + lastIndex;
 }
 
 </script>

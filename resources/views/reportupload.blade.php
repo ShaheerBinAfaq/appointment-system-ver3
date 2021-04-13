@@ -1,3 +1,4 @@
+<style><?php include public_path('css/StyleReportUpload.css') ?></style>
 <!doctype html>
 <html lang="en">
 <head>

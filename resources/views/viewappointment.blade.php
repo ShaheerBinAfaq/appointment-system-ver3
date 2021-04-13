@@ -1,3 +1,4 @@
+<style><?php include public_path('css/StyleViewAppointment.css') ?></style>
 <html>
     <head>
         <!-- Required meta tags -->

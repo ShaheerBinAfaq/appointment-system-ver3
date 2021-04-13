@@ -29,3 +29,5 @@ Route::view('/presMedicine', 'presMedicine');
 Route::view('/presTest', 'presTest');
 Route::view('/presSurgery', 'presSurgery');
 Route::view('/presPdf', 'presPdf');
+Route::view('/doctorsView', 'doctorsView');
+Route::view('/drviewappointment', 'drviewappointment');

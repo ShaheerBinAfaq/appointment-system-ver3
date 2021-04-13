@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+body{
+  background: linear-gradient(rgba(0,0,0,0.5),#009688), url(../images/img/Background1.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 70%;
+}
+.container{
+ max-width: 800px;
+  width: 100%;
+  background-color: transparent;
+  padding: 50px 30px;
+  border-radius: 5px;
+  margin-top: 90px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  margin-left: 360px;
+  
+}
+.container .title{
+font-size: 2.2rem;
+  color:#fff;
+  margin-bottom: 10px;
+  margin-left: 230px;
+
+}
+
+.table{
+  width: 750px;
+  margin-left: 0px;
+}
+.table th{
+  color: #fff;
+  font-size: 20px;
+  background-color: #009688;
+
+}
+.table td{
+  color: #009688;
+  font-size: 17px;
+  background-color: #fff;
+  font-weight: bold;
+
+  
+}
+ .button{
+  height: 45px;
+   margin: 35px 0;
+    flex-basis: 50%;
+margin-left: 600px;
+  width: 70%;
+  border-radius: 10px;
+  background-blend-mode: 20px;
+  
+  
+ }
+ .button button{
+    width: 150px;
+  background-image: linear-gradient(to right, #009688, #38d39f, #009688);
+  background-size: 200%;
+  border: none;
+  outline: none;
+  height: 49px;
+  border-radius: 49px;
+  color: #fff;
+ font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+ }
+ .button button:hover{
+
+  background-position: right;
+  }
+ 
+ @media(max-width: 584px){
+ .container{
+  max-width: 100%;
+  margin-left: 4px;
+  width: 98%;
+  height: 640px;
+  margin-top: 4px;
+
+ 
+}
+.container .title{
+margin-left: 50px;
+  }
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 200%;
+  }
+  form .category{
+    width: 100%;
+  }
+  .content form .user-details{
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+  form .button{
+  margin-top: 3px;
+  margin-left: 50px;
+
+  
+ }
+  }
+  @media(max-width: 459px){
+  .container .content .category{
+    flex-direction: column;
+  }
+}
