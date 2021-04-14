@@ -15,12 +15,12 @@
 </script>
 
 <!-- Bootstrap CSS -->
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 
 </head>
 <body>
-<button onClick="home()" style=" position: fixed; right: 90px; top: 20px; height: 30px;">Home</button>
+<button onClick="home()" class="btn btn-primary mb-2" style=" position: fixed; right: 90px; top: 20px;">Home</button>
 <form id="addAppointment" method="POST" action="">
     <div style="top: 100px;" class="app_time_Date_main card card-default container">
         <h2 class="title">BOOK APPOINTMENT</h2>

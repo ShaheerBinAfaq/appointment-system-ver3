@@ -129,7 +129,7 @@
 					<img src="\images\img\home\cons2.jpg"style="height: 320px">
 					<div class="overlay"></div>
 					<div class="service-desc">
-						<h3>Book Test</h3>
+						<h3>Upload Report</h3>
 						<hr>
 						<p>Save time & money. Here experienced and specialised  doctors are available. Find a Doctor with expertise that meets your health needs</p>
 

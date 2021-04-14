@@ -1,3 +1,4 @@
+<style><?php include public_path('css/StyleViewAppointment.css') ?></style>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
 @laravelPWA
 </head>
 <body>
-<button onClick="home()" style=" position: fixed; right: 90px; top: 20px; height: 30px;">Back to prescription</button>
+
 
 <div class="container" style="margin-top: 50px;">
 
@@ -62,6 +63,7 @@
 
         </tbody>
     </table>
+    <button class="btn btn-primary mb-2" onClick="home()" style=" position: fixed; right: 90px">Done</button>
 </div>
 
 <script>

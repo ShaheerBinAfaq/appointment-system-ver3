@@ -11,7 +11,7 @@
         <title>View Appointments</title>
     </head>
     <body>
-    <button onClick="home()" style=" position: fixed; right: 90px; top: 20px; height: 30px;">Home</button>
+    <button onClick="home()" class="btn btn-primary mb-2" style=" position: fixed; right: 90px; top: 20px;">Home</button>
         <div class="container" style="margin-top: 50px;">
             <h5># Appointments</h5>
             <table class="table table-bordered">
