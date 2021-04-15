@@ -23,6 +23,14 @@ Route::view('/signup', 'register');
 Route::view('/home', 'home1');
 Route::view('/viewappointment', 'viewappointment');
 Route::view('/pharmacy', 'pharmacy');
+Route::view('/cart', 'cart');
+Route::view('/pharmacyadmin','pharmacyadmin');
+Route::view('/pharmacylogin','pharmacylogin');
+Route::view('/medication','medication');
+Route::view('/addmedication','addmedication');
+Route::view('/updatemedication','updatemedication');
+
+
 Route::view('/reportupload', 'reportupload');
 Route::view('/prescription', 'prescription');
 Route::view('/presMedicine', 'presMedicine');
@@ -31,6 +39,7 @@ Route::view('/presSurgery', 'presSurgery');
 Route::view('/presPdf', 'presPdf');
 Route::view('/doctorsView', 'doctorsView');
 Route::view('/drviewappointment', 'drviewappointment');
+
 Route::view('/labform', 'labform');
 Route::view('/addtest', 'addtest');
 Route::view('/testPdf', 'testPdf');

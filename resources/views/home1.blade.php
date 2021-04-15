@@ -223,13 +223,13 @@
     var uid;
     window.onload = function () {
         
-            if (window.location.search.split('?').length > 0) {
-                var params = window.location.search.split('?')[1];
-                uid = params.split('=')[1];                                
+		if (window.location.search.split('?').length > 0) {
+			var params = window.location.search.split('?')[1];
+			uid = params.split('=')[1];                                
         }
     };
     function pharmacy() {
-        window.location = '/pharmacy';
+        window.location = '/pharmacy?uid=' +uid;
     }
 	function appointment() {
 		window.location = '/appointment?uid=' + uid;
