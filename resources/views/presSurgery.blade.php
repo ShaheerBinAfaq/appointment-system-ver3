@@ -25,8 +25,15 @@
             <form id="addPatient" class="form-inline" method="POST" action="">
                 <div class="form-group mb-2">
                     <label for="name" class="sr-only">Name</label>
-                    <input id="name" type="text" class="form-control" name="name" placeholder="Name"
-                           required autofocus>
+                    <select id="name" class="form-control">
+                        <option value="Open heart surgery">Open heart surgery</option>
+                        <option value="Colon and Rectal Surgery">Colon and Rectal Surgery</option>
+                        <option value="Endocrine surgery">Endocrine surgery</option>
+                        <option value="Hand surgery">Hand surgery</option>
+                        <option value="Head and neck surgery">Head and neck surgery</option>
+                        <option value="Neurosurgery">Neurosurgery</option>
+                        <option value="Orthopedic surgery">Orthopedic surgery</option>
+                    </select>
                 </div>
                 
                 <button id="submitPatient" type="button" class="btn btn-primary mb-2">Add</button>
@@ -98,7 +105,7 @@ var presid;
     $('#submitPatient').on('click', function () {
         var values = $("#addPatient").serializeArray();
         var pId = getPresId();
-        var name = values[0].value;        
+        var name = document.getElementById('name').value;;        
         var userID = lastIndex + 1;
         console.log(values);
         firebase.database().ref('presSurgery/' + userID).set({

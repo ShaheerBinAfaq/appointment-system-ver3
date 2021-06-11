@@ -123,7 +123,7 @@
     //     return value.Name;
     // });
 
-    // Remove Data
+    // Remove Appointment Data
     $("body").on('click', '.removeData', function () {
         var id = $(this).attr('data-id');
         $('body').find('.patients-remove-record-model').append('<input name="id" type="hidden" value="' + id + '">');

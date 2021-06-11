@@ -51,7 +51,7 @@
         </form>
             <button id="save" class="btn">Save</button>
             <button onclick="addTest()" class="btn">Add Tests</button>
-            <button class="btn">Generate Report</button>            
+            <button onClick="generate()" class="btn">Generate Report</button>            
         
         </div>
       </div>
@@ -100,8 +100,8 @@
 function addTest() {
     window.location = '/addtest?rid=' + lastIndex + "&presid=" + presId;
 }
-function SubmitAll() {
-    
+function generate() {
+    window.location = '/testPdf?repid=' + lastIndex;
   
 }
 //Getting Prescription id

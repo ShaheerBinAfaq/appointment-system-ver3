@@ -69,7 +69,6 @@
 		firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
 			// Logged in
 			console.log(userCredential);
-			//location.href = 'http://localhost:8000/appointment';
 			var user = firebase.auth().currentUser;
 		if(user){
 			console.log(user.uid);

@@ -25,8 +25,9 @@
             <form id="addPatient" class="form-inline" method="POST" action="">
                 <div class="form-group mb-2">
                     <label for="name" class="sr-only">Name</label>
-                    <input id="name" type="text" class="form-control" name="name" placeholder="Name"
-                           required autofocus>
+                           <select id="med-name" class="form-control"> 
+
+                           </select>
                 </div>
                 <div class="form-group mb-2">
                     <label for="name" class="sr-only">Power (mg)</label>
@@ -114,12 +115,25 @@ var presid;
         $('#tbody').html(htmls);
         $("#submitPatient").removeClass('desabled');
     });
+    // Get Data
+    firebase.database().ref('Medicines/').on('value', function (snapshot) {
+        var value = snapshot.val();
+        var htmls = [];
+        $.each(value, function (index, value) {
+            if (value ) {
+                htmls.push('<option value="' + value.Name + '">' + value.Name + '</option>');
+            }
+            lastIndex = index;
+        });
+        $('#med-name').html(htmls);
+        $("#submitPatient").removeClass('desabled');
+    });
     // Add Data
     $('#submitPatient').on('click', function () {
         var values = $("#addPatient").serializeArray();
         var pId = getPresId();
-        var name = values[0].value;
-        var power = values[1].value;
+        var name = document.getElementById('med-name').value;
+        var power = values[0].value;
         var timing = document.getElementById('timing').value;
         
         var userID = lastIndex + 1;

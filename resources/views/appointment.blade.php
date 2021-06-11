@@ -65,9 +65,6 @@
     };
 
     function FilterTime(doctorId){
-        // if(doctorId == value.doc_id){
-        //         alert("Same")
-        //     }
         
     firebase.database().ref('appointments/').on('value', function(snapshot){
         var value = snapshot.val();
@@ -110,11 +107,10 @@
         });
         
         });
-    // Add Data
+    // Add Appointment Data
     $('#submitAppointment').on('click', function (){
         var values = $("#addAppointment").serializeArray();
         var date = values[0].value;
-        console.log(document.getElementById('doctors').value);
         var time = values[1].value;
         var doc_id = document.getElementById('doctors').value;
         var id = lastIndex + 1;

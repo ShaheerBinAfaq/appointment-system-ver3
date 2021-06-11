@@ -39,7 +39,10 @@ Route::view('/presSurgery', 'presSurgery');
 Route::view('/presPdf', 'presPdf');
 Route::view('/doctorsView', 'doctorsView');
 Route::view('/drviewappointment', 'drviewappointment');
+Route::view('/drviewreport', 'drviewreport');
 
 Route::view('/labform', 'labform');
 Route::view('/addtest', 'addtest');
 Route::view('/testPdf', 'testPdf');
+
+Route::view('/quickconsultation', 'quickconsultation');

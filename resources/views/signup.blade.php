@@ -328,7 +328,7 @@ a:hover{
                  $.each(value, function (index, value) {
                  lastIndex = index;
                 });
-            // var values = $("#login-form").serializeArray();
+            //Creating user in database
             console.log(loginform['fname'].value);
             var email = loginform['email'].value;
             var fname = loginform['fname'].value;

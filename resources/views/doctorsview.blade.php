@@ -1,3 +1,4 @@
+<style><?php include public_path('css/Docview.css') ?></style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +8,21 @@
     <title>Doctor's View</title>
 </head>
 <body>
-    <label>Choose a Doctor:</label>
+    
+<div class="container">
+<br>
+    <h6>SELECT DOCTOR</h6>
+    <hr>
+    <br><br>
+     <label>Choose a Doctor:</label>
 
     <select id="doctors">
         
     </select>
-    <button onClick="selectDr()">Select</button>
-    <button onClick="appointment()">View My Appointments</button>
-    <button onClick="testreport()">View Test Reports</button>
+    <button onClick="selectDr()" style="width: 200px; height: 50px;">Select</button>
+    <button onClick="appointment()" style="width: 200px; height: 50px;">View My Appointments</button>
+    <button onClick="testreport()" style="width: 200px; height: 50px;">View Test Reports</button>
+    </div>
 </body>
 </html>
 {{--Firebase Tasks--}}
@@ -55,6 +63,6 @@ var doctors = {};
         window.location = "drviewappointment?drid=" + drid;
     }
     function testreport() {
-
+        window.location = '/drviewreport?drid=' + drid;
     }
 </script>

@@ -25,8 +25,17 @@
             <form id="addPatient" class="form-inline" method="POST" action="">
                 <div class="form-group mb-2">
                     <label for="name" class="sr-only">Name</label>
-                    <input id="name" type="text" class="form-control" name="name" placeholder="Name"
-                           required autofocus>
+                    <select id="name" class="form-control">
+                        <option value="IGF 1) INSULIN GIVEN FACTOR 1">IGF 1) INSULIN GIVEN FACTOR 1</option>
+                        <option value="13/21 By Fish">13/21 By Fish</option>
+                        <option value="13q14/13q34/11cen by Fish">13q14/13q34/11cen by Fish</option>
+                        <option value="17-HYDROXYPROGESTERONE">17-HYDROXYPROGESTERONE</option>
+                        <option value="18/X/Y By Fish">18/X/Y By Fish</option>
+                        <option value="24 HOURS URINE FOR CREATININE CLEARANCE">24 HOURS URINE FOR CREATININE CLEARANCE</option>
+                        <option value="24 HRS URINE COPPER">24 HRS URINE COPPER</option>
+                        <option value="24 HRS URINE ELECTROPHORESIS">24 HRS URINE ELECTROPHORESIS</option>
+                        <option value="24 HRS URINE FOR CALCIUM">24 HRS URINE FOR CALCIUM</option>
+                    </select>
                 </div>
                 
                 <button id="submitPatient" type="button" class="btn btn-primary mb-2">Add</button>
@@ -98,7 +107,7 @@ var presid;
     $('#submitPatient').on('click', function () {
         var values = $("#addPatient").serializeArray();
         var pId = getPresId();
-        var name = values[0].value;        
+        var name = document.getElementById('name').value;        
         var userID = lastIndex + 1;
         console.log(values);
         firebase.database().ref('presTest/' + userID).set({
