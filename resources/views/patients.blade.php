@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
 
     <title>Patient | Admin</title>
 @laravelPWA
@@ -106,7 +106,7 @@
 </form>
 
 
-{{--Firebase Tasks--}}
+<!-- {{--Firebase Tasks--}} -->
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script>

@@ -20,6 +20,7 @@
 
 </head>
 <body>
+<button onClick="showNotification()">Notify</button>
 <button onClick="home()" class="btn btn-primary mb-2" style=" position: fixed; right: 90px; top: 20px;">Home</button>
 <form id="addAppointment" method="POST" action="">
     <div style="top: 100px;" class="app_time_Date_main card card-default container">
@@ -194,6 +195,19 @@
     });
     function home() {
         window.location = '/home?uid=' + uid;
+    }
+    console.log("notification: ", Notification.permission);
+    if(Notification.permission === "granted") {
+
+    } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(permission => {
+            console.log(permission);
+        });
+    }
+    function showNotification() {
+        const notification = new Notification("New Message", {
+            body : "hi"
+        });
     }
 </script>
 

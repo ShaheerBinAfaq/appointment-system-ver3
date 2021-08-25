@@ -46,3 +46,5 @@ Route::view('/addtest', 'addtest');
 Route::view('/testPdf', 'testPdf');
 
 Route::view('/quickconsultation', 'quickconsultation');
+
+Route::view('/dashboard', 'admindashboard');
