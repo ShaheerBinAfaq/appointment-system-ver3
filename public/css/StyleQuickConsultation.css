@@ -1,0 +1,250 @@
+.back-top{
+ background-color:  #009688;
+ height: 15vh;
+}
+body{
+   background-color: #7ed9ad;
+   	background-size: cover;
+	background-position: center;
+ height: 85vh;
+}
+.back-main{
+ background: linear-gradient(rgba(0,0,0,0.5),#009688), url(BackgroundChat.jpg);
+	background-size: cover;
+	background-position: center;
+ height: 85vh;
+
+}
+
+.back-container{
+ position: relative;
+}
+
+.front-container{
+ position: absolute;
+ top:0;
+ left:0;
+ right: 0;
+}
+.front-container1{
+ position: absolute;
+ top:20px;
+ left:0;
+ right: 0;
+}
+
+.chat-top{
+ background-color: #EDEDED;
+ min-height: 50px;
+}
+
+.profile-image{
+ margin-top:7.5px;
+ height: 30px;
+ width: 30px;
+ margin-bottom: 10px;
+}
+
+.contacts{
+ background-color: #ffffff;
+ min-height: 600px;
+}
+
+.contact-table-scroll{
+ overflow-y: scroll;
+ height: 600px;
+}
+
+.message-area{
+ background-color:  #e4e1de;
+ min-height: 600px;
+}
+
+.message-table-scroll{
+ overflow-y: scroll;
+ height: 550px;
+}
+
+.message-box{
+ background-color: #F0F0F0;
+
+}
+
+.SendersC{
+    margin-top: 10px;
+    margin-left: 15px;
+    width: 160px; 
+}
+
+
+.mesg-info{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ms-info{
+    width: 100%;
+    display: flex ;
+    justify-content: space-between;
+
+}
+.sender-name{
+    color: white;
+    letter-spacing: 1px;
+    font-weight: bolder;
+
+}
+.time{
+    color: #fff;
+    font-size: 14px;
+    margin-right: 20px;
+}
+.time span{
+    color: black;
+    border-radius: 100%;
+    margin: 10px;
+ }
+.M-s{
+	color: #fff;
+	margin-left: 57%;
+	width: 45%;
+    display: flex;
+}
+.M-r{
+	color: #fff;
+	width: 70%;
+    display: flex;
+}
+.bnt{
+	color: #fff;
+	background-color: #009688;
+	width: 70px;
+	height: 30px;
+	border-radius: 20%;
+    border-color: #009688;
+   font-family: 'Poppins', sans-serif;
+font-size: 16px;
+}
+
+button:hover {
+    	background: #3E9673;
+	color: #fff;
+	box-shadow: #A3F0C7;
+	
+}
+.message-sender, .message-recever{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+.message-sender{
+    flex-direction: row-reverse;
+}
+.message-sender-message{
+    height: auto;
+    width: 50%;
+    margin-right: 6rem;
+    background: #009688;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.message-sender-message p{
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+.msgg{
+    margin-left: 180px;
+    position: relative;
+}
+
+.message-box-aria{
+    width: 300px;
+}
+
+
+.chate-body{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.Head-Name{
+    font-size: 20px;
+    font-weight: bolder;
+}
+.message-sender-icon{
+    margin-right: 15px;
+    color: #34debb;
+    font-size: 12px;
+}
+.message-sender-avatar {
+    margin-right: 17px;
+    margin-left: 20px;
+}
+
+.sender-avatar{
+    align-items: center;
+    margin-left: 45%;
+    margin-top: 10px;
+}
+
+.messag-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+.message-box-aria{
+    width: 80%;
+    background: #fff;
+    position: absolute;
+    top: 83%;
+    border-radius: 30px;
+    box-shadow: 0px 7px 23px -8px rgba(204,202,204,1);
+}
+.message-box-aria input{
+    width: 80%;
+    height: 4rem;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.message-box-aria input::placeholder{
+    color: gray;
+}
+.message-box-aria i{
+    color: gray;
+    cursor: pointer;
+    font-size: 25px;
+    
+}
+.chatname{
+	color: #000;
+font-family: 'Poppins', sans-serif;
+font-weight: bold;
+}
+.Username{
+	color: #000;
+font-family: 'Poppins', sans-serif;
+font-weight: bold;
+ }
+ .Depart{
+ 		color: #000;
+font-family: 'Poppins', sans-serif;
+font-weight: bold;
+margin-left: 10px;
+ }
+

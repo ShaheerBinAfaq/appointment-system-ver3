@@ -1,4 +1,3 @@
-<style><?php include public_path('css/StyleAddPatient.css') ?></style>
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,28 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Patient | Admin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <title>Doctors | Admin</title>
 @laravelPWA
 </head>
 <body>
 
 <div class="container" style="margin-top: 50px;">
-    <!-- <span class="big-circle"></span> -->
-    <img src="\images\patients\shape.png" class="square" alt="" />
+
     <!-- <h4 class="text-center">Laravel RealTime CRUD Using Google Firebase</h4><br> -->
 
-    <!-- <h5># Add Patient</h5>
+    <h5># Add Doctor</h5>
     <div class="card card-default">
-        <div class="contact-form">
-        <span class="circle one"></span>
-          <span class="circle two"></span>
+        <div class="card-body">
             <form id="addPatient" class="form-inline" method="POST" action="">
                 <div class="form-group mb-2">
                     <label for="name" class="sr-only">Name</label>
@@ -36,27 +27,34 @@
                            required autofocus>
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
-                    <label for="email" class="sr-only">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" placeholder="Email"
+                    <label for="email" class="sr-only">Speciality</label>
+                    <input id="speciality" type="text" class="form-control" name="speciality" placeholder="Speciality"
+                           required autofocus>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="startTime" >Start Time  </label>
+                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                           required autofocus>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="endTime" >End Time  </label>
+                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
                            required autofocus>
                 </div>
                 <button id="submitPatient" type="button" class="btn btn-primary mb-2">Submit</button>
             </form>
         </div>
-    </div> -->
+    </div>
 
     <br>
 
-    <h5># Patients</h5>
+    <h5># Doctors</h5>
     <table class="table table-bordered">
         <tr>
             <th>Name</th>
-            <th>Email</th>
-            <th>Phone #</th>
-            <th>Address</th>
-            <th>Gender</th>
-            <th>Date of Birth</th>
-            <th>CNIC #</th>
+            <th>Speciality</th>
+            <th>Start Time</th>
+            <th>End Time</th>
             <th width="180" class="text-center">Action</th>
         </tr>
         <tbody id="tbody">
@@ -135,19 +133,16 @@
     var database = firebase.database();
     var lastIndex = 0;
     // Get Data
-    firebase.database().ref('users/').on('value', function (snapshot) {
+    firebase.database().ref('doctors/').on('value', function (snapshot) {
         var value = snapshot.val();
         var htmls = [];
         $.each(value, function (index, value) {
             if (value) {
                 htmls.push('<tr>\
-        		<td>' + value.fname + " " + value.lname + '</td>\
-        		<td>' + value.email + '</td>\
-                <td>' + value.phone + '</td>\
-                <td>' + value.address + '</td>\
-                <td>' + value.gender + '</td>\
-                <td>' + value.dob + '</td>\
-                <td>' + value.nic + '</td>\
+        		<td>' + value.name + '</td>\
+        		<td>' + value.speciality + '</td>\
+                <td>' + value.startTime + '</td>\
+                <td>' + value.endTime + '</td>\
         		<td><button data-toggle="modal" data-target="#update-modal" class="btn btn-info updateData" data-id="' + index + '">Update</button>\
         		<button data-toggle="modal" data-target="#remove-modal" class="btn btn-danger removeData" data-id="' + index + '">Delete</button></td>\
         	</tr>');
@@ -161,12 +156,16 @@
     $('#submitPatient').on('click', function () {
         var values = $("#addPatient").serializeArray();
         var name = values[0].value;
-        var email = values[1].value;
+        var speciality = values[1].value;
+        var startTime = values[2].value;
+        var endTime = values[3].value;
         var userID = lastIndex + 1;
         console.log(values);
-        firebase.database().ref('patients/' + userID).set({
+        firebase.database().ref('doctors/' + userID).set({
             name: name,
-            email: email,
+            speciality: speciality,
+            startTime: startTime,
+            endTime: endTime,
         });
         // Reassign lastID value
         lastIndex = userID;
@@ -176,59 +175,31 @@
     var updateID = 0;
     $('body').on('click', '.updateData', function () {
         updateID = $(this).attr('data-id');
-        firebase.database().ref('users/' + updateID).on('value', function (snapshot) {
+        console.log(updateID);
+        firebase.database().ref('doctors/' + updateID).on('value', function (snapshot) {
             var values = snapshot.val();
             var updateData = '<div class="form-group">\
 		        <label for="first_name" class="col-md-12 col-form-label">Name</label>\
 		        <div class="col-md-12">\
-		            <input id="first_name" type="text" class="form-control" name="name" value="' + values.fname + '" required autofocus>\
-		        </div>\
-		    </div>\
-            <div class="form-group">\
-		        <label for="last_name" class="col-md-12 col-form-label">CNIC #</label>\
-		        <div class="col-md-12">\
-		            <input id="last_name" type="text" class="form-control" name="email" value="' + values.lname + '" required autofocus>\
+		            <input id="first_name" type="text" class="form-control" name="name" value="' + values.name + '" required autofocus>\
 		        </div>\
 		    </div>\
 		    <div class="form-group">\
-		        <label for="last_name" class="col-md-12 col-form-label">Email</label>\
+		        <label for="last_name" class="col-md-12 col-form-label">Speciality</label>\
 		        <div class="col-md-12">\
-		            <input id="last_name" type="text" class="form-control" name="email" value="' + values.email + '" required autofocus>\
-		        </div>\
-		    </div>\
-		    <div class="form-group">\
-		        <label for="last_name" class="col-md-12 col-form-label">Phone #</label>\
-		        <div class="col-md-12">\
-		            <input id="last_name" type="text" class="form-control" name="email" value="' + values.phone + '" required autofocus>\
-		        </div>\
-		    </div>\
-		    <div class="form-group">\
-		        <label for="last_name" class="col-md-12 col-form-label">Address</label>\
-		        <div class="col-md-12">\
-		            <input id="last_name" type="text" class="form-control" name="email" value="' + values.address + '" required autofocus>\
+		            <input id="last_name" type="text" class="form-control" name="email" value="' + values.speciality + '" required autofocus>\
 		        </div>\
 		    </div>\
             <div class="form-group">\
-		        <label for="last_name" class="col-md-12 col-form-label">Gender</label>\
+		        <label for="last_name" class="col-md-12 col-form-label">Start Time</label>\
 		        <div class="col-md-12">\
-		            <input id="last_name" type="text" class="form-control" name="email" value="' + values.gender + '" required autofocus>\
+		            <input id="last_name" type="time" class="form-control" name="email" value="' + values.startTime + '" required autofocus>\
 		        </div>\
 		    </div>\
             <div class="form-group">\
-		        <label for="last_name" class="col-md-12 col-form-label">Date of birth</label>\
+		        <label for="last_name" class="col-md-12 col-form-label">End Time</label>\
 		        <div class="col-md-12">\
-		            <input id="last_name" type="text" class="form-control" name="email" value="' + values.dob + '" required autofocus>\
-		        </div>\
-		    </div>\
-            <div class="form-group">\
-		        <label for="last_name" class="col-md-12 col-form-label">CNIC #</label>\
-		        <div class="col-md-12">\
-		            <input id="last_name" type="text" class="form-control" name="email" value="' + values.nic + '" required autofocus>\
-		        </div>\
-		    </div>\
-            <div class="form-group">\
-		        <div class="col-md-12">\
-		            <input id="last_name" type="hidden" class="form-control" name="email" value="' + values.id + '" required autofocus>\
+		            <input id="last_name" type="time" class="form-control" name="email" value="' + values.endTime + '" required autofocus>\
 		        </div>\
 		    </div>';
             $('#updateBody').html(updateData);
@@ -237,18 +208,13 @@
     $('.updatePatient').on('click', function () {
         var values = $(".patients-update-record-model").serializeArray();
         var postData = {
-            fname: values[0].value,
-            lname: values[1].value,
-            email: values[2].value,
-            phone: values[3].value,
-            address: values[4].value,
-            gender: values[5].value,
-            dob: values[6].value,
-            nic: values[7].value,
-            id: values[8].value,
+            name : values[0].value,
+            speciality : values[1].value,
+            startTime : values[2].value,
+            endTime : values[3].value,
         };
         var updates = {};
-        updates['/users/' + updateID] = postData;
+        updates['/doctors/' + updateID] = postData;
         firebase.database().ref().update(updates);
         $("#update-modal").modal('hide');
     });
@@ -260,7 +226,7 @@
     $('.deleteRecord').on('click', function () {
         var values = $(".patients-remove-record-model").serializeArray();
         var id = values[0].value;
-        firebase.database().ref('users/' + id).remove();
+        firebase.database().ref('doctors/' + id).remove();
         $('body').find('.patients-remove-record-model').find("input").remove();
         $("#remove-modal").modal('hide');
     });

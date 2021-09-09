@@ -1,10 +1,14 @@
-<style><?php include public_path('css/StyleChat.css') ?></style>
+<style><?php include public_path('css/StyleQuickConsultation.css') ?></style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+    integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+
     <title>Quick Consultation</title>
 </head>
 <body>
@@ -93,67 +97,74 @@
 </div> -->
 
 
-           <!-- </div>
+           
            <div class="chate">
                <div class="chate-header">
                    <div class="header-content">
                    <div class="sender-avatar">
-                       <img src="avt.png" width="50px" alt="">
+                       <img src="images\img\avt.png" width="50px" alt="">
+                       <label style="font-size: 25px; font-weight: bolder;"> - Quick Consultation </label>
+
                    </div>
-                   <div class="sender-action">
-                   <label class="chatname">Mubashir Ahmed</label>
-                       <span>Typing...</span>
-                   </div>
-                   <div class="icons">
-                    <i class='fas fa-user-plus'></i>
-                    <i class='fas fa-search'></i>
-                    <i class='fas fa-ellipsis-v'></i>
-                   </div>
+                   
+                   
+                   
                 </div>
                </div>
+
+               
+                <select class="SendersC" id="senders" size="1"></select>
+                    <ul id="messages"></ul>
+                
+               
+
+
+
                <div class="chate-body">
+                
                 <div class="message-sender">
-                    <div class="message-sender-avatar">
-                        <img src="avt.png" width="50px" alt="">
-                    </div>
-                    <div class="message-sender-message  ">
-                        <p>This is confirmation that you scheduled an appointment with us for monday at 2:00 pm. We look forward to seeing you then.</p>
-                    </div>
-                    <div class="message-sender-icon"><i class=></i></div>
                     
-                </div>
+                    <div class="message-sender-message  ">
+                        
+                    </div>
+                    
                 <div class="message-recever">
-                    <div class="message-sender-avatar">
-                        <img src="avt.png" width="50px" alt="">
-                    </div>
+                    
                     <div class="message-sender-message rece">
-                        <p>can i change my appointment timings </p>
+                        
                     </div>
-                    <div class="message-sender-icon"><i class='fas fa-heart'></i></div> -->
+                    
 
-                <select id="senders" size="10"></select>
-                <ul id="messages"></ul>
+                <!-- <select class="SendersC" id="senders" size="15"></select>
+                <ul id="messages"></ul> -->
 
                 </div>
-                    <form id="SendMessage">
-                        <div class="message-box">
-                        <div class="message-box-aria">
-                            <input type="text" placeholder="Type a message.." id="message">
-
-                        <i class='far fa-smile'></i>                       
-                        <!-- <i class="fa fa-paper-plane" style="color: #009688;max-width: 50px; font-size: 25px;"></i> -->
-                        <input type="submit" value="Send">
-                        </div>
-                    </form>
+                
 
                 </div>
                  
                 
-        </div>
+               </div>
                </div>
            </div>
        </div>
-   </main>
+   
+
+   
+    <div class="msgg">
+        <form id="SendMessage">
+            <div class="message-box">
+            <div class="message-box-aria">
+                <input type="text" placeholder="Type a message.." id="message">
+
+            <!--<i class='far fa-smile'></i> -->                      
+            <!-- <i class="fa fa-paper-plane" style="color: #009688;max-width: 50px; font-size: 25px;"></i> -->
+            <input type="submit" value="Send">
+            </div>
+        </form>
+    </div>
+   
+</main>
 </body>
 </html>
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
@@ -176,17 +187,30 @@
         uid = params.split('=')[1];                                
     }
     
-    var config = {
-        apiKey: "{{ config('services.firebase.api_key') }}",
-        authDomain: "{{ config('services.firebase.auth_domain') }}",
-        databaseURL: "{{ config('services.firebase.database_url') }}",
-        storageBucket: "{{ config('services.firebase.storage_bucket') }}",
+    // var config = {
+    //     apiKey: "{{ config('services.firebase.api_key') }}",
+    //     authDomain: "{{ config('services.firebase.auth_domain') }}",
+    //     databaseURL: "{{ config('services.firebase.database_url') }}",
+    //     storageBucket: "{{ config('services.firebase.storage_bucket') }}",
+    // };
+
+    const config = {
+        apiKey: "AIzaSyCwL-AtDqq-jdMBYNi1nTo5NNAtHwMhhHc",
+        authDomain: "appointment-sys-3fb2e.firebaseapp.com",
+        databaseURL: "https://appointment-sys-3fb2e-default-rtdb.firebaseio.com",
+        projectId: "appointment-sys-3fb2e",
+        storageBucket: "appointment-sys-3fb2e.appspot.com",
+        messagingSenderId: "167244005815",
+        appId: "1:167244005815:web:ea60f2c06b25a4660ce832"
     };
+
+
+
     firebase.initializeApp(config);
     var database = firebase.database();
     var senderName;
-    var adminId = "HT8NPQ8BaTQClbIn6QWCC29ESx63";
-    var adminName = "Ali naeem";
+    var adminId = "V7gK5PmSyIRWsePBuW9zQFCKaRE2";
+    var adminName = "Admin";
 
     firebase.database().ref('users/').on('value', function (snapshot) {
         var value = snapshot.val();
@@ -198,6 +222,8 @@
     });
     var receiverName = adminName;
     var receiverId = adminId;
+    // receiverName = document.getElementById("senders").text;
+    // receiverId = document.getElementById("senders").value;
     $("#senders").change(function(){
         receiverName = $("#senders option:selected").text();
         receiverId = document.getElementById("senders").value;
@@ -230,10 +256,12 @@
                 // document.getElementById("messages").innerHTML = " ";
                 if(snapshot.val().senderId == uid && snapshot.val().receiverId == receiverId || snapshot.val().senderId == receiverId && snapshot.val().receiverId == uid) {
                     if(snapshot.val().senderId == uid) {
-                        html += "<li id='message-" + snapshot.key + "'>" + snapshot.val().message + "</li>";
+                        //html += "<li id='message-" + snapshot.key + "'>" + snapshot.val().message + "</li>";
+                        html+="<div class='chate-body'><div class='M-s'><div class='message-sender-message'><p>"+ snapshot.val().message + "</p></div></div></div>";
                     }
                     else {
-                        html += "<li id='message-" + snapshot.key + "'>" + snapshot.val().senderName + ": " + snapshot.val().message + "</li>";
+                        // html += "<li id='message-" + snapshot.key + "'>" + snapshot.val().senderName + ": " + snapshot.val().message + "</li>";
+                        html+="<div class='chate-body'><div class='M-r'><div class='message-sender-message rece'><p>"+ snapshot.val().senderName + ": " + snapshot.val().message + "</p></div></div></div>";
                     }
                 }   
                 // html += "</li>";
@@ -248,10 +276,12 @@
                 // document.getElementById("messages").innerHTML = " ";
                 if(snapshot.val().senderId == uid && snapshot.val().receiverId == receiverId || snapshot.val().senderId == receiverId && snapshot.val().receiverId == uid) {
                     if(snapshot.val().senderId == uid) {
-                        html += "<li id='message-" + snapshot.key + "'>" + snapshot.val().message + "</li>";
+                        // html += "<li id='message-" + snapshot.key + "'>" + snapshot.val().message + "</li>";
+                        html+="<div class='M-s'><div class='message-sender-message'><p>"+ snapshot.val().message + "</p></div></div>";
                     }
                     else {
-                        html += "<li id='message-" + snapshot.key + "'>" + snapshot.val().senderName + ": " + snapshot.val().message + "</li>";
+                        //html += "<li id='message-" + snapshot.key + "'>" + snapshot.val().senderName + ": " + snapshot.val().message + "</li>";
+                        html+="<div class='M-r'><div class='message-sender-message'><p>"+ snapshot.val().senderName + ": " + snapshot.val().message + "</p></div></div>";
                     }
                 }   
                 // html += "</li>";
@@ -286,8 +316,11 @@
             
             var i;
             var htmls = "";
+
+            //<div class="chate">
+            //html+="<div class='M-s'><div class='message-sender-message'><p>"+ snapshot.val().message + "</p></div></div>";
             for(i=0;i<unique.length;i++){
-                htmls += "<option value='"+ uniqueId[i] + "'>" + unique[i] + "</option>";
+                htmls += "<option value='"+ uniqueId[i] + "'>" + unique[i] + "</option></div></div>";
             }
             document.getElementById('senders').innerHTML = htmls;
         });

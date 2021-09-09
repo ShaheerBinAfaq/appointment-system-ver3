@@ -10,7 +10,12 @@
     <title>Appointments | Doctor</title>
 </head>
 <body>
-<h5>My Appointments</h5>
+<h5>Appointments</h5>
+<label>Choose a Doctor:</label>
+    <select id="doctors">
+        
+    </select>
+    <button onClick="loadTable()">Select</button>
     <table class="table table-bordered">
         <tr>
             <th>Date</th>
@@ -28,13 +33,7 @@
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script>
-    function getDrId() {
-        if (window.location.search.split('?').length > 0) {
-                var params = window.location.search.split('?')[1];
-                return params.split('=')[1];                
-        }
-    }
-
+    var DocId;
     // Initialize Firebase
     var config = {
         apiKey: "{{ config('services.firebase.api_key') }}",
@@ -54,32 +53,47 @@
             patients[index] = value.fname + " " + value.lname;
         });
     });
-
-    // Get Data
-    firebase.database().ref('appointments/').on('value', function (snapshot) {
+    function loadTable(){
+        console.log("running..");
+        // Get Data
+        firebase.database().ref('appointments/').on('value', function (snapshot) {
+            var value = snapshot.val();
+            var htmls = [];
+            var drid = $("#doctors").val();
+            console.log("running ",DocId);
+            $.each(value, function (index, value) {
+                if (value && value.doc_id==drid) {
+                    console.log(value.pat_id);
+                    htmls.push('<tr>\
+                    <td>' + value.date + '</td>\
+                    <td>' + value.time + '</td>\
+                    <td>' + patients[value.pat_id] + '</td>\
+                    <td><button data-toggle="modal" data-target="#update-modal" class="btn btn-info updateData" data-id="' + index + '">Generate Prescription</button>\
+                    </td>\
+                </tr>');
+                }
+                lastIndex = index;
+            });
+            $('#tbody').html(htmls);
+            $("#submitPatient").removeClass('desabled');
+        });
+        $('body').on('click', '.updateData', function () {
+            var app_id = $(this).attr('data-id');
+            window.location = '/prescription?appointmentid=' + app_id;
+        });
+    }
+    // Get Doctors
+    firebase.database().ref('doctors/').on('value', function(snapshot){
         var value = snapshot.val();
         var htmls = [];
-        var drid = getDrId();
-        console.log("running");
-        $.each(value, function (index, value) {
-            if (value && drid == value.doc_id) {
-                console.log(value.pat_id);
-                htmls.push('<tr>\
-        		<td>' + value.date + '</td>\
-        		<td>' + value.time + '</td>\
-                <td>' + patients[value.pat_id] + '</td>\
-        		<td><button data-toggle="modal" data-target="#update-modal" class="btn btn-info updateData" data-id="' + index + '">Generate Prescription</button>\
-        		</td>\
-        	</tr>');
+        $.each(value, function(index,value){
+            if(value) {
+                htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.Name + '</option>');
             }
-            lastIndex = index;
+        // console.log(index);
         });
-        $('#tbody').html(htmls);
-        $("#submitPatient").removeClass('desabled');
-    });
-    $('body').on('click', '.updateData', function () {
-        var app_id = $(this).attr('data-id');
-        window.location = '/prescription?appointmentid=' + app_id;
+        document.getElementById('doctors').innerHTML = htmls;
+        DocId = $("#doctors").val();    
     });
 
 

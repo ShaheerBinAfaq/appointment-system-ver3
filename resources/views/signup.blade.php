@@ -249,7 +249,34 @@ a:hover{
            		   <div class="i">
            		   		<i class="fas fa-user"></i>
            		   </div>
-           		   <div class="div">
+
+					  <div class="input-box">
+            <input type="text" id="fname" placeholder="First Name" required>
+          </div>
+          <div class="input-box">
+            <input type="text" id="lname" placeholder="Last Name" required>
+          </div>
+          <div class="input-box">
+            <input type="number" id="phone" placeholder="Contact" pattern="[0-9]" required>
+          </div>
+          <div class="input-box">
+            <input type="text" id="nic" placeholder="CNIC" pattern="[0-9+]{5}-[0-9+]{7}-[0-9]{1}" title="12345-1234567-1" required>
+          </div>
+          <div class="input-box">
+            <input type="text"  id="address" placeholder="Address" required>
+          </div>
+           <div class="input-box">
+            <input type="text" id="email" placeholder="Email" pattern=".+@gmail.com" size="30" title="invalid email address" required>
+          </div>
+            <div class="input-box">
+            <input type="date" id="password" placeholder="Date Of Birth" required>
+          </div>
+            <div class="input-box">
+            <input type="Password" placeholder="Password" id="fname"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+          </div>
+            	</div>
+
+           		   <!-- <div class="div">
            		   		<h5>Email</h5>
            		   		<input type="text" id="email" class="input">
            		   </div>
@@ -287,7 +314,7 @@ a:hover{
            		    	<input type="password" id="pass" class="input">
             	   </div>
             	</div>
-            	
+            	 -->
             	<input type="submit" class="btn" value="Sign Up">
               <!-- <input type="submit" class="btnReg" value="Register"> -->
             </form>

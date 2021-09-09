@@ -27,7 +27,7 @@
         <h2 class="title">BOOK APPOINTMENT</h2>
         <label>Choose a Doctor:</label>
 
-            <select id="doctors">
+            <select id="doctors"> 
                 
             </select>
         <label>
@@ -133,7 +133,7 @@
         var htmls = [];
         $.each(value, function(index,value){
             if(value) {
-                htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.Name + '</option>');
+                htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.name + '</option>');
             }
         console.log(index);
         });

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +68,7 @@
 <div id="modal1" class="modal">
     <div class="model-content">
         <div class="row">
-            <form id="formCart" class="col s12">
+            <form id="formCart" class="col s12" action="theSamePage.php" method="post">
                 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">perm_identity</i>
@@ -103,9 +104,9 @@
                     </div>
                 
                     <div class="input-field col s12">
-                        <button id="select" class="btn modal-close waves-effect waves-light" type="submit" name="action" >Submit
+                        <input id="select" class="btn modal-close waves-effect waves-light" type="submit" name="action" >Submit
                             <i class="material-icons right">send</i>
-                        </button>
+                        </input>
                         
                         
                     </div>
@@ -147,6 +148,17 @@
     <!--<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>-->
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
     <!-- <script src="./cart.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br><br><br><br><br><br>
+
 </body>
 </html>
 <script>
@@ -312,6 +324,18 @@ document.getElementById('formCart').addEventListener('submit',function(e){
         products: TRY,
         total:tota
     });
+    
+    //mailing();
+    // $.ajax({
+    //         type: 'POST',
+    //         url: 'email.php',
+    //         success: function(data) {
+    //             alert(data);
+    //             $("p").text(data);
+
+    //         }
+    //         });
+
     check=JSON.parse(localStorage.getItem('cart'));
     for (var index = 0; index < check.length; index++) {
         console.log("check array ");
@@ -666,7 +690,7 @@ function updateCart() {
         <buton onclick="clean()" class="yellow accent-4 waves-effect waves-light btn">Clean</button>
         </td>
         <td>
-        <button href="#modal1" class="modal-trigger green accent-4 waves-effect waves-light btn">Buy</button>
+        <button data-toggle="modal" data-target="#modal" class="modal-trigger green accent-4 waves-effect waves-light btn">Buy</button>
         </td>
         </tr>
 
@@ -754,10 +778,188 @@ function moda(){
         // $('#tbody').html(htmls);
         // $("#submitPatient").removeClass('desabled');
     });
+//     $(window).load(function() {
+//     $('#prizePopup').modal('show');
+// });
     $(document).ready(function(){
     $('.modal').modal();
 });
 }
-
-
+//import * as nodemailer from 'nodemailer';
+// var nodemailer= require('nodemailer');
+// function mailing(){
+//     //var nodemailer= require('nodemailer');
+//     var transporter= nodemailer.createTransport({
+//         // host:'smtp.gmail.com',
+//         // port:587,
+//         // secure:false,
+//         // requireTLS:true,
+//         service: 'gmail',
+//         auth:{
+//             user:'shaheerafaq@gmail.com',
+//             pass:"kaam karo"
+//         }
+//     });
+//     var mailOptions={
+//         from:'shaheerafaq@gmail.com',
+//         to: 'shaheerafaq@gmail.com',
+//         subject:"Java ki mail",
+//         text:"Hi Amma! "
+//         // html: `
+//         // <h1>CareX Pharmacy</h1>
+    
+//         // `,
+        
+//     }
+//     transporter.sendMail(mailOptions,function(error,info){
+//         if (error) {
+//             console.log(error);
+            
+//         } else {
+//             console.log("email has been sent",info.response);
+//             console.log(arr);
+//         }
+//     })
+// }
 </script>
+
+
+<!-- // //Import PHPMailer classes into the global namespace        
+// //These must be at the top of your script, not inside a function
+//         use PHPMailer\PHPMailer\PHPMailer;
+//         use PHPMailer\PHPMailer\SMTP;
+//         use PHPMailer\PHPMailer\Exception;
+//         if(array_key_exists('action', $_POST)) {
+//             mailing();
+//         }
+//     function mailing(){
+        
+//         //Load Composer's autoloader
+//         require '../vendor/autoload.php';
+        
+//         //Create an instance; passing `true` enables exceptions
+//         $mail = new PHPMailer(true);
+        
+//         try {
+//             //Server settings
+//         $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+//         $mail->isSMTP();                                            //Send using SMTP
+//         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+//         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+//         $mail->Username   = 'shaheerafaq@gmail.com';                     //SMTP username
+//         $mail->Password   = 'kaam karo';                               //SMTP password
+//         $mail->SMTPSecure = "tls";            //Enable implicit TLS encryption
+//         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+//         //Recipients
+//         $mail->setFrom('shaheerafaq@gmail.com', 'Shaheer Afaq');
+//         $mail->addAddress('mubashirahmed324@gmail.com', 'Mubashir');
+
+//         //Content
+//         $mail->isHTML(true);                                  //Set email format to HTML
+//         $mail->Subject = 'Order Confirmation';
+//         $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+
+//         $mail->send();
+//         echo 'Message has been sent';
+//         } catch (Exception $e) {
+//             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+//         }
+//     }
+// ?> -->
+
+<?php
+
+/**
+ * This example shows settings to use when sending via Google's Gmail servers.
+ * This uses traditional id & password authentication - look at the gmail_xoauth.phps
+ * example to see how to use XOAUTH2.
+ * The IMAP section shows how to save this message to the 'Sent Mail' folder using IMAP commands.
+ */
+
+//Import PHPMailer classes into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+
+require '../vendor/autoload.php';
+//array_key_exists('action', $_POST)
+if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['someAction'])) {
+        mailing();
+    }
+
+    //Create a new PHPMailer instance
+    $mail = new PHPMailer();
+
+    //Tell PHPMailer to use SMTP
+    $mail->isSMTP();
+
+    //Enable SMTP debugging
+    //SMTP::DEBUG_OFF = off (for production use)
+    //SMTP::DEBUG_CLIENT = client messages
+    //SMTP::DEBUG_SERVER = client and server messages
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+
+    //Set the hostname of the mail server
+    $mail->Host = 'smtp.gmail.com';
+    //Use `$mail->Host = gethostbyname('smtp.gmail.com');`
+    //if your network does not support SMTP over IPv6,
+    //though this may cause issues with TLS
+
+    //Set the SMTP port number:
+    // - 465 for SMTP with implicit TLS, a.k.a. RFC8314 SMTPS or
+    // - 587 for SMTP+STARTTLS
+    $mail->Port = 465;
+
+    //Set the encryption mechanism to use:
+    // - SMTPS (implicit TLS on port 465) or
+    // - STARTTLS (explicit TLS on port 587)
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+
+    //Whether to use SMTP authentication
+    $mail->SMTPAuth = true;
+
+    //Username to use for SMTP authentication - use full email address for gmail
+    $mail->Username = 'shaheerafaq@gmail.com';
+
+    //Password to use for SMTP authentication
+    $mail->Password = 'kaam karo';
+
+    //Set who the message is to be sent from
+    //Note that with gmail you can only use your account address (same as `Username`)
+    //or predefined aliases that you have configured within your account.
+    //Do not use user-submitted addresses in here
+    $mail->setFrom('shaheerafaq@example.com', 'Shaheer Afaq');
+
+    //Set an alternative reply-to address
+    //This is a good place to put user-submitted addresses
+    $mail->addReplyTo('shaheerafaq@gmail.com', 'Shaheer Afaq');
+
+    //Set who the message is to be sent to
+    $mail->addAddress('shaheerafaq@gmail.com', 'Shaheer Afaq');
+
+    //Set the subject line
+    $mail->Subject = 'PHPMailer GMail SMTP test';
+
+    //Read an HTML message body from an external file, convert referenced images to embedded,
+    //convert HTML into a basic plain-text alternative body
+    $mail->msgHTML(file_get_contents('EmailHTML.html'), __DIR__);
+
+    //Replace the plain text body with one created manually
+    $mail->AltBody = 'This is a plain-text message body';
+
+    //Attach an image file
+    // $mail->addAttachment('images/phpmailer_mini.png');
+
+    //send the message, check for errors
+    if (!$mail->send()) {
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo 'Message sent!';
+        //Section 2: IMAP
+        //Uncomment these to save your message in the 'Sent Mail' folder.
+        #if (save_mail($mail)) {
+        #    echo "Message saved!";
+        #}
+    }
+
+

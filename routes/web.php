@@ -18,6 +18,9 @@ Route::get('/', function () {
 });
 Route::get('/firebase','FirebaseController@index');
 Route::view('/patients', 'patients');
+Route::view('/doctors', 'doctors');
+Route::view('/appointments', 'appointments');
+
 Route::view('/appointment', 'appointment');
 Route::view('/signup', 'register');
 Route::view('/home', 'home1');
@@ -48,3 +51,6 @@ Route::view('/testPdf', 'testPdf');
 Route::view('/quickconsultation', 'quickconsultation');
 
 Route::view('/dashboard', 'admindashboard');
+
+Route::view('/customers', 'customers');
+Route::view('/emailtest', 'emailtest');

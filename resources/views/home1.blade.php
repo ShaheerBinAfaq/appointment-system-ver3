@@ -135,6 +135,15 @@
 
 					</div>
                 </button>
+				<button onClick="quickConsultation()" class="single-service">
+					<img src="\images\img\home\consultdoc.jpg" style="height: 320px">
+					<div class="overlay"></div>
+					<div class="service-desc">
+						<h3>Quick Consultation</h3>
+						<hr>
+						<p>Choose the speciality you want to book your online doctor appointment with in Karachi.We will give you the easiest experience of appointment booking.</p>
+					</div>
+				</button>
 				
 			</div>
 		 </section>
@@ -239,6 +248,9 @@
     }
 	function viewappointments() {
 		window.location = '/viewappointment?uid=' + uid;
+	}
+	function quickConsultation() {
+		window.location = '/quickconsultation?uid=' + uid;
 	}
 </script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
