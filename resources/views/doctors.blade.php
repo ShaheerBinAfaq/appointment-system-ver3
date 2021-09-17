@@ -1,3 +1,4 @@
+<style><?php include public_path('css/StyleViewAppointment.css') ?></style>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,17 +29,137 @@
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="email" class="sr-only">Speciality</label>
-                    <input id="speciality" type="text" class="form-control" name="speciality" placeholder="Speciality"
+                    <select id="speciality" class="form-control" name="speciality" placeholder="Speciality"
                            required autofocus>
+                            <option value="Acupuncture">Acupuncture</option>
+                            <option value="Allergy Specialist">Allergy Specialist</option>                        
+                            <option value="Anesthetist">Anesthetist</option>
+                            <option value="Audiologist">Audiologist</option>
+                            <option value="Cancer Specialist">Cancer Specialist</option>
+                            <option value="Cancer Surgeon">Cancer Surgeon</option>
+                            <option value="Cardiac Surgeon">Cardiac Surgeon</option>
+                            <option value="Cardiologist">Cardiologist</option>
+                            <option value="Chest Surgeon">Chest Surgeon</option>
+                            <option value="Chiropractor">Chiropractor</option>
+                            <option value="Dentist">Dentist</option>
+                            <option value="Dermatologist">Dermatologist</option>
+                            <option value="Eye Specialist">Eye Specialist</option>
+                            <option value="General Physician">General Physician</option>
+                            <option value="General Surgeon">General Surgeon</option>
+                            <option value="Gynecologist">Gynecologist</option>
+                            <option value="Homeopath">Homeopath</option>
+                            <option value="Nephrologist">Nephrologist</option>
+                            <option value="Neuro Surgeon">Neuro Surgeon</option>
+                            <option value="Neurologist">Neurologist</option>
+                            <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+                            <option value="Pediatric Surgeon">Pediatric Surgeon</option>
+                            <option value="Pediatrician">Pediatrician</option>
+                            <option value="Physiotherapist">Physiotherapist</option>
+                            <option value="Plastic Surgeon">Plastic Surgeon</option>
+                            <option value="Psychiatrist">Psychiatrist</option>
+                            <option value="Psychologist">Psychologist</option>
+                            <option value="Radiologist">Radiologist</option>                            
+                        </select>
                 </div>
-                <div class="form-group mb-2">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="day" >Monday</label>                    
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
                     <label for="startTime" >Start Time  </label>
                     <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
                            required autofocus>
                 </div>
-                <div class="form-group mb-2">
+                <div class="form-group mx-sm-3 mb-2">
                     <label for="endTime" >End Time  </label>
                     <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="day" >Tuesday</label>                    
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="startTime" >Start Time  </label>
+                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="endTime" >End Time  </label>
+                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="day" >Wednesday</label>                    
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="startTime" >Start Time  </label>
+                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="endTime" >End Time  </label>
+                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="day" >Thursday</label>                    
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="startTime" >Start Time  </label>
+                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="endTime" >End Time  </label>
+                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="day" >Friday</label>                    
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="startTime" >Start Time  </label>
+                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="endTime" >End Time  </label>
+                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="day" >Saturday</label>                    
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="startTime" >Start Time  </label>
+                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="endTime" >End Time  </label>
+                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="day" >Sunday</label>                    
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="startTime" >Start Time  </label>
+                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="endTime" >End Time  </label>
+                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="duration" >Average Duration of Appointment  </label>
+                    <input id="duration" type="number" class="form-control" name="duration" placeholder="15"
+                           required autofocus>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="charges" >Charges  Rs.</label>
+                    <input id="charges" type="number" class="form-control" name="charges" placeholder="1000"
                            required autofocus>
                 </div>
                 <button id="submitPatient" type="button" class="btn btn-primary mb-2">Submit</button>
@@ -53,8 +174,7 @@
         <tr>
             <th>Name</th>
             <th>Speciality</th>
-            <th>Start Time</th>
-            <th>End Time</th>
+            <th>Charges in Rs.</th>
             <th width="180" class="text-center">Action</th>
         </tr>
         <tbody id="tbody">
@@ -141,8 +261,7 @@
                 htmls.push('<tr>\
         		<td>' + value.name + '</td>\
         		<td>' + value.speciality + '</td>\
-                <td>' + value.startTime + '</td>\
-                <td>' + value.endTime + '</td>\
+                <td>' + value.charges + '</td>\
         		<td><button data-toggle="modal" data-target="#update-modal" class="btn btn-info updateData" data-id="' + index + '">Update</button>\
         		<button data-toggle="modal" data-target="#remove-modal" class="btn btn-danger removeData" data-id="' + index + '">Delete</button></td>\
         	</tr>');
@@ -157,15 +276,21 @@
         var values = $("#addPatient").serializeArray();
         var name = values[0].value;
         var speciality = values[1].value;
-        var startTime = values[2].value;
-        var endTime = values[3].value;
+        // var startTime = values[2].value;
+        // var endTime = values[3].value;
+        var schedule = {monday : { startTime: values[2].value, endTime: values[3].value }, tuesday : { startTime: values[4].value, endTime: values[5].value }, wednesday : { startTime: values[6].value, endTime: values[7].value }, thursday : { startTime: values[8].value, endTime: values[9].value }, friday : { startTime: values[10].value, endTime: values[11].value }, saturday : { startTime: values[12].value, endTime: values[13].value }, sunday : { startTime: values[14].value, endTime: values[15].value }};
+        var duration = values[16].value;
+        var charges = values[17].value;
         var userID = lastIndex + 1;
         console.log(values);
         firebase.database().ref('doctors/' + userID).set({
             name: name,
             speciality: speciality,
-            startTime: startTime,
-            endTime: endTime,
+            // startTime: startTime,
+            // endTime: endTime,
+            schedule: schedule,
+            duration: duration,
+            charges: charges,
         });
         // Reassign lastID value
         lastIndex = userID;
@@ -187,21 +312,23 @@
 		    <div class="form-group">\
 		        <label for="last_name" class="col-md-12 col-form-label">Speciality</label>\
 		        <div class="col-md-12">\
-		            <input id="last_name" type="text" class="form-control" name="email" value="' + values.speciality + '" required autofocus>\
+                <select id="speciality" class="form-control" name="speciality" placeholder="Speciality"\
+                           required autofocus>\
+                            <option value="Acupuncture">Acupuncture</option><option value="Anesthetist">Anesthetist</option><option value="Audiologist">Audiologist</option><option value="Cancer Specialist">Cancer Specialist</option><option value="Cancer Surgeon">Cancer Surgeon</option><option value="Cardiac Surgeon">Cardiac Surgeon</option><option value="Cardiologist">Cardiologist</option><option value="Chest Surgeon">Chest Surgeon</option><option value="Chiropractor">Chiropractor</option><option value="Dentist">Dentist</option><option value="Dermatologist">Dermatologist</option><option value="Eye Specialist">Eye Specialist</option><option value="General Physician">General Physician</option><option value="General Surgeon">General Surgeon</option><option value="Gynecologist">Gynecologist</option><option value="Homeopath">Homeopath</option><option value="Nephrologist">Nephrologist</option><option value="Neuro Surgeon">Neuro Surgeon</option><option value="Neurologist">Neurologist</option><option value="Orthopedic Surgeon">Orthopedic Surgeon</option><option value="Pediatric Surgeon">Pediatric Surgeon</option><option value="Pediatrician">Pediatrician</option><option value="Physiotherapist">Physiotherapist</option><option value="Plastic Surgeon">Plastic Surgeon</option><option value="Psychiatrist">Psychiatrist</option><option value="Psychologist">Psychologist</option><option value="Radiologist">Radiologist</option></select>\
 		        </div>\
 		    </div>\
-            <div class="form-group">\
-		        <label for="last_name" class="col-md-12 col-form-label">Start Time</label>\
-		        <div class="col-md-12">\
-		            <input id="last_name" type="time" class="form-control" name="email" value="' + values.startTime + '" required autofocus>\
-		        </div>\
-		    </div>\
-            <div class="form-group">\
-		        <label for="last_name" class="col-md-12 col-form-label">End Time</label>\
-		        <div class="col-md-12">\
-		            <input id="last_name" type="time" class="form-control" name="email" value="' + values.endTime + '" required autofocus>\
-		        </div>\
-		    </div>';
+                    <div class="form-group mx-sm-3 mb-2"><label for="day" >Monday</label></div><div class="form-group mx-sm-3 mb-2"><label for="startTime" >Start Time  </label><input id="startTime" type="time" class="form-control" name="startTime" value="' + values.schedule.monday.startTime + '" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="endTime" >End Time  </label><input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="day" >Tuesday</label></div><div class="form-group mx-sm-3 mb-2"><label for="startTime" >Start Time  </label><input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="endTime" >End Time  </label><input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="day" >Wednesday</label></div><div class="form-group mx-sm-3 mb-2"><label for="startTime" >Start Time  </label><input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="endTime" >End Time  </label><input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="day" >Thursday</label></div><div class="form-group mx-sm-3 mb-2"><label for="startTime" >Start Time  </label><input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="endTime" >End Time  </label><input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="day" >Friday</label></div><div class="form-group mx-sm-3 mb-2"><label for="startTime" >Start Time  </label><input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="endTime" >End Time  </label><input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="day" >Saturday</label></div><div class="form-group mx-sm-3 mb-2"><label for="startTime" >Start Time  </label><input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="endTime" >End Time  </label><input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="day" >Sunday</label></div><div class="form-group mx-sm-3 mb-2"><label for="startTime" >Start Time  </label><input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time" required autofocus></div><div class="form-group mx-sm-3 mb-2"><label for="endTime" >End Time  </label><input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time" required autofocus></div>\
+                   <div class="form-group mx-sm-3 mb-2">\
+                    <label for="duration" >Average Duration of Appointment  </label>\
+                    <input id="duration" type="number" class="form-control" name="duration" value="' + values.duration + '"\
+                           required autofocus>\
+                </div>\
+                <div class="form-group mx-sm-3 mb-2">\
+                    <label for="charges" >Charges  Rs.</label>\
+                    <input id="charges" type="number" class="form-control" name="charges" value="' + values.charges + '"\
+                           required autofocus>\
+                </div>\
+            </div>';
             $('#updateBody').html(updateData);
         });
     });
@@ -210,8 +337,9 @@
         var postData = {
             name : values[0].value,
             speciality : values[1].value,
-            startTime : values[2].value,
-            endTime : values[3].value,
+            schedule : {monday : { startTime: values[2].value, endTime: values[3].value }, tuesday : { startTime: values[4].value, endTime: values[5].value }, wednesday : { startTime: values[6].value, endTime: values[7].value }, thursday : { startTime: values[8].value, endTime: values[9].value }, friday : { startTime: values[10].value, endTime: values[11].value }, saturday : { startTime: values[12].value, endTime: values[13].value }, sunday : { startTime: values[14].value, endTime: values[15].value }},
+            duration : values[16].value,
+            charges : values[17].value,
         };
         var updates = {};
         updates['/doctors/' + updateID] = postData;

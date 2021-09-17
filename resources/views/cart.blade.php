@@ -104,7 +104,7 @@
                     </div>
                 
                     <div class="input-field col s12">
-                        <input id="select" class="btn modal-close waves-effect waves-light" type="submit" name="action" >Submit
+                        <input id="select" class="btn modal-close waves-effect waves-light" type="submit" name="action" >
                             <i class="material-icons right">send</i>
                         </input>
                         
@@ -140,7 +140,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -148,7 +148,7 @@
     <!--<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>-->
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
     <!-- <script src="./cart.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script> -->
     <br>
     <br>
     <br>
@@ -326,15 +326,14 @@ document.getElementById('formCart').addEventListener('submit',function(e){
     });
     
     //mailing();
-    // $.ajax({
-    //         type: 'POST',
-    //         url: 'email.php',
-    //         success: function(data) {
-    //             alert(data);
-    //             $("p").text(data);
-
-    //         }
-    //         });
+    $.ajax({
+            method: 'POST',
+            url: 'email.php',
+            data: {user_email: userEmail.value},           
+            success: function(data) {
+                // alert(data);
+            }
+            });
 
     check=JSON.parse(localStorage.getItem('cart'));
     for (var index = 0; index < check.length; index++) {
@@ -883,83 +882,83 @@ use PHPMailer\PHPMailer\SMTP;
 
 require '../vendor/autoload.php';
 //array_key_exists('action', $_POST)
-if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['someAction'])) {
-        mailing();
-    }
+// if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['someAction'])) {
+//         mailing();
+//     }
 
     //Create a new PHPMailer instance
-    $mail = new PHPMailer();
+    // $mail = new PHPMailer();
 
-    //Tell PHPMailer to use SMTP
-    $mail->isSMTP();
+    // //Tell PHPMailer to use SMTP
+    // $mail->isSMTP();
 
-    //Enable SMTP debugging
-    //SMTP::DEBUG_OFF = off (for production use)
-    //SMTP::DEBUG_CLIENT = client messages
-    //SMTP::DEBUG_SERVER = client and server messages
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    // //Enable SMTP debugging
+    // //SMTP::DEBUG_OFF = off (for production use)
+    // //SMTP::DEBUG_CLIENT = client messages
+    // //SMTP::DEBUG_SERVER = client and server messages
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
-    //Set the hostname of the mail server
-    $mail->Host = 'smtp.gmail.com';
-    //Use `$mail->Host = gethostbyname('smtp.gmail.com');`
-    //if your network does not support SMTP over IPv6,
-    //though this may cause issues with TLS
+    // //Set the hostname of the mail server
+    // $mail->Host = 'smtp.gmail.com';
+    // //Use `$mail->Host = gethostbyname('smtp.gmail.com');`
+    // //if your network does not support SMTP over IPv6,
+    // //though this may cause issues with TLS
 
-    //Set the SMTP port number:
-    // - 465 for SMTP with implicit TLS, a.k.a. RFC8314 SMTPS or
-    // - 587 for SMTP+STARTTLS
-    $mail->Port = 465;
+    // //Set the SMTP port number:
+    // // - 465 for SMTP with implicit TLS, a.k.a. RFC8314 SMTPS or
+    // // - 587 for SMTP+STARTTLS
+    // $mail->Port = 465;
 
-    //Set the encryption mechanism to use:
-    // - SMTPS (implicit TLS on port 465) or
-    // - STARTTLS (explicit TLS on port 587)
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    // //Set the encryption mechanism to use:
+    // // - SMTPS (implicit TLS on port 465) or
+    // // - STARTTLS (explicit TLS on port 587)
+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 
-    //Whether to use SMTP authentication
-    $mail->SMTPAuth = true;
+    // //Whether to use SMTP authentication
+    // $mail->SMTPAuth = true;
 
-    //Username to use for SMTP authentication - use full email address for gmail
-    $mail->Username = 'shaheerafaq@gmail.com';
+    // //Username to use for SMTP authentication - use full email address for gmail
+    // $mail->Username = 'shaheerafaq@gmail.com';
 
-    //Password to use for SMTP authentication
-    $mail->Password = 'kaam karo';
+    // //Password to use for SMTP authentication
+    // $mail->Password = 'kaam karo';
 
-    //Set who the message is to be sent from
-    //Note that with gmail you can only use your account address (same as `Username`)
-    //or predefined aliases that you have configured within your account.
-    //Do not use user-submitted addresses in here
-    $mail->setFrom('shaheerafaq@example.com', 'Shaheer Afaq');
+    // //Set who the message is to be sent from
+    // //Note that with gmail you can only use your account address (same as `Username`)
+    // //or predefined aliases that you have configured within your account.
+    // //Do not use user-submitted addresses in here
+    // $mail->setFrom('shaheerafaq@example.com', 'Shaheer Afaq');
 
-    //Set an alternative reply-to address
-    //This is a good place to put user-submitted addresses
-    $mail->addReplyTo('shaheerafaq@gmail.com', 'Shaheer Afaq');
+    // //Set an alternative reply-to address
+    // //This is a good place to put user-submitted addresses
+    // $mail->addReplyTo('shaheerafaq@gmail.com', 'Shaheer Afaq');
 
-    //Set who the message is to be sent to
-    $mail->addAddress('shaheerafaq@gmail.com', 'Shaheer Afaq');
+    // //Set who the message is to be sent to
+    // $mail->addAddress('shaheerafaq@gmail.com', 'Shaheer Afaq');
 
-    //Set the subject line
-    $mail->Subject = 'PHPMailer GMail SMTP test';
+    // //Set the subject line
+    // $mail->Subject = 'PHPMailer GMail SMTP test';
 
-    //Read an HTML message body from an external file, convert referenced images to embedded,
-    //convert HTML into a basic plain-text alternative body
-    $mail->msgHTML(file_get_contents('EmailHTML.html'), __DIR__);
+    // //Read an HTML message body from an external file, convert referenced images to embedded,
+    // //convert HTML into a basic plain-text alternative body
+    // $mail->msgHTML(file_get_contents('EmailHTML.html'), __DIR__);
 
-    //Replace the plain text body with one created manually
-    $mail->AltBody = 'This is a plain-text message body';
+    // //Replace the plain text body with one created manually
+    // $mail->AltBody = 'This is a plain-text message body';
 
-    //Attach an image file
-    // $mail->addAttachment('images/phpmailer_mini.png');
+    // //Attach an image file
+    // // $mail->addAttachment('images/phpmailer_mini.png');
 
-    //send the message, check for errors
-    if (!$mail->send()) {
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-    } else {
-        echo 'Message sent!';
-        //Section 2: IMAP
-        //Uncomment these to save your message in the 'Sent Mail' folder.
-        #if (save_mail($mail)) {
-        #    echo "Message saved!";
-        #}
-    }
+    // //send the message, check for errors
+    // if (!$mail->send()) {
+    //     echo 'Mailer Error: ' . $mail->ErrorInfo;
+    // } else {
+    //     echo 'Message sent!';
+    //     //Section 2: IMAP
+    //     //Uncomment these to save your message in the 'Sent Mail' folder.
+    //     #if (save_mail($mail)) {
+    //     #    echo "Message saved!";
+    //     #}
+    // }
 
 

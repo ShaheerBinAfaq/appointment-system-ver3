@@ -1,0 +1,408 @@
+
+/* Font */
+
+@font-face {
+    font-family: regular;
+    /* src: url(fonts/Gordita\ Light.woff); */
+    src: url(fonts/Gordita\ Regular.woff);
+}
+
+* {
+    font-family: regular;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.main_nav_logo {
+    background: linear-gradient(rgba(0,0,0,0.5),#009688), url(images/Background1.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 60vh;
+    margin-bottom: 80px;
+}
+
+.main_nav_logo_flex {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 30px 10px;
+}
+
+.nav_logo_btn {
+    margin-left: 50px;
+    width: 70%;
+}
+
+.nav_logo_btn input{
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    width: 85%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.nav_logo_btn button {
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: -5px;
+    background-color: #009688;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.all_nav_btn button {
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #009688;
+    border-radius: 5px;
+}
+
+.search_display_btm {
+    display: none;
+    margin-left: 30px;
+}
+
+.our_dr_main {
+    margin-left: 8%;
+    margin-top: 70px;
+}
+
+.our_dr_main h1 {
+    color: white !important;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.our_dr_text {
+    margin-top: 20px;
+}
+
+.our_dr_text a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    padding: 0px 20px;
+}
+
+.home_link {
+    border-right: 2px solid white;
+}
+
+.dr_link {
+    color: black !important;
+}
+
+@media only screen and (max-width: 1140px) {
+    .heart_btn {
+        display: none !important;
+    }
+}
+@media only screen and (max-width: 1080px) {
+    .nav_logo_btn {
+        margin-left: 50px;
+        width: 60%;
+    }
+}
+@media only screen and (max-width: 1080px) {
+    .nav_logo_btn {
+        margin-left: 30px;
+        width: 50%;
+        margin-right: 30px;
+    }
+}
+@media only screen and (max-width: 760px) {
+    .nav_logo_btn {
+        margin-left: 30px;
+        width: 40%;
+        margin-right: 30px;
+    }
+    .nav_logo_btn input{
+        width: 75%;
+    }
+}
+@media only screen and (max-width: 580px) {
+    .nav_logo_btn {
+        display: none;
+    }
+
+    .search_display_btm {
+        display: inline-block;
+    }
+}
+@media only screen and (max-width: 390px) {
+    .search_display_btm {
+        margin-left: 1px;
+    }
+}
+
+/* <!-- ********** | OUR DOCTORS CARDS ROW 1 | ********** --> */
+
+.main_doctor_card {
+    /* margin: 20px 40px 20px 40px; */
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 85%;
+}
+
+.dr_card_all {
+    width: 250px;
+    margin-bottom: 0px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.12);
+    margin: 10px 10px 10px 10px;
+}
+
+.dr_card_img {
+    width: 100%;
+    overflow: hidden;
+    height: 250px;
+}
+
+.dr_card_img img:hover {
+    zoom: normal;
+    width: 110%;
+    height: 260px;
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+.card_text {
+    width: 100%;
+    text-align: center;
+    margin-top: -20px;
+    padding: 10px 0px 10px 0px;
+}
+
+.card_text h3{
+    margin-top: 20px;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.card_text p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: gray;
+}
+
+/* <!-- ********** | OUR DOCTORS CARDS ROW 2 | ********** --> */
+
+.dr_card_all_2 {
+    width: 250px;
+    margin-bottom: 0px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.12);
+    margin: 10px 10px 10px 10px;
+}
+
+.dr_card_img_2 {
+    margin: 25px auto;
+    background-image: url(images/Capture.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 80%;
+    overflow: hidden;
+    height: 80%;
+}
+
+.dr_card_img_2:hover {
+    opacity: 70%;
+}
+
+.card_text_2 {
+    width: 100%;
+    text-align: center;
+    margin-top: -20px;
+    padding: 10px 0px 10px 0px;
+}
+
+.card_text_2 h3{
+    margin-top: 10px;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.card_text_2 p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: gray;
+}
+
+.card_btn {
+    outline: none;
+    border: none;
+    border: 1px solid blue;
+    color: blue;
+    background-color: white;
+    opacity: 50%;
+    width: 37px;
+    height: 37px;
+    border-radius: 70%;
+    margin: 5px 5px 20px 0px;
+    font-size: 16px;
+}
+
+.card_btn:hover {
+    color: white;
+    background-color: blue;
+    cursor: pointer;
+}
+
+/* <!-- ********** | OUR DOCTORS CARDS ROW 3 | ********** --> */
+
+.card_text_3 {
+    width: 100%;
+    text-align: center;
+    margin-top: -20px;
+    padding: 10px 0px 10px 0px;
+}
+
+.card_text_3 h3{
+    margin-top: 30px;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.card_text_3 p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: gray;
+}
+
+/* <!-- ********** | JOIN SECTION | ********** --> */
+
+.main_join {
+    background-color: #00a3c8;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: center;
+    margin-top: 100px;
+    padding: 80px 0px;
+}
+
+.main_join_text {
+    width: 500px;
+    margin-right: 70px;
+}
+
+.main_join_text p {
+    font-size: 14px;
+}
+
+.main_join_input {
+    width: 500px;
+}
+
+.main_join_input div {
+    margin-top: 50px;
+}
+
+.main_join_input input {
+    outline: none;
+    padding: 13px 15px;
+    border: none;
+    margin-right: 0px;
+    width: 60%;
+}
+
+.main_join_input button {
+    outline: none;
+    border: none;
+    padding: 13px 20px;
+    margin-left: -5px;
+    background-color: black;
+    color: #00a3c8;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1090px) {
+    .main_join {
+        justify-content: space-around;
+        margin-right: 0px;
+    }
+
+    .main_join_text {
+        width: 90%;
+        margin-right: 0px;
+    }
+
+    .main_join_input {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 407px) {
+    .main_join_input input {
+        width: 50%;
+        margin-bottom: 10px ;
+    }
+}
+
+/* <!-- ********** | FOOTER | ********** --> */
+
+.main_foot {
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+.main_foot p {
+    font-size: 13px;
+    line-height: 23px;
+    width: 220px;
+}
+
+.main_foot h4 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    margin-top: 30px !important;
+}
+
+.logo_foot {
+    margin-top: 25px;
+}
+
+.main_foot span {
+    font-weight: bold;
+}
+
+.text-custom-black {
+    margin-top: 15px;
+}
+
+.text-light-blue {
+    color: #00a3c8;
+    font-weight: bold;
+}
+
+.text-custom-black_link {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+/* <!-- ********** | FOOTER END | ********** --> */
+
+.foot_end_main {
+    padding: 15px 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.end_foot_text {
+    margin-top: 15px;
+    font-size: 14px ;
+}

@@ -57,7 +57,7 @@
                     <th>Id</th>
                     <th>Order</th>
                     <th>Date</th>
-                    <th>Cliend</th>
+                    <th>Client</th>
                     <th>Payment Method</th>
                     <th>Total</th>
                 </tr>

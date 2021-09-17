@@ -78,11 +78,13 @@
     firebase.database().ref('doctors/').on('value', function (snapshot) {
         var value = snapshot.val();
         
-        $.each(value, function (index, value) {
-            doctors[index] = value.Name;
-            // doctors.push(doctor);
-            // console.log(doctors);
-        });
+            $.each(value, function (index, value) {
+                if(value) {
+                doctors[index] = value.name;
+                // doctors.push(doctor);
+            }
+            });
+        
     });
         
     window.onload = function () {

@@ -88,7 +88,7 @@
         var htmls = [];
         $.each(value, function(index,value){
             if(value) {
-                htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.Name + '</option>');
+                htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.name + '</option>');
             }
         // console.log(index);
         });

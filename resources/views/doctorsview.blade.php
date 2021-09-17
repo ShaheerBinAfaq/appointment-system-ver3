@@ -49,7 +49,7 @@ var doctors = {};
         $.each(value, function (index, value) {
             if(value) {
                 console.log(index + " " + value.Name);
-                htmls.push('<option value="' + index + '"/>' + value.Name + '</option>')
+                htmls.push('<option value="' + index + '"/>' + value.name + '</option>')
             }
         });
         document.getElementById('doctors').innerHTML = htmls;

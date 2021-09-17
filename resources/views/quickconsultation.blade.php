@@ -113,7 +113,7 @@
                </div>
 
                
-                <select class="SendersC" id="senders" size="1"></select>
+                <select class="SendersC" id="senders" size="2"></select>
                     <ul id="messages"></ul>
                 
                
@@ -209,7 +209,7 @@
     firebase.initializeApp(config);
     var database = firebase.database();
     var senderName;
-    var adminId = "V7gK5PmSyIRWsePBuW9zQFCKaRE2";
+    var adminId = "ZSI2IAfkuUVBW6xZTTT3Qbue3S93";
     var adminName = "Admin";
 
     firebase.database().ref('users/').on('value', function (snapshot) {
@@ -225,6 +225,7 @@
     // receiverName = document.getElementById("senders").text;
     // receiverId = document.getElementById("senders").value;
     $("#senders").change(function(){
+        // alert("change called");
         receiverName = $("#senders option:selected").text();
         receiverId = document.getElementById("senders").value;
         console.log('receiver', receiverName);
@@ -251,6 +252,7 @@
             document.getElementById("messages").innerHTML = " ";
 
         database.ref("messages").on("child_added", function(snapshot){
+            // alert("message recalled");
             var html = "";
             
                 // document.getElementById("messages").innerHTML = " ";
@@ -320,7 +322,9 @@
             //<div class="chate">
             //html+="<div class='M-s'><div class='message-sender-message'><p>"+ snapshot.val().message + "</p></div></div>";
             for(i=0;i<unique.length;i++){
-                htmls += "<option value='"+ uniqueId[i] + "'>" + unique[i] + "</option></div></div>";
+                
+                    htmls += "<option value='"+ uniqueId[i] + "'>" + unique[i] + "</option></div></div>";
+                
             }
             document.getElementById('senders').innerHTML = htmls;
         });

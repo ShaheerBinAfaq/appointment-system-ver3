@@ -241,7 +241,7 @@
         window.location = '/pharmacy?uid=' +uid;
     }
 	function appointment() {
-		window.location = '/appointment?uid=' + uid;
+		window.location = '/choosedoctor?uid=' + uid;
     }
 	function test() {
         window.location = '/reportupload?uid=' + uid;

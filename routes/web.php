@@ -51,6 +51,7 @@ Route::view('/testPdf', 'testPdf');
 Route::view('/quickconsultation', 'quickconsultation');
 
 Route::view('/dashboard', 'admindashboard');
+Route::view('/choosedoctor', 'choosedoctor');
 
 Route::view('/customers', 'customers');
 Route::view('/emailtest', 'emailtest');

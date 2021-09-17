@@ -1,4 +1,4 @@
-<style><?php include public_path('css/StyleAddPatient.css') ?></style>
+<style><?php include public_path('css/StyleViewAppointment.css') ?></style>
 <!doctype html>
 <html lang="en">
 <head>
@@ -57,7 +57,8 @@
             <th>Gender</th>
             <th>Date of Birth</th>
             <th>CNIC #</th>
-            <th width="180" class="text-center">Action</th>
+           
+            <!-- <th width="180" class="text-center">Action</th> -->
         </tr>
         <tbody id="tbody">
 
@@ -148,8 +149,6 @@
                 <td>' + value.gender + '</td>\
                 <td>' + value.dob + '</td>\
                 <td>' + value.nic + '</td>\
-        		<td><button data-toggle="modal" data-target="#update-modal" class="btn btn-info updateData" data-id="' + index + '">Update</button>\
-        		<button data-toggle="modal" data-target="#remove-modal" class="btn btn-danger removeData" data-id="' + index + '">Delete</button></td>\
         	</tr>');
             }
             lastIndex = index;
