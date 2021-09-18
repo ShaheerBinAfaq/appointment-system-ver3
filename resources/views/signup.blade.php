@@ -373,7 +373,7 @@ a:hover{
                 address: address
             });
             
-            location.href = 'http://localhost:8000/home';
+            window.location = 'home';
 		}).catch((error) => {
 			var errorCode = error.code;
 			var errorMessage = error.message;

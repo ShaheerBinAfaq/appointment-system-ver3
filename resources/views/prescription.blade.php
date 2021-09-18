@@ -76,7 +76,7 @@ var presID;
       firebase.database().ref('doctors/' + id).on('value', function (snapshot) {
         var value = snapshot.val();
       
-        document.getElementById('PRESCRIBER').value = value.Name; 
+        document.getElementById('PRESCRIBER').value = value.name; 
       });
     }
   function getPatName(id) {

@@ -1,7 +1,7 @@
 <style><?php include public_path('css/StyleHome.css') ?></style>
 <html>
     <head>
-           <title>Hospital Appointment System</title>
+           <title>CareX online Appointment System</title>
            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
            <meta name="viewport" content="width = device-width, initial-scale =1">
           <link href="https://fonts.googleapis.com/css2?family=Kavivanar&family=Lobster&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 		<section id="banner">
 			<img src="\images\img\home\LOGO.png" class="LOGO" >
 			<div class="banner-text">
-				<h1>Hospital Appointment System</h1>
+				<h1>CareX online Appointment System</h1>
 				<p>Find,Book & Consult Doctors</p>
 				<div class="banner-btn">
 					<a href="#"><span></span>Find out</a>

@@ -26,10 +26,13 @@
     <div style="top: 100px;" class="app_time_Date_main card card-default container">
         <h2 class="title">BOOK APPOINTMENT</h2>
         <!-- <label>Choose a Doctor:</label> -->
-
-            <select id="doctors" style="visibility: hidden;"> 
+        <label>
+            Doctot <br>
+        </label>
+            <select id="doctors" disabled> 
                 
             </select>
+            <br><br>
         <label>
             Choose Appointment Date <br>
         </label>
@@ -55,6 +58,7 @@
 <script>
     var uid;
     var docid;
+    var doctorSchedule;
     window.onload = function () {
         
             if (window.location.search.split('?').length > 0) {
@@ -137,6 +141,7 @@
         var htmls = [];
         $.each(value, function(index,value){
             if(value && index==docid) {
+                doctorSchedule = value.schedule
                 htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.name + '</option>');
             }
         console.log(index);
@@ -145,13 +150,13 @@
         var DefStartTime = $("#doctors option:selected").attr("fromtime");
         var DefEndTime = $("#doctors option:selected").attr("endtime");
         var DocId = $("#doctors").val();
-        $('#time').timepicker({
-            interval: 15,
-            minTime: DefStartTime,
-            maxTime: DefEndTime,
-            // scrollbar: true,
-        });
-        FilterTime(DocId)
+        // $('#time').timepicker({
+        //     interval: 15,
+        //     minTime: DefStartTime,
+        //     maxTime: DefEndTime,
+        //     // scrollbar: true,
+        // });
+        // FilterTime(DocId)
         
     });
 
@@ -166,24 +171,69 @@
     // }
 
     $("#datepicker").datepicker();
-    $("#doctors").change(function(){
-        var StartTime = $(this).find("option:selected").attr("fromtime");
-        var endTime = $(this).find("option:selected").attr("endtime");
-        var DoctorId = $(this).val();
-        $('#time').timepicker().destroy();
-        $('#time').timepicker({
-        interval: 15,
-        minTime: StartTime,
-        maxTime: endTime,
-        scrollbar: true,
-    });
-    FilterTime(DoctorId)
-    })
+    // $('#datepicker').datepicker().datepicker('setDate', 'today');
+    // $("#doctors").change(function(){
+    //     var StartTime = $(this).find("option:selected").attr("fromtime");
+    //     var endTime = $(this).find("option:selected").attr("endtime");
+    //     var DoctorId = $(this).val();
+    //     $('#time').timepicker().destroy();
+    //     $('#time').timepicker({
+    //     interval: 15,
+    //     minTime: StartTime,
+    //     maxTime: endTime,
+    //     scrollbar: true,
+    // });
+    // FilterTime(DoctorId)
+    // })
+
+    var weekday=new Array(7);
+    weekday[0]="monday";
+    weekday[1]="tuesday";
+    weekday[2]="wednesday";
+    weekday[3]="thursday";
+    weekday[4]="friday";
+    weekday[5]="saturday";
+    weekday[6]="sunday";
+
+    var DaySelected;
+    $('#time').timepicker({
+            interval: 15,
+            minTime: "",
+            maxTime: "",
+            scrollbar: true,
+        });
 
     $("#datepicker").change(function(){
         var DefStartTime = $("#doctors option:selected").attr("fromtime");
         var DefEndTime = $("#doctors option:selected").attr("endtime");
+        var dat333e = $(this).datepicker('getDate');
+        DaySelected = weekday[dat333e.getUTCDay()];
         var DocId = $("#doctors").val();
+        if(doctorSchedule){
+            if(DaySelected == "monday"){
+                DefStartTime = doctorSchedule.monday.startTime
+                DefEndTime = doctorSchedule.monday.endTime
+            } else if(DaySelected == "tuesday"){
+                DefStartTime = doctorSchedule.tuesday.startTime
+                DefEndTime = doctorSchedule.tuesday.endTime
+            } else if(DaySelected == "wednesday"){
+                DefStartTime = doctorSchedule.wednesday.startTime
+                DefEndTime = doctorSchedule.wednesday.endTime
+            } else if(DaySelected == "thursday"){
+                DefStartTime = doctorSchedule.thursday.startTime
+                DefEndTime = doctorSchedule.thursday.endTime
+            } else if(DaySelected == "friday"){
+                DefStartTime = doctorSchedule.friday.startTime
+                DefEndTime = doctorSchedule.friday.endTime
+            } else if(DaySelected == "saturday"){
+                DefStartTime = doctorSchedule.saturday.startTime
+                DefEndTime = doctorSchedule.saturday.endTime
+            } else if(DaySelected == "sunday"){
+                DefStartTime = doctorSchedule.sunday.startTime
+                DefEndTime = doctorSchedule.sunday.endTime
+            }
+        }
+        $('#time').timepicker().destroy();
         $('#time').timepicker({
             interval: 15,
             minTime: DefStartTime,
@@ -192,6 +242,45 @@
         });
         FilterTime(DocId)
     })
+
+    // $("#datepicker").change(function(){
+    //     debugger
+    //     var dat333e = $(this).datepicker('getDate');
+    //     DaySelected = weekday[dat333e.getUTCDay()];
+    //     var DefStartTime;
+    //     var DefEndTime;
+    //     var DocId = $("#doctors").val();
+    //     if(DaySelected == "monday"){
+    //         DefStartTime = doctorSchedule.monday.startTime
+    //         DefEndTime = doctorSchedule.monday.endTime
+    //     } else if(DaySelected == "tuesday"){
+    //         DefStartTime = doctorSchedule.tuesday.startTime
+    //         DefEndTime = doctorSchedule.tuesday.endTime
+    //     } else if(DaySelected == "wednesday"){
+    //         DefStartTime = doctorSchedule.wednesday.startTime
+    //         DefEndTime = doctorSchedule.wednesday.endTime
+    //     } else if(DaySelected == "thursday"){
+    //         DefStartTime = doctorSchedule.thursday.startTime
+    //         DefEndTime = doctorSchedule.thursday.endTime
+    //     } else if(DaySelected == "friday"){
+    //         DefStartTime = doctorSchedule.friday.startTime
+    //         DefEndTime = doctorSchedule.friday.endTimea
+    //     } else if(DaySelected == "saturday"){
+    //         DefStartTime = doctorSchedule.saturday.startTime
+    //         DefEndTime = doctorSchedule.saturday.endTime
+    //     } else if(DaySelected == "sunday"){
+    //         DefStartTime = doctorSchedule.sunday.startTime
+    //         DefEndTime = doctorSchedule.sunday.endTime
+    //     }
+    //     console.log(DefStartTime + "&" + DefEndTime)    
+    //     $('#time').timepicker({
+    //         interval: 15,
+    //         minTime: DefStartTime,
+    //         maxTime: DefEndTime,
+    //         scrollbar: true,
+    //     });
+    //     FilterTime(DocId)
+    // })
 
     $(document).ready(function(){
         

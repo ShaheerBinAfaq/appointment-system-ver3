@@ -16,25 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
-Route::get('/firebase','FirebaseController@index');
-Route::view('/patients', 'patients');
-Route::view('/doctors', 'doctors');
-Route::view('/appointments', 'appointments');
-
+//Patient End
 Route::view('/appointment', 'appointment');
 Route::view('/signup', 'register');
 Route::view('/home', 'home1');
 Route::view('/viewappointment', 'viewappointment');
+Route::view('/viewprescription', 'prescription-patient');
 Route::view('/pharmacy', 'pharmacy');
 Route::view('/cart', 'cart');
-Route::view('/pharmacyadmin','pharmacyadmin');
-Route::view('/pharmacylogin','pharmacylogin');
 Route::view('/medication','medication');
-Route::view('/addmedication','addmedication');
-Route::view('/updatemedication','updatemedication');
-
-
+Route::view('/quickconsultation', 'quickconsultation');
+Route::view('/choosedoctor', 'choosedoctor');
 Route::view('/reportupload', 'reportupload');
+
+//Doctor end
 Route::view('/prescription', 'prescription');
 Route::view('/presMedicine', 'presMedicine');
 Route::view('/presTest', 'presTest');
@@ -43,15 +38,27 @@ Route::view('/presPdf', 'presPdf');
 Route::view('/doctorsView', 'doctorsView');
 Route::view('/drviewappointment', 'drviewappointment');
 Route::view('/drviewreport', 'drviewreport');
-
 Route::view('/labform', 'labform');
 Route::view('/addtest', 'addtest');
 Route::view('/testPdf', 'testPdf');
 
-Route::view('/quickconsultation', 'quickconsultation');
 
-Route::view('/dashboard', 'admindashboard');
-Route::view('/choosedoctor', 'choosedoctor');
+//Admin End
+// Route::view('/dashboard', 'admindashboard');
+Route::view('/dashboard', 'dashboard');
+Route::view('/doctorsa', 'doctorsa');
+Route::view('/patientsa', 'patientsa');
+Route::view('/appointmentsa', 'appointmentsa');
+Route::view('/pharmacyadmin','pharmacyadmin');
+Route::view('/pharmacylogin','pharmacylogin');
+Route::view('/addmedication','addmedication');
+Route::view('/updatemedication','updatemedication');
 
+
+//Extras
+Route::get('/firebase','FirebaseController@index');
+Route::view('/patients', 'patients');
+Route::view('/doctors', 'doctors');
+Route::view('/appointments', 'appointments');
 Route::view('/customers', 'customers');
 Route::view('/emailtest', 'emailtest');
