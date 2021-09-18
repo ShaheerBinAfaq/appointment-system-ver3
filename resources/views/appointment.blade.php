@@ -20,14 +20,14 @@
 
 </head>
 <body>
-<button onClick="showNotification()">Notify</button>
+<!-- <button onClick="showNotification()">Notify</button> -->
 <button onClick="home()" class="btn btn-primary mb-2" style=" position: fixed; right: 90px; top: 20px;">Home</button>
 <form id="addAppointment" method="POST" action="">
     <div style="top: 100px;" class="app_time_Date_main card card-default container">
         <h2 class="title">BOOK APPOINTMENT</h2>
-        <label>Choose a Doctor:</label>
+        <!-- <label>Choose a Doctor:</label> -->
 
-            <select id="doctors"> 
+            <select id="doctors" style="visibility: hidden;"> 
                 
             </select>
         <label>
@@ -54,13 +54,17 @@
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script>
     var uid;
+    var docid;
     window.onload = function () {
         
             if (window.location.search.split('?').length > 0) {
                 var params = window.location.search.split('?')[1];
                 uid = params.split('=')[1];
+                docid = params.split('=')[2];
+                uid = uid.split('&')[0];
                 console.log('params', params);
                 console.log('uid', uid);
+                console.log('docid', docid);
                 
         }
     };
@@ -132,7 +136,7 @@
         var value = snapshot.val();
         var htmls = [];
         $.each(value, function(index,value){
-            if(value) {
+            if(value && index==docid) {
                 htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.name + '</option>');
             }
         console.log(index);

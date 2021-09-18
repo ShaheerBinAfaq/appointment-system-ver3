@@ -19,7 +19,7 @@
     <header>
         <nav class="green accent-4">
             <div class="nav-wrapper">
-                <a href="index.html" class="navbar-brand nav-link disabled text-white">
+                <a onClick="goToIndex()" class="navbar-brand nav-link disabled text-white">
                       CareX Pharmacy
                 </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -68,7 +68,7 @@
 <div id="modal1" class="modal">
     <div class="model-content">
         <div class="row">
-            <form id="formCart" class="col s12" action="theSamePage.php" method="post">
+            <form id="formCart" class="col s12">
                 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">perm_identity</i>
@@ -104,10 +104,9 @@
                     </div>
                 
                     <div class="input-field col s12">
-                        <input id="select" class="btn modal-close waves-effect waves-light" type="submit" name="action" >
+                        <button id="select" class="btn modal-close waves-effect waves-light" type="submit" name="action" >Submit
                             <i class="material-icons right">send</i>
-                        </input>
-                        
+                        </button>
                         
                     </div>
                     
@@ -457,7 +456,7 @@ document.getElementById('formCart').addEventListener('submit',function(e){
     clean();
     //updating();
     setTimeout(updating,5000);
-
+    // goToindex();
 });
 
 
@@ -576,6 +575,7 @@ function remove(id){
         console.log(TRY);
         
     }
+    window.location.reload();
 }
 
 function reduceAmount(id){
@@ -596,6 +596,7 @@ function reduceAmount(id){
 
         }
     }
+    window.location.reload();
 }
 
 function addAmount(id){
@@ -621,6 +622,7 @@ function addAmount(id){
             
         }
     }
+    window.location.reload();
 }
 
 function updateCart() {
@@ -765,8 +767,10 @@ function moda(){
     firebase.database().ref('users/').on('value', function (snapshot) {
         var value = snapshot.val();
         var htmls = [];
+        console.log('uid', uid);
         $.each(value, function (index, value) {
             if (value && uid == index) {
+                console.log('value', value);
                 document.getElementById('PatientId').value = index;
                 document.getElementById('userName').value = value.fname + " " + value.lname;
                 document.getElementById('userEmail').value = value.email;
@@ -783,6 +787,10 @@ function moda(){
     $(document).ready(function(){
     $('.modal').modal();
 });
+}
+
+function goToIndex() {
+    window.location = 'pharmacy?uid=' + uid;
 }
 //import * as nodemailer from 'nodemailer';
 // var nodemailer= require('nodemailer');

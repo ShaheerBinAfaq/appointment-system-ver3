@@ -1,5 +1,6 @@
 <style><?php include public_path('css/styles.css') ?></style>
 <style><?php include public_path('css/carousel.css') ?></style>
+<style><?php include public_path('css/StyleSearch.css') ?></style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,6 +101,15 @@
         </a>
     </div>
 
+    <div class="search_wrap search_wrap_6">
+        <div class="search_box">
+            <input id="SValue" type="text" class="input" placeholder="search...">
+            <div class="btn" onclick="search()">
+                <p>Search</p>
+            </div>
+        </div>
+    </div>
+
     <div class="container marketing">
         <ul>
         <br>
@@ -116,7 +126,7 @@
             <a href="#">TOP</a>
         </p>
         <div class="row">
-            XCARE PHARMACY
+            CAREX PHARMACY
         </div>
     </footer>
 </main>
@@ -155,6 +165,7 @@
 
   var products=[];
 
+  var SV;
   var keys = 0;
   var TRY = [];
   var abc = 0;
@@ -163,6 +174,7 @@
 //DIVS
 var abc = 0;
 var fruitDIV = document.getElementById("fruitDIV");
+var searchDIV = document.getElementById("searchDIV");
 var uid;
 //INFORMATION
 
@@ -227,7 +239,39 @@ function stack(){
 
 }
 
+function search(){
+    var str = "AAA";
+    var abc = str.toLowerCase();
+    console.log(abc);
+    
+    var SearchValue = document.getElementById("SValue");
+    
+    var temporary = SearchValue.value;
+    
 
+    SearchValue.value = SearchValue.value.toLowerCase();
+  //  var SV = document.getElementById("SValue");
+ //   console.log(SV);
+ //   SearchValue = SV.toLowerCase();
+    
+ //   console.log(SV.value);
+ //   console.log(SearchValue.value);
+ //   console.log('search click');
+
+    //search code
+
+    for (var index = 1; index <= keys.length; index++) {
+        if (TRY[index-1].quantity > 0) {
+            if (TRY[index-1].name == SearchValue.value) {
+                console.log('equal names');
+                searchDIV.innerHTML+=`${HTMLTRYProduct(index)}`;
+            }
+        }
+
+    }
+
+    document.getElementById("SValue").value = temporary;
+}
 //window.onload = SelectAllData;
 
 //console.log(TRY[0]);

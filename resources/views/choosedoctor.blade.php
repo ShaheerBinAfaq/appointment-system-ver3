@@ -49,10 +49,10 @@
 
 
     <!-- ********** | OUR DOCTORS CARDS ROW 1 | ********** -->
-    <div id="doctor" class="main_doctor_card">
+    <table id="doctor" class="main_doctor_card">
                 
             
-    </div>
+    </table>
 
     <!-- ********** | JOIN SECTION | ********** -->
 
@@ -182,8 +182,11 @@
         var htmls = [];
         $.each(value, function (index, value) {
             if (value) {
-                htmls.push('<button id="'+index+'"><div id="doctor" class="dr_card_all"><div class="dr card_text"><h3>'+ value.name +'</h3>\
-                <p>'+ value.speciality +'</p></div></div></a>');                
+                htmls.push('<tr>\
+                <td><div id="doctor" class="dr_card_all">\
+                <div class="dr card_text"><h3>'+ value.name +'</h3></td>\
+                <td><p>'+ value.speciality +'</p></div></div></td>\
+                <td><button class="bookapp" data-id="'+ index +'">Book Appointment</button></td>');                
             }
             lastIndex = index;
         });
@@ -191,9 +194,16 @@
         $("#submitPatient").removeClass('desabled');
     });
 
-    $('button').on('click', function(){
-        //var id = $this.id;
-        alert("running");
+    $('body').on('click', '.bookapp', function(){
+        var docId = $(this).attr('data-id');
+        var uid;
+
+        if (window.location.search.split('?').length > 0) {
+			var params = window.location.search.split('?')[1];
+			uid = params.split('=')[1];                                
+        }
+
+        window.location = 'appointment?uid=' + uid + '&docid=' + docId;
     });
 </script>
 </html>

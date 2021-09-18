@@ -21,7 +21,7 @@
 
     <header>
         <nav class="navbar navbar-dark navbar-expand-md bg-success text-white">
-            <a class="text-white navbar-brand" href="#">
+            <a class="text-white navbar-brand" onClick="goToIndex()">
                 CareX Pharmacy
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
