@@ -10,8 +10,18 @@
 
         <title>View Appointments</title>
     </head>
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-md bg-success text-white">
+            <a class="text-white navbar-brand" onClick="goToIndex()">
+                Home
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+    
+            </button>
+        </nav>
+    </header>
     <body>
-    <button onClick="home()" class="btn btn-primary mb-2" style=" position: fixed; right: 90px; top: 20px;">Home</button>
         <div class="container" style="margin-top: 50px;">
             <h5># Appointments</h5>
             <table class="table table-bordered">
@@ -140,9 +150,8 @@
     $('.remove-data-from-delete-form').click(function () {
         $('body').find('.patients-remove-record-model').find("input").remove();
     });
-
-    function home() {
-        window.location = '/home?uid=' + uid;
+    function goToIndex() {
+	window.location = '/home?uid=' + uid;
     }
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

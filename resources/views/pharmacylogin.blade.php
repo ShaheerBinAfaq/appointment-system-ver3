@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="stylesLogin.css"> -->
-    <title>Admin</title>
+    <title>Login | Admin</title>
 </head>
 <body>
     <form autocomplete="off" id="form" class="text-center border border-light p-5">
-        <p class="h4 mb-4">Login</p>
+        <p class="h4 mb-4">Admin Login</p>
         <input type="email" required id="email" class="form-control mb-4" placeholder="Email">
         <input type="password" required id="password" class="form-control mb-4" placeholder="Password">
         <button type="submit" class="btn btn-warning btn-block">Submit</button>
@@ -50,7 +50,7 @@ document.getElementById("form").addEventListener("submit",(ee)=>{
         });
     }
     function loadPage(){
-        window.location = '/pharmacyadmin';
+        window.location = '/dashboard';
     }
 });
 </script>

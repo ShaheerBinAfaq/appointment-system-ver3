@@ -12,92 +12,18 @@
     <title>Quick Consultation</title>
 </head>
 <body>
-   <main>
-       <!-- <div class="container">
-           <div class="chate-liste">
-<div class="m-info">
-    <div class="avatar">
-        <img src="appointment-system-ver3\public\images\img\avt.png"
-        width="60px" alt="">
-    </div>
-    <div class="p-info">
-        <div class="pname">
-            <label class="Head-Name"> Syeda Zunaira Ahmed</label>
-            <br>
-            <span class="p-disc">Neurologist</span>
-        </div>
-        <div class="icon">
-            <i class='fas fa-bars'></i>
-        </div>
-    </div>
-</div>
-<div class="search-box">
-    <i class='fas fa-search'></i>
-    <input type="text" placeholder="Search for chat">
-</div>
-<div class="ms-a chat-active">
-    <div class="avatar">
-        <img src="avt.png" width="50px" alt="">
-    </div>
-    <div class="mesg-info ">
-        <div class="ms-info">
-            <span class=" sender-name">Mubashir Ahmed</span>
-            <span class="time"> just now <span class="msge-num ms-active ">2</span></span>
-        </div>
-        <div class="action">
-            <span>Typing...</span>
-        </div>
-    </div>
-</div>
-<div class="ms-a ">
-    <div class="avatar">
-        <img src="avt.png" width="50px" alt="">
-    </div>
-    <div class="mesg-info ">
-        <div class="ms-info">
-            <span class=" sender-name"> Muhammad Ali</span>
-            <span class="time"> Yesterday<span class="msge-num"></span></span>
-        </div>
-        <div class="action">
-            <span>Hi how are you?</span>
-        </div>
-    </div>
-</div>
-<div class="ms-a ">
-    <div class="avatar">
-        <img src="avt.png" width="50px" alt="">
-    </div>
-    <div class="mesg-info ">
-        <div class="ms-info">
-            <span class=" sender-name">Shaheer Bin Afaq</span>
-            <span class="time"> 20:24 <span class="msge-num"></span></span>
-        </div>
-        <div class="action">
-            <span>Wher are you ?</span>
-        </div>
-    </div>
-</div>
-<div class="ms-a ">
-    <div class="avatar">
-        <img src="avt.png" width="50px" alt="">
-    </div>
-    <div class="mesg-info ">
-        <div class="ms-info">
-            <span class=" sender-name"> Hamza Anwer</span>
-            <span class="time"> just now <span class="msge-num ms-active">4</span></span>
-        </div>
-        <div class="action">
-            <span>Not done yet</span>
-        </div>
-    </div>
-</div>
-
-<div class="new-chate">
-    <span>+</span>
-</div> -->
-
-
-           
+    <header>
+        <nav class="navbar navbar-dark navbar-expand-md bg-success text-white">
+            <a class="text-white navbar-brand" onClick="goToIndex()">
+                Home
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+    
+            </button>
+        </nav>
+    </header>
+   <main>                 
            <div class="chate">
                <div class="chate-header">
                    <div class="header-content">
@@ -112,7 +38,7 @@
                 </div>
                </div>
 
-               
+               <h3>Choose a user:</h3>
                 <select class="SendersC" id="senders" size="2"></select>
                     <ul id="messages"></ul>
                 
@@ -172,13 +98,9 @@
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 <script>
-
-    // //-----------Generate Unique Array------------
-    // var arr = ["shaheer", "mubashir", "shaheer"];
-    // var unique = [...new Set(arr)];
-    // console.log(unique);
-    // //---------------------------------------------
-
+    function goToIndex() {
+        window.history.back();
+    }
     //Getting User id
     var uid;
     

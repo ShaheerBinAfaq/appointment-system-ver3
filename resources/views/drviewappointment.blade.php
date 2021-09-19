@@ -11,11 +11,6 @@
 </head>
 <body>
 <h5>Appointments</h5>
-<label>Choose a Doctor:</label>
-    <select id="doctors">
-        
-    </select>
-    <button onClick="loadTable()">Select</button>
     <table class="table table-bordered">
         <tr>
             <th>Date</th>
@@ -33,7 +28,12 @@
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script>
-    var DocId;
+    var drid;
+    // Get Doctors
+      if (window.location.search.split('?').length > 0) {
+          var params = window.location.search.split('?')[1];
+          drid = params.split('=')[1];                              
+    }
     // Initialize Firebase
     var config = {
         apiKey: "{{ config('services.firebase.api_key') }}",
@@ -53,14 +53,13 @@
             patients[index] = value.fname + " " + value.lname;
         });
     });
-    function loadTable(){
+    
         console.log("running..");
         // Get Data
         firebase.database().ref('appointments/').on('value', function (snapshot) {
             var value = snapshot.val();
             var htmls = [];
-            var drid = $("#doctors").val();
-            console.log("running ",DocId);
+            console.log("running ", drid);
             $.each(value, function (index, value) {
                 if (value && value.doc_id==drid) {
                     console.log(value.pat_id);
@@ -81,20 +80,8 @@
             var app_id = $(this).attr('data-id');
             window.location = '/prescription?appointmentid=' + app_id;
         });
-    }
-    // Get Doctors
-    firebase.database().ref('doctors/').on('value', function(snapshot){
-        var value = snapshot.val();
-        var htmls = [];
-        $.each(value, function(index,value){
-            if(value) {
-                htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.name + '</option>');
-            }
-        // console.log(index);
-        });
-        document.getElementById('doctors').innerHTML = htmls;
-        DocId = $("#doctors").val();    
-    });
+    
+
 
 
 </script>

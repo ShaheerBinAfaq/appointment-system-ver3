@@ -19,9 +19,7 @@
     <select id="doctors">
         
     </select>
-    <button onClick="selectDr()" style="width: 200px; height: 50px;">Select</button>
     <button onClick="appointment()" style="width: 200px; height: 50px;">View My Appointments</button>
-    <button onClick="testreport()" style="width: 200px; height: 50px;">View Test Reports</button>
     </div>
 </body>
 </html>
@@ -41,6 +39,7 @@
     var lastIndex = 0;
 </script>
 <script>
+var drid;
 var doctors = {};
     firebase.database().ref('doctors/').on('value', function (snapshot) {
         var value = snapshot.val();
@@ -48,13 +47,18 @@ var doctors = {};
         console.log(value);
         $.each(value, function (index, value) {
             if(value) {
-                console.log(index + " " + value.Name);
+                console.log(index + " " + value.name);
                 htmls.push('<option value="' + index + '"/>' + value.name + '</option>')
             }
         });
         document.getElementById('doctors').innerHTML = htmls;
+        drid = $('#doctors option:selected').val();
+        console.log("in fireb ", drid);
     });
-    var drid;
+    $('#doctors').change(function(){
+        drid = $('#doctors option:selected').val();
+        console.log("in func ", drid);
+    });
     function selectDr() {
         drid = document.getElementById('doctors').value;
         console.log("in func ", drid);

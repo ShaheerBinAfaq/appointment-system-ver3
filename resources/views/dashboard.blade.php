@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="icon" href="\images\icons\care x logo.png" type="image/icon type">
-    <title>Dashboard|Admin</title>
+    <title>Dashboard | Admin</title>
     <meta charset="UTF-8">
     <!-- <link rel="stylesheet" href="Styledash1.css"> -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -25,27 +25,33 @@
         <li>
           <a href="#">
             <i class='bx bx-user' ></i>
-            <span class="links_name" id="doctorbtn">Manage Doctor data</span>
+            <span class="links_name" id="doctorbtn">Doctors</span>
           </a>
         </li>
         <li>
           <a href="#">
             <i class='bx bx-user' ></i>
-            <span class="links_name" id="patientbtn">Manage Patient Data</span>
+            <span class="links_name" id="patientbtn">Patients</span>
           </a>
         </li>
         <li>
           <a href="#">
             <i class='bx bx-coin-stack' ></i>
-            <span class="links_name" id="appointmentbtn">Appointment Data</span>
+            <span class="links_name" id="appointmentbtn">Appointments</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name" id="testbtn">Tests</span>
           </a>
         </li>
          <li>
           <a href="#">
             <i class='bx bx-coin-stack' ></i>
-            <span class="links_name" id="pharmacybtn">Manage Pharmacy</span>
+            <span class="links_name" id="pharmacybtn">Pharmacy</span>
           </a>
-        </li>            
+        </li>                        
         <li>
           <a href="#">
             <i class='bx bx-coin-stack' ></i>
@@ -221,6 +227,10 @@
     const pharmacy = document.getElementById('pharmacybtn');
     pharmacy.addEventListener('click', event=>{
         window.location = 'pharmacyadmin';
+    });
+    const test = document.getElementById('testbtn');
+    test.addEventListener('click', event=>{
+        window.location = 'testsa';
     });
     const qc = document.getElementById('quickconsultationbtn');
     qc.addEventListener('click', event=>{

@@ -14,7 +14,7 @@
   />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <!-- <link rel="stylesheet" href="admin.css"> -->
-    <title>Patients | Admin</title>
+    <title>Tests | Admin</title>
 </head>
     
 <body>
@@ -28,35 +28,32 @@
                 <span class="navbar-toggler-icon"></span>
     
             </button>
+
         </nav>
     </header>
 
     <div class="container">
-        <h1>Patients</h1>
+        <h1>Prescriptions</h1>
         <br>
         <table id="tableOrders">
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Phone#</th>
-                    <th>Address</th>
-                    <th>Gender</th>
-                    <th>Date of birth</th>
-                    <th>CNIC #</th>
+                    <th>Action</th>
+                    <th>Doctor</th>
+                    <th>Patient</th>
+                    <th>Date Written</th>
+                    <th>Appointment ID</th>
+                    <th>Prescription ID</th>                    
                 </tr>
             </thead>
             <tfoot>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Phone#</th>
-                    <th>Address</th>
-                    <th>Gender</th>
-                    <th>Date of birth</th>
-                    <th>CNIC #</th>
+                    <th>Action</th>
+                    <th>Doctor</th>
+                    <th>Patient</th>
+                    <th>Date</th>           
+                    <th>Appointment ID</th>
+                    <th>Prescription ID</th>         
                 </tr>
             </tfoot>
         </table>
@@ -74,31 +71,41 @@
 </body>
 </html>
 <script>
-    
+function format(d){
+    console.log(d);
+    return `
+        <table>            
+            <tr>
+                <td>Actions:</td>
+                <td><button data-toggle="modal" data-target="#update-modal" class="btn btn-info updateData" data-id="${d.id}">Add Test</button>
+            </tr>
+        
+        </table>
+    `;
+}
+
+
 $(document).ready(function(){
     setTimeout(function(){
         var table = $('#tableOrders').DataTable({
             "data": final.data,
             select: "single",
             "columns":[
-                // {
-                //     "className": 'details-control',
-                //     "orderable":true,
-                //     "data":null,
-                //     "defaultContent": '',
-                //     "render": function(){
-                //         return '<i class="material-icons" aria-hidden="true">add_box</i>';
-                //     },
-                //     width:"15px"
-                // },
-                {"data":"fname"},
-                {"data":"lname"},
-                {"data":"email"},  
-                {"data":"phone"},
-                {"data":"address"},
-                {"data":"gender"},
-                {"data":"dob"},
-                {"data":"nic"}
+                {
+                    "className": 'details-control',
+                    "orderable":true,
+                    "data":null,
+                    "defaultContent": '',
+                    "render": function(){
+                        return '<i aria-hidden="true" id="{"data":"id"}">Add Test</i>';
+                    },
+                    width:"15px"
+                },
+                {"data":"doc_name"},
+                {"data":"pat_name"},
+                {"data":"date_written"},
+                {"data":"appointment_id"},
+                {"data":"id"}, 
             ],
             
         });
@@ -121,8 +128,10 @@ $(document).ready(function(){
     },5000);
 });
 
-
-
+$("body").on('click', '.updateData', function () {
+        var id = $(this).attr('data-id');
+        window.location = 'labform?presid=' + id;
+});
 //FIREBASE
 
   // Your web app's Firebase configuration
@@ -139,9 +148,9 @@ $(document).ready(function(){
   firebase.initializeApp(firebaseConfig);
  // firebase.analytics();
 
-var patients = firebase.database().ref('users');
+var appointments = firebase.database().ref('prescriptions');
 
-patients.on('child_added',function(data){
+appointments.on('child_added',function(data){
     var orderValue= data.val();
     fsales(orderValue);
 });

@@ -22,26 +22,18 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success text-white">
-            <a class="text-white navbar-brand" href="#">
-                <i class="fas fa-laptop-medical"></i> careX Pharmacy 
+        <a class="text-white navbar-brand" onClick="goToIndex()">
+                Home
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-
+    
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto menu">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
                     
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
                     <a class="text-white nav-link" onClick="goToCart()">
                         <i class="text-warning fas fa-shopping-cart"></i> Shopping Cart <i style="color:yellow;" id="cart_n"></i>
-                    </a>
-                    <a class="nav-link disabled text-white" onClick="goToLogin()">
-                        <i class="far fa-user"></i> Admin
                     </a>
                 </form>
 
@@ -477,6 +469,10 @@ function render(){
     
     
 }
+function goToIndex() {
+	window.location = '/home?uid=' + uid;
+}
+
 function goToCart() {
      window.location = '/cart?uid=' + uid;
 }

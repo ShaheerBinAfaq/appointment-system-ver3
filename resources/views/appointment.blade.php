@@ -20,16 +20,23 @@
 
 </head>
 <body>
-<!-- <button onClick="showNotification()">Notify</button> -->
-<button onClick="home()" class="btn btn-primary mb-2" style=" position: fixed; right: 90px; top: 20px;">Home</button>
+<header>
+        <nav class="navbar navbar-dark navbar-expand-md bg-success text-white">
+            <a class="text-white navbar-brand" onClick="goToIndex()">
+                Home
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+    
+            </button>
+        </nav>
+    </header>
+
 <form id="addAppointment" method="POST" action="">
-    <div style="top: 100px;" class="app_time_Date_main card card-default container">
+    <div style="top: 10px;" class="app_time_Date_main card card-default container">
         <h2 class="title">BOOK APPOINTMENT</h2>
         <!-- <label>Choose a Doctor:</label> -->
-        <label>
-            Doctot <br>
-        </label>
-            <select id="doctors" disabled> 
+            <select id="doctors" style="visibility: hidden;"> 
                 
             </select>
             <br><br>
@@ -122,16 +129,23 @@
         var date = values[0].value;
         var time = values[1].value;
         var doc_id = document.getElementById('doctors').value;
-        var id = lastIndex + 1;
-        
+        var id = lastIndex + 1; 
+        var doc_name = doctors[doc_id];
+        var pat_name = patients[uid];
+        console.log(doc_name, pat_name);
         firebase.database().ref('appointments/' + id).set({
+            id: id,
             date: date,
             time: time,
             doc_id: doc_id,
             pat_id: uid,
+            doc_name: doc_name,
+            pat_name: pat_name,
         });
         lastIndex = id;
-        alert("Your appointment has been booked");
+        const notification = new Notification("Appointment Booked!", {
+            body : "Your appointment with " + doc_name + " has been booked on " + date + " at " + time + "."
+        });
         window.location = '/home?uid=' + uid;
     });
 
@@ -159,7 +173,28 @@
         // FilterTime(DocId)
         
     });
-
+    // Getting Doctor Name
+    var doctors = {};
+    firebase.database().ref('doctors/').on('value', function (snapshot) {
+        var value = snapshot.val();
+        $.each(value, function (index, value) {
+            if(value) {
+                doctors[index] = value.name;            
+            }
+        });
+        console.log(doctors[docid]);
+    });
+    // Getting Patient Name
+    var patients = {};
+    firebase.database().ref('users/').on('value', function (snapshot) {
+        var value = snapshot.val();
+        $.each(value, function (index, value) {
+            patients[index] = value.fname + " " + value.lname;
+        });
+        console.log(patients[uid]);
+    });
+    
+    
     
     // const setupUI = (user) => {
     //     if (user) {
@@ -302,6 +337,10 @@
             body : "hi"
         });
     }
+    function goToIndex() {
+        window.location = '/home?uid=' + uid;
+}
+
 </script>
 
 </body>

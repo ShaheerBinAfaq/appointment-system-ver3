@@ -12,13 +12,19 @@
     <title>Upload Reports</title>
 @laravelPWA
 </head>
+<header>
+        <nav class="navbar navbar-dark navbar-expand-md bg-success text-white">
+            <a class="text-white navbar-brand" onClick="goToIndex()">
+                Home
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+    
+            </button>
+        </nav>
+</header>
 <body>
-<button onClick="home()" class="btn btn-primary mb-2" style=" position: fixed; right: 90px; top: 20px;">Home</button>
-    <script>
-        function home() {
-        window.location = '/home?uid=' + uid;
-        }
-    </script>
+
 <div class="container" style="margin-top: 50px;">
 
     <!-- <h4 class="text-center">Laravel RealTime CRUD Using Google Firebase</h4><br> -->
@@ -30,6 +36,11 @@
                 <div class="form-group mb-2">
                     <label for="name" class="sr-only">Name</label>
                     <input id="name" type="text" class="form-control" name="name" placeholder="Name"
+                           required autofocus>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="date" class="sr-only">Original Date</label>
+                    <input id="date" type="date" class="form-control" name="date" placeholder="date"
                            required autofocus>
                 </div>
                 <div class="form-group mx-sm-3 mb-2">
@@ -47,6 +58,7 @@
     <table class="table table-bordered">
         <tr>
             <th>Name</th>
+            <th>Original Date</th>
             <th>Link</th>
         </tr>
         <tbody id="tbody">
@@ -89,6 +101,7 @@
             if (value && value.pat_id==uid) {
                 htmls.push('<tr>\
         		<td>' + value.name + '</td>\
+                <td>' + value.date + '</td>\
         		<td><a href="' + value.fileUrl + '"target="_blank">Open file</a></td>\
         		</tr>');
             }
@@ -101,6 +114,7 @@
     $('#submitPatient').on('click', function () {
         var values = $("#addPatient").serializeArray();
         var name = values[0].value;
+        var date = values[1].value;
         var userID = lastIndex + 1;
         
         const ref = firebase.storage().ref();
@@ -123,6 +137,7 @@
                     fileUrl = url;
                 firebase.database().ref('reports/' + userID).set({
                     name: name,
+                    date: date,
                     fileUrl: fileUrl,
                     pat_id: uid,
                 });
@@ -132,7 +147,10 @@
             });
         });
     });
-        
+
+    function goToIndex() {
+	window.location = '/home?uid=' + uid;
+}
 </script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

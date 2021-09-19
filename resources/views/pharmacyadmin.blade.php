@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-dark navbar-expand-md bg-success text-white">
             <a class="text-white navbar-brand" onClick="goToIndex()">
-                CareX Pharmacy
+                Dashboard
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,12 +38,7 @@
                     </li>
     
                 </ul>
-                <form class="form-inline mt-2 mt-md-0">
-                    <a class="text-white nav-link" onClick="goToIndex()">
-                        EXIT
-                    </a>
-                    
-                </form>
+                
             </div>
         </nav>
     </header>
@@ -228,6 +223,6 @@ function goToMedication() {
     window.location = 'medication';
 }
 function goToIndex() {
-    window.location = 'pharmacy';
+    window.location = 'dashboard';
 }
 </script>
