@@ -1,7 +1,8 @@
 <style><?php include public_path('css/StyleHome.css') ?></style>
 <html>
     <head>
-           <title>CareX online Appointment System</title>
+	<link rel="icon" href="\images\img\home\care X logo.png" type="image/icon type">
+           <title>CareX Appointment System</title>
            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
            <meta name="viewport" content="width = device-width, initial-scale =1">
           <link href="https://fonts.googleapis.com/css2?family=Kavivanar&family=Lobster&display=swap" rel="stylesheet">
@@ -12,13 +13,15 @@
 	<body>
 		
 		<section id="banner">
-			<img src="\images\img\home\LOGO.png" class="LOGO" >
+			<img src="\images\img\home\care X logo.png" class="LOGO" >
 			<div class="banner-text">
-				<h1>CareX online Appointment System</h1>
+				<h1>CareX Appointment System</h1>
 				<p>Find,Book & Consult Doctors</p>
 				<div class="banner-btn">
-					<a href="#"><span></span>Find out</a>
-					<a href="#"><span></span>Read More</a>
+					<a href="#footer"><span></span>Find out</a>
+					<a onClick="gotoabout()" target="_blank" >
+						<span></span>Read More
+					</a>
 
 				</div>
 			</div>
@@ -34,13 +37,12 @@
 					<li><a href="#banner">HOME</a></li>
 					<li><a href="#feature">FEATURES</a></li>
 					<li><a href="#service">SERVICES</a></li>
-					<li><a href="#testimonial">TESTIMONIALS</a></li>
 					<li><a href="#footer">CONTACT US</a></li>
 					
 				</ul>
 			</nav>
 		</div>
-		<button onClick="logout()" style=" position: fixed; right: 90px; top: 20px; height: 30px;">Logout</button>
+		<button class="logbtn" onClick="logout()">Logout</button>
 		
 		<!--Features-->
 		<section id="feature">
@@ -50,35 +52,25 @@
 			</div>
 			<div class="feature-box">
 				<div class="features">
-				<h1>Experienced Staff</h1>
-				<div class="features-desc">
-				<div class="feature-icon">
-					<i class="fa fa-shield"></i>
-				</div>
-				<div class="feature-text">
-					<p> Employee experience encapsulates what people encounter and observe over the course of their tenure at an organization.</p>
-				</div>
-			</div>
+					<ul>
+				<li>	<h1>Less time consuming</h1>
+				</li>
 
-					<h1>Pre Booking Online</h1>
-				<div class="features-desc">
-				<div class="feature-icon">
-					<i class="fa fa-check-square-o"></i>
-				</div>
-				<div class="feature-text">
-					<p> Employee experience encapsulates what people encounter and observe over the course of their tenure at an organization.</p>
-				</div>
-				</div>
+				<li><h1>Pre Booking Appointment Online</h1>
+				</li>
 
-					<h1>Afordable Cost</h1>
-				<div class="features-desc">
-				<div class="feature-icon">
-					<i class="fa fa-inr"></i>
-				</div>
-				<div class="feature-text">
-					<p> Employee experience encapsulates what people encounter and observe over the course of their tenure at an organization. </p>
-				</div>
-				</div>
+					<li><h1>Better Customer Experience</h1>
+				</li>
+
+					<li><h1>Digital Medical Records</h1>
+						
+				</li>
+				<li><h1>Appointment Reminders</h1>
+						
+				</li>
+
+				</ul>
+
 				</div>
 
 				<div class="features-img">
@@ -86,6 +78,7 @@
 				</div>
 
 			</div>
+
 			
 		</section>
 
@@ -97,7 +90,7 @@
 			</div>
 			<div class="service-box">
 				<button onClick="appointment()" class="single-service">
-					<img src="\images\img\home\consultdoc.jpg" style="height: 320px">
+					<img src="\images\img\home\bookA.jpg" style="height: 320px">
 					<div class="overlay"></div>
 					<div class="service-desc">
 						<h3>Book Appointment</h3>
@@ -106,7 +99,7 @@
 					</div>
 				</button>
 				<button onClick="pharmacy()" class="single-service">
-					<img src="\images\img\home\med.png" style="height: 320px">
+					<img src="\images\img\home\pharmacy.jpg" style="height: 320px">
 					<div class="overlay"></div>
 					<div class="service-desc">
 						<h3>Order Medicine</h3>
@@ -116,7 +109,7 @@
 					</div>
                 </button>
 				<button onClick="viewappointments()" class="single-service">
-					<img src="\images\img\home\book.jpg"style="height: 320px">
+					<img src="\images\img\home\Finddoc.jpg"style="height: 320px">
 					<div class="overlay"></div>
 					<div class="service-desc">
 						<h3>View My Appointments</h3>
@@ -126,7 +119,7 @@
 					</div>
                 </button>
 				<button onClick="test()" class="single-service">
-					<img src="\images\img\home\cons2.jpg"style="height: 320px">
+					<img src="\images\img\home\QCons.jpg"style="height: 320px">
 					<div class="overlay"></div>
 					<div class="service-desc">
 						<h3>Upload Report</h3>
@@ -135,70 +128,38 @@
 
 					</div>
                 </button>
+				<button onClick="viewprescriptions()" class="single-service">
+					<img src="\images\img\test1.png"style="height: 320px">
+					<div class="overlay"></div>
+					<div class="service-desc">
+						<h3>View My Prescriptions</h3>
+						<hr>
+						<p>You have consulted the doctor. What now? Get your prescription ASAP.</p>
+						
+					</div>
+                </button>
 				<button onClick="quickConsultation()" class="single-service">
-					<img src="\images\img\home\consultdoc.jpg" style="height: 320px">
+					<img src="\images\img\home\cons2.jpg" style="height: 320px">
 					<div class="overlay"></div>
 					<div class="service-desc">
 						<h3>Quick Consultation</h3>
 						<hr>
-						<p>Choose the speciality you want to book your online doctor appointment with in Karachi.We will give you the easiest experience of appointment booking.</p>
+						<p>Save time and consult online with your doctor staying at home.</p>
 					</div>
 				</button>
 				
 			</div>
 		 </section>
 
-         <!-- Testimonial -->
-         <section id="testimonial">
-         	<div class="title-text">
-          <p>TESTIMONIAL</p>
-          <h1> What Client Says</h1>
-			</div>
-           <div class="testimonial-row">
-                  <div class="testimonial-col">
-                  	<div class="user">
-                  		<img src="\images\img\home\man1.png">
-                  		<div class="user-info">
-                  			<h4>Mubashir Ahmed</h4>
-                  			<small>@mubashirahmed<i class="fa fa-twitter"></i></small>
-                  		</div>
-                  	</div>
-                  	<p>We are digital healthcare innovators, dedicated towards improving your access to healthcare by blending technology and innovation to solve problems associated with modern day pharmacies</p>
-                  </div>
-                  <div class="testimonial-col">
-                  		<div class="user">
-                  		<img src="\images\img\home\gp1.jpg">
-                  		<div class="user-info">
-                  			<h4>Syeda Zunaira Ahmed </h4>
-                  			<small>@syedazunaira<i class="fa fa-twitter"></i></small>
-                  		</div>
-                  	</div>
-                  	  	<p>We are digital healthcare innovators, dedicated towards improving your access to healthcare by blending technology and innovation to solve problems associated with modern day pharmacies</p>
-                  </div>
-                  <div class="testimonial-col">
-                  		<div class="user">
-                  		<img src="\images\img\home\b2.jpg">
-                  		<div class="user-info">
-                  			<h4>Mohammad Ali</h4>
-                  			<small>@mohammadali <i class="fa fa-twitter"></i></small>
-                  		</div>
-                  	</div>
-                  	  	<p>We are digital healthcare innovators, dedicated towards improving your access to healthcare by blending technology and innovation to solve problems associated with modern day pharmacies</p>
-                  </div>
-           </div>
-
-
-
-         </section>
          <!--Footer-->
 
          <section id="footer">
-         	<img src="\images\img\home\imgf.png" class="footer-img">
+         	<img src="\images\img\home\care X logo.png" class="footer-img">
          	<div class="title-text">
           <p>CONTACT US</p>
           <h1>Feel Free To Contact Us</h1>
 			</div>
-		<div class="footer-row">
+			<div class="footer-row">
 			<div class="footer-left">
 				<h1>Opening Hours</h1>
 				<p><i class="fa fa-clock-o"></i>Monday to Friday - 9am to 9pm</p>
@@ -206,17 +167,16 @@
 			</div>
 			<div class="footer-right">
 				<h1>Get In Touch</h1>
-				<p>Address*******<i class="fa fa-map-marker"></i></p>
-				<p>Email*********<i class="fa fa-paper-plane"></i></p>
-				<p>phone number<i class="fa fa-phone"></i></p>
+				<p>ST-13 Abul Hasan Isphahani Rd, Block 7 Gulshan-e-Iqbal, Karachi<i class="fa fa-map-marker"></i></p>
+				<p>CareXAppointmentSystem70@gmail.com <i class="fa fa-paper-plane"></i></p>
+				<p> (021)34994305<i class="fa fa-phone"></i></p>
 			</div>
 			
 		</div>
 		<div class="social-links">
-			<i class="fa fa-facebook"></i>
-			<i class="fa fa-instagram"></i>
-			<i class="fa fa-twitter"></i>
-			<i class="fa fa-youtube-play"></i>
+			<a href="https://www.facebook.com/Care-X-109315344832188/" target="_blank"><i  class="fa fa-facebook"></i></a>
+			<a href="https://www.instagram.com/_care_x_/" target="_blank"><i class="fa fa-instagram"></i></a>
+		<a href="https://twitter.com/CareAppointment" target="_blank">	<i class="fa fa-twitter"></i></a>
 			<p>Copyright</p>
 
 		</div>
@@ -249,13 +209,17 @@
 	function viewappointments() {
 		window.location = '/viewappointment?uid=' + uid;
 	}
+	function viewprescriptions() {
+		window.location = '/viewprescription?uid=' + uid;
+	}
 	function quickConsultation() {
 		window.location = '/quickconsultation?uid=' + uid;
 	}
 </script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+
 <script>
-	var close = document.getElementById("closeb")
+var close = document.getElementById("closeb")
 var open = document.getElementById("openb")
 
 function openbtn() {
@@ -296,6 +260,9 @@ function logout() {
 	}).catch((error) => {
 	// An error happened.
 });
+}
+function gotoabout() {
+	window.location = 'aboutus';
 }
 
 </script>

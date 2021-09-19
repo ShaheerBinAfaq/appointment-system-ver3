@@ -328,7 +328,7 @@ document.getElementById('formCart').addEventListener('submit',function(e){
     $.ajax({
             method: 'POST',
             url: 'email.php',
-            data: {user_email: userEmail.value},           
+            data: {user_email: userEmail.value, orderi: order},           
             success: function(data) {
                 // alert(data);
             }
@@ -457,6 +457,7 @@ document.getElementById('formCart').addEventListener('submit',function(e){
     //updating();
     setTimeout(updating,5000);
     // goToindex();
+    window.location = 'invoice?orderid=' + order;
 });
 
 

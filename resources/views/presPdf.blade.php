@@ -13,6 +13,17 @@
     
 
 </head>
+<header>
+        <nav class="navbar navbar-dark navbar-expand-md bg-success text-white">
+            <a class="text-white navbar-brand" onClick="goToIndex()">
+                Back
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+    
+            </button>
+        </nav>
+    </header>
 
 <body>
     <div class="container d-flex justify-content-center mt-50 mb-50">
@@ -103,6 +114,9 @@
   <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script>
+    function goToIndex() {
+	    window.history.back();
+    }
     window.onload = function () {
     document.getElementById("download")
         .addEventListener("click", () => {
@@ -199,6 +213,8 @@ window.addEventListener('load', () => {
         });
         $('#surgery').html(htmls);
     });
+
+    
 
 
 

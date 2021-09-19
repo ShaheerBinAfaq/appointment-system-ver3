@@ -32,7 +32,7 @@
         </nav>
     </header>
 
-<form id="addAppointment" method="POST" action="">
+<form id="addAppointment"  onsubmit="return validateForm()" method="POST" action="">
     <div style="top: 10px;" class="app_time_Date_main card card-default container">
         <h2 class="title">BOOK APPOINTMENT</h2>
         <!-- <label>Choose a Doctor:</label> -->
@@ -43,14 +43,14 @@
         <label>
             Choose Appointment Date <br>
         </label>
-            <input type="text" id="datepicker" name="date" placeholder="Choose Appointment Date">
+            <input type="text" id="datepicker" name="date" placeholder="Choose Appointment Date" readonly="readonly">
          <br><br>
         
         <label>
             Choose Appointment Time <br>
         </label>
             
-            <input type="text" id="time" name="time" placeholder="Choose Appointment Time">
+            <input type="text" id="time" name="time" placeholder="Choose Appointment Time" readonly="readonly" required pattern="00:00">
             <br><br>
         <div class="button">
             <button id="submitAppointment" type="button" class="btn">Book Appointment</button>
@@ -63,6 +63,14 @@
 <!-- <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script> -->
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script>
+    function validateForm() {
+  let x = document.forms["addAppointment"]["time"].value;
+  if (x == "") {
+    alert("Time must be filled out");
+    return false;
+  }
+}
+
     var uid;
     var docid;
     var doctorSchedule;

@@ -77,20 +77,47 @@
                 uid = params.split('=')[1];
                 console.log('params', params);
                 console.log('uid', uid);
+                var appids = [];
+                // Get prescription Data
+                firebase.database().ref('prescriptions/').on('value', function (snapshot) {
+                    var value = snapshot.val();
+                                       
+                    $.each(value, function (index, value) {
+                        if (value) {                                
+                            appids.push(value.appointment_id);
+                        }                        
+                    });
+                    console.log(appids);
+                    });
                 // Get Appointment Data
                 firebase.database().ref('appointments/').on('value', function (snapshot) {
                     var doc_name;
                     var value = snapshot.val();
-                    var htmls = [];                   
+                    var htmls = [];
+                    var flag;                
                     $.each(value, function (index, value) {
+                        flag = false;
                         if (value && value.pat_id == uid) {    
-                            // doc_name = getDoctor(value.doc_id);
-                            htmls.push('<tr>\
-                            <td>' + doctors[value.doc_id] + '</td>\
-                            <td>' + value.date + '</td>\
-                            <td>' + value.time + '</td>\
-                            <td><button data-toggle="modal" data-target="#remove-modal" class="btn removeData" data-id="' + index + '">View Prescription</button></td>\
-                        </tr>');
+                            appids.forEach(function(apid){
+                                if(apid==index) {
+                                    flag = true;
+                                }
+                            });
+                            if(flag) {
+                                htmls.push('<tr>\
+                                <td>' + doctors[value.doc_id] + '</td>\
+                                <td>' + value.date + '</td>\
+                                <td>' + value.time + '</td>\
+                                <td><button data-toggle="modal" data-target="#remove-modal" class="btn removeData" data-id="' + index + '">View Prescription</button></td>\
+                                </tr>');
+                            }
+                            else {
+                                htmls.push('<tr>\
+                                <td>' + doctors[value.doc_id] + '</td>\
+                                <td>' + value.date + '</td>\
+                                <td>' + value.time + '</td>\
+                                </tr>');
+                            }
                         }
                         lastIndex = index;
                     });

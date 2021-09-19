@@ -22,9 +22,24 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success text-white">
-        <a class="text-white navbar-brand" onClick="goToIndex()">
-                Home
+        <a class="text-white navbar-brand" href="#">
+                <i class="fas fa-laptop-medical"></i> CareX Pharmacy 
             </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto menu">
+                    <li class="nav-item active">
+                        <a class="nav-link" onClick="goToIndex()">Home</a>
+                    </li>
+                    
+                </ul>
+        
+        <!-- <a class="text-white navbar-brand" onClick="goToIndex()">
+                Home
+            </a> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
     
@@ -34,6 +49,8 @@
                 <form class="form-inline mt-2 mt-md-0">
                     <a class="text-white nav-link" onClick="goToCart()">
                         <i class="text-warning fas fa-shopping-cart"></i> Shopping Cart <i style="color:yellow;" id="cart_n"></i>
+                    </a>
+                    <a class="nav-link disabled text-white" href="login.html">
                     </a>
                 </form>
 
@@ -54,8 +71,7 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>careX Pharmacy</h1>
-                        <p>Dont worry about going outside for taking medicines in your any situation. We are here for you whenever life takes you</p>
-                        <p> <a role="button" class="btn btn-lg btn-primary" href="#">Products</a></p>
+                        <p>Dont worry about going outside for taking medicines in your any situation. </p>
                     </div>
                 </div>
 
@@ -66,8 +82,7 @@
                 <div class="container">
                     <div class="carousel-caption text-left">
                         <h1>careX Pharmacy</h1>
-                        <p>Dont worry about going outside for taking medicines in your any situation. We are here for you whenever life takes you</p>
-                        <p> <a role="button" class="btn btn-lg btn-primary" href="#">Products</a></p>
+                        <p>We are here for you whenever life takes you</p>
                     </div>
                 </div>
                 
@@ -77,8 +92,7 @@
                 <div class="container">
                     <div class="carousel-caption text-right">
                         <h1>careX Pharmacy</h1>
-                        <p>Dont worry about going outside for taking medicines in your any situation. We are here for you whenever life takes you</p>
-                        <p> <a role="button" class="btn btn-lg btn-primary" href="#">Products</a></p>
+                        <p>We serve high quality medicine stored in temperature controlled environment, and deliver these medicines at your doorstep.</p>
                     </div>
                 </div>   
             </div>
@@ -104,6 +118,9 @@
 
     <div class="container marketing">
         <ul>
+        <hr>
+        <div class="row" id="searchDIV"></div>
+        <hr class="featurette-divider">
         <br>
         <h2 id="fruit">Medications</h2>
         <hr>
@@ -111,6 +128,7 @@
         <hr class="featurette-divider">
         </ul>
     </div>
+
 
 
     <footer class="container">
@@ -232,6 +250,7 @@ function stack(){
 }
 
 function search(){
+    searchDIV.innerHTML = "";
     var str = "AAA";
     var abc = str.toLowerCase();
     console.log(abc);
