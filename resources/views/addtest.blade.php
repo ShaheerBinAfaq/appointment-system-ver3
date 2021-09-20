@@ -30,8 +30,8 @@
                 </div>
                 <div class="form-group mb-2">
                     <label for="name" class="sr-only">Name</label>
-                    <input id="result" type="text" class="form-control" name="name" placeholder="Result"
-                           required autofocus>
+                    <textarea id="result" class="form-control" placeholder="Result"
+                           required autofocus></textarea>
                 </div>
                 <button id="submitPatient" type="button" class="btn btn-primary mb-2">Add</button>
             </form>
@@ -127,7 +127,7 @@
         var values = $("#addPatient").serializeArray();
         var repId = getRepId();
         var name = document.getElementById('name').value;
-        var result = values[0].value;      
+        var result = document.getElementById('result').value;      
         var userID = lastIndex + 1;
         console.log(values);
         firebase.database().ref('testResults/' + userID).set({

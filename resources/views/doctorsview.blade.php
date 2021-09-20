@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor's View</title>
 </head>
+
+
 <body>
     
 <div class="container">
@@ -69,4 +71,8 @@ var doctors = {};
     function testreport() {
         window.location = '/drviewreport?drid=' + drid;
     }
+    function goToIndex() {
+	window.location = '/';
+    }
+
 </script>

@@ -37,14 +37,17 @@
            		    	<input type="password" id="password" class="input">
             	   </div>
             	</div>
-            	<a href="#">Forgot Password?</a>
-            	<input type="submit" class="btn" value="Login">
+            	<input type="submit" class="btnReg" value="Login">
               <button onClick="signUp()" class="btnReg" id="register">Sign Up</button>
+			 <br> 
+			  <hr>
+			  <button onClick="doctorview()" class="btnReg">Doctor</button>
+				<button onClick="adminview()" class="btnReg">Admin</button>
             </form>
 			<p id="error"> </p>
         </div>
     </div>
-    <!-- <script type="text/javascript" src="js/main.js"></script> -->
+    
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
@@ -89,7 +92,32 @@
 	function signUp(){
 		window.location = 'signup';
 	}
-  
+	function doctorview(){
+		window.location = 'doctorlogin';
+	}
+	function adminview(){
+		window.location = 'adminlogin';
+	}
+	const inputs = document.querySelectorAll(".input");
+
+
+function addcl(){
+	let parent = this.parentNode.parentNode;
+	parent.classList.add("focus");
+}
+
+function remcl(){
+	let parent = this.parentNode.parentNode;
+	if(this.value == ""){
+		parent.classList.remove("focus");
+	}
+}
+
+
+inputs.forEach(input => {
+	input.addEventListener("focus", addcl);
+	input.addEventListener("blur", remcl);
+});
 </script>
 
 </html>

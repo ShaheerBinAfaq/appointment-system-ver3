@@ -23,7 +23,11 @@ textarea {
   align-items: center;
   justify-content: center;
 }
-
+.logo{
+  width: 70px;
+  height: 70px;
+  margin-left: 10%;
+}
 .form {
   width: 100%;
   max-width: 820px;
@@ -33,7 +37,6 @@ textarea {
   z-index: 1000;
   overflow: hidden;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .contact-form {
@@ -393,3 +396,4 @@ textarea.input {
   text-decoration: none;
   color: white;
 } */
+

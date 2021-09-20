@@ -297,6 +297,7 @@ document.getElementById('formCart').addEventListener('submit',function(e){
     firebase.database().ref('orders/'+order).set({
         id: t+1,
         order:order,
+        uid: uid,
         userName:userName.value,
         userEmail:userEmail.value,
         userAddress:userAddress.value,
@@ -307,7 +308,9 @@ document.getElementById('formCart').addEventListener('submit',function(e){
         products: TRY,
         total:tota
     });
-    
+    const notification = new Notification("Order Booked!", {
+            body : "Your Order is booked."
+        });
     //mailing();
     $.ajax({
             method: 'POST',
@@ -441,7 +444,8 @@ document.getElementById('formCart').addEventListener('submit',function(e){
     //updating();
     setTimeout(updating,5000);
     // goToindex();
-    window.location = 'invoice?orderid=' + order;
+    // window.location = 'invoice?orderid=' + order;
+
 });
 
 

@@ -40,6 +40,8 @@
                 
             </select>
             <br><br>
+            <label>The Doctors is available on the following days:</label>
+            <label id="days"></label>
         <label>
             Choose Appointment Date <br>
         </label>
@@ -140,6 +142,10 @@
         var id = lastIndex + 1; 
         var doc_name = doctors[doc_id];
         var pat_name = patients[uid];
+        if(time=="") {
+            alert("Please Choose Time")
+        }
+        else {
         console.log(doc_name, pat_name);
         firebase.database().ref('appointments/' + id).set({
             id: id,
@@ -154,9 +160,18 @@
         const notification = new Notification("Appointment Booked!", {
             body : "Your appointment with " + doc_name + " has been booked on " + date + " at " + time + "."
         });
+        $.ajax({
+            method: 'POST',
+            url: 'emailappointment.php',
+            data: {user_email: patientsemail[uid]},           
+            success: function(data) {
+                // alert(data);
+            }
+            });
         window.location = '/home?uid=' + uid;
+        }
     });
-
+var duration;
     // Get Doctors
     firebase.database().ref('doctors/').on('value', function(snapshot){
         var value = snapshot.val();
@@ -165,9 +180,10 @@
             if(value && index==docid) {
                 doctorSchedule = value.schedule
                 htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.name + '</option>');
-            }
-        console.log(index);
+                duration = value.duration;
+            }        
         });
+        console.log('duration', duration);
         document.getElementById('doctors').innerHTML = htmls;
         var DefStartTime = $("#doctors option:selected").attr("fromtime");
         var DefEndTime = $("#doctors option:selected").attr("endtime");
@@ -179,8 +195,31 @@
         //     // scrollbar: true,
         // });
         // FilterTime(DocId)
-        
+        var dayslabel = "";
+    if(doctorSchedule.monday.startTime != "") {
+        dayslabel += "Monday ";
+    }
+    else if(doctorSchedule.tuesday.startTime != "") {
+        dayslabel += "Tuesday ";
+    }
+    else if(doctorSchedule.wednesday.startTime != "") {
+        dayslabel += "Wednesday ";
+    }
+    else if(doctorSchedule.thursday.startTime != "") {
+        dayslabel += "Thursday ";
+    }
+    else if(doctorSchedule.friday.startTime != "") {
+        dayslabel += "Friday ";
+    }
+    else if(doctorSchedule.tuesday.startTime != "") {
+        dayslabel += "Saturday ";
+    }
+    else if(doctorSchedule.tuesday.startTime != "") {
+        dayslabel += "Sunday ";
+    }
+    document.getElementById('days').innerHTML = dayslabel;
     });
+    
     // Getting Doctor Name
     var doctors = {};
     firebase.database().ref('doctors/').on('value', function (snapshot) {
@@ -200,6 +239,16 @@
             patients[index] = value.fname + " " + value.lname;
         });
         console.log(patients[uid]);
+    });
+
+    // Getting Patient Name
+    var patientsemail = {};
+    firebase.database().ref('users/').on('value', function (snapshot) {
+        var value = snapshot.val();
+        $.each(value, function (index, value) {
+            patientsemail[index] = value.email;
+        });
+        console.log(patientsemail[uid]);
     });
     
     
@@ -250,6 +299,14 @@
         var DefStartTime = $("#doctors option:selected").attr("fromtime");
         var DefEndTime = $("#doctors option:selected").attr("endtime");
         var dat333e = $(this).datepicker('getDate');
+        console.log('date', dat333e.getDate());
+        var dateinput = dat333e.getDate();
+        var todayDate = new Date().getDate();
+console.log('todayDate', todayDate);
+        if(dateinput < todayDate) {
+            alert("Please select valid date.")
+        }
+        else {
         DaySelected = weekday[dat333e.getUTCDay()];
         var DocId = $("#doctors").val();
         if(doctorSchedule){
@@ -278,53 +335,16 @@
         }
         $('#time').timepicker().destroy();
         $('#time').timepicker({
-            interval: 15,
+            interval: duration,
             minTime: DefStartTime,
             maxTime: DefEndTime,
             scrollbar: true,
         });
-        FilterTime(DocId)
+        FilterTime(DocId);
+        }
     })
 
-    // $("#datepicker").change(function(){
-    //     debugger
-    //     var dat333e = $(this).datepicker('getDate');
-    //     DaySelected = weekday[dat333e.getUTCDay()];
-    //     var DefStartTime;
-    //     var DefEndTime;
-    //     var DocId = $("#doctors").val();
-    //     if(DaySelected == "monday"){
-    //         DefStartTime = doctorSchedule.monday.startTime
-    //         DefEndTime = doctorSchedule.monday.endTime
-    //     } else if(DaySelected == "tuesday"){
-    //         DefStartTime = doctorSchedule.tuesday.startTime
-    //         DefEndTime = doctorSchedule.tuesday.endTime
-    //     } else if(DaySelected == "wednesday"){
-    //         DefStartTime = doctorSchedule.wednesday.startTime
-    //         DefEndTime = doctorSchedule.wednesday.endTime
-    //     } else if(DaySelected == "thursday"){
-    //         DefStartTime = doctorSchedule.thursday.startTime
-    //         DefEndTime = doctorSchedule.thursday.endTime
-    //     } else if(DaySelected == "friday"){
-    //         DefStartTime = doctorSchedule.friday.startTime
-    //         DefEndTime = doctorSchedule.friday.endTimea
-    //     } else if(DaySelected == "saturday"){
-    //         DefStartTime = doctorSchedule.saturday.startTime
-    //         DefEndTime = doctorSchedule.saturday.endTime
-    //     } else if(DaySelected == "sunday"){
-    //         DefStartTime = doctorSchedule.sunday.startTime
-    //         DefEndTime = doctorSchedule.sunday.endTime
-    //     }
-    //     console.log(DefStartTime + "&" + DefEndTime)    
-    //     $('#time').timepicker({
-    //         interval: 15,
-    //         minTime: DefStartTime,
-    //         maxTime: DefEndTime,
-    //         scrollbar: true,
-    //     });
-    //     FilterTime(DocId)
-    // })
-
+    
     $(document).ready(function(){
         
         

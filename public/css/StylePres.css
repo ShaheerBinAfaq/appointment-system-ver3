@@ -33,7 +33,6 @@ textarea {
   z-index: 1000;
   overflow: hidden;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .contact-form {
@@ -100,10 +99,11 @@ form {
   padding: 0.6rem 1.2rem;
   color: rgb(0, 0, 0);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 100%;
   letter-spacing: 0.5px;
   border-radius: 25px;
   transition: 0.3s;
+  color:#fff;
 }
 
 textarea.input {
@@ -142,7 +142,8 @@ textarea.input {
   border-color: #fff;
   background-image: linear-gradient(to right, #009688, #38d39f, #009688);
   background-size: 200%;
-  font-size: 1.2rem;
+  font-size: 100%;
+  border-width: 5%; 
   color: #fff;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
@@ -150,10 +151,11 @@ textarea.input {
   cursor: pointer;
   transition: .6s;
   margin-top: 50px;
-  margin-left: 25px;
+
 }
 
 .btn a {
+
   text-decoration: none;
   color: #fff;
 }
@@ -220,48 +222,6 @@ textarea.input {
 .text {
   color: #333;
   margin: 1.5rem 0 2rem 0;
-}
-
-.information {
-  display: flex;
-  color: #555;
-  margin: 0.7rem 0;
-  align-items: center;
-  font-size: 0.95rem;
-}
-
-.icon {
-  width: 28px;
-  margin-right: 0.7rem;
-}
-
-.social-media {
-  padding: 2rem 0 0 0;
-}
-
-.social-media p {
-  color: #333;
-}
-
-.social-icons {
-  display: flex;
-  margin-top: 0.5rem;
-}
-
-.social-icons a {
-  width: 35px;
-  height: 35px;
-  border-radius: 5px;
-  background: linear-gradient(45deg, #1abc9c, #149279);
-  color: #fff;
-  text-align: center;
-  line-height: 35px;
-  margin-right: 0.5rem;
-  transition: 0.3s;
-}
-
-.social-icons a:hover {
-  transform: scale(1.05);
 }
 
 .contact-info:before {

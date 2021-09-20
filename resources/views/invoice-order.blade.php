@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-        <title>View Prescriptions</title>
+        <title>View Pharmacy Invoice</title>
     </head>
     <header>
         <nav class="navbar navbar-dark navbar-expand-md bg-success text-white">
@@ -24,12 +24,14 @@
 
     <body>
         <div class="container" style="margin-top: 50px;">
-            <h5># Appointments</h5>
+            <h5># Pharmacy Invoices</h5>
             <table class="table table-bordered">
                 <tr>
-                    <th>Doctor</th>
+                    <th>Order Id</th>
                     <th>Date</th>
                     <th>Time</th>
+                    <th>Payment Method</th>
+                    <th>Total</th>
                     <th width="180" class="text-center">Action</th>
                 </tr>
                 <tbody id="tbody">
@@ -58,7 +60,7 @@
     //Getting User id
     var uid;
     var doctors = {};
-    firebase.database().ref('doctors/').on('value', function (snapshot) {
+    firebase.database().ref('orders/').on('value', function (snapshot) {
         var value = snapshot.val();
         
             $.each(value, function (index, value) {
@@ -67,7 +69,7 @@
                 // doctors.push(doctor);
             }
             });
-        
+        console.log(doctors);
     });
         
     window.onload = function () {
@@ -77,38 +79,40 @@
                 uid = params.split('=')[1];
                 console.log('params', params);
                 console.log('uid', uid);
-                var appids = [];
+                var orderids = [];
                 // Get prescription Data
-                firebase.database().ref('prescriptions/').on('value', function (snapshot) {
+                firebase.database().ref('orders/').on('value', function (snapshot) {
                     var value = snapshot.val();
                                        
                     $.each(value, function (index, value) {
                         if (value) {                                
-                            appids.push(value.appointment_id);
+                            orderids.push(value.order);
                         }                        
                     });
-                    console.log(appids);
+                    console.log(orderids);
                     });
                 // Get Appointment Data
-                firebase.database().ref('appointments/').on('value', function (snapshot) {
+                firebase.database().ref('orders/').on('value', function (snapshot) {
                     var doc_name;
                     var value = snapshot.val();
                     var htmls = [];
                     var flag;                
                     $.each(value, function (index, value) {
                         flag = false;
-                        if (value && value.pat_id == uid) {    
-                            appids.forEach(function(apid){
-                                if(apid==index) {
+                        if (value && value.uid == uid) {    
+                            orderids.forEach(function(orderid){
+                                if(orderid==index) {
                                     flag = true;
                                 }
                             });
                             
                                 htmls.push('<tr>\
-                                <td>' + doctors[value.doc_id] + '</td>\
+                                <td>' + value.order + '</td>\
                                 <td>' + value.date + '</td>\
-                                <td>' + value.time + '</td>\
-                                <td><button data-toggle="modal" data-target="#remove-modal" class="btn removeData" data-id="' + index + '">View Prescription</button></td>\
+                                <td>' + value.hour + '</td>\
+                                <td>' + value.payment + '</td>\
+                                <td>' + value.total + '</td>\
+                                <td><button data-toggle="modal" data-target="#remove-modal" class="btn removeData" data-id="' + value.order + '">View Invoice</button></td>\
                                 </tr>');
                         }
                         lastIndex = index;
@@ -121,23 +125,23 @@
 
     $("body").on('click', '.removeData', function () {
         var appid = $(this).attr('data-id');
-        var presid;
-        // Get Prescription Data
-        firebase.database().ref('prescriptions/').on('value', function (snapshot) {
-                    var value = snapshot.val();                                       
-                    $.each(value, function (index, value) {
-                        if (value && value.appointment_id == appid) {    
-                            presid = index;
-                            window.location = 'presPdf?presid=' + presid;
-                        }
-                        lastIndex = index;
-                    });
-                    });
-                    
+        // var presid;
+        // // Get Prescription Data
+        // firebase.database().ref('prescriptions/').on('value', function (snapshot) {
+        //             var value = snapshot.val();                                       
+        //             $.each(value, function (index, value) {
+        //                 if (value && value.appointment_id == appid) {    
+        //                     presid = index;
+        //                     window.location = 'presPdf?presid=' + presid;
+        //                 }
+        //                 lastIndex = index;
+        //             });
+        //             });
+        window.location = 'invoice?orderid=' + appid;  
     });
     
     function goToIndex() {
-	window.location = '/home?uid=' + uid;
+	window.location = '/pharmacy?uid=' + uid;
 }
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

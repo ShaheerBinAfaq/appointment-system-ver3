@@ -43,6 +43,7 @@ Route::view('/drviewreport', 'drviewreport');
 Route::view('/labform', 'labform');
 Route::view('/addtest', 'addtest');
 Route::view('/testPdf', 'testPdf');
+Route::view('/doctorlogin','doctorlogin');
 
 
 //Admin End

@@ -95,98 +95,126 @@
                             <option value="Radiologist">Radiologist</option>                            
                         </select>
                 </div>
-                <div class="form-group mx-sm-3 mb-2">
+                <table>
+    <tr>
+      <td>
+         <div class="form-group mx-sm-3 mb-2">
                     <label for="day" >Monday</label>                    
                 </div>
-                <div class="form-group mx-sm-3 mb-2">
+      </td>
+      <td>
+                         <div class="form-group mx-sm-3 mb-2">
                     <label for="startTime" >Start Time  </label>
-                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                    <input id="startTime" type="time" class="st" name="startTime" placeholder="start time"
                            required autofocus>
                 </div>
-                <div class="form-group mx-sm-3 mb-2">
+      </td>
+      <td>
+         <div class="form-group mx-sm-3 mb-2">
                     <label for="endTime" >End Time  </label>
-                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                    <input id="endTime" type="time" class="et" name="endTime" placeholder="end time"
                            required autofocus>
                 </div>
-                <div class="form-group mx-sm-3 mb-2">
+      </td>
+     
+     
+    </tr>
+    <tr>
+      <td><div class="form-group mx-sm-3 mb-2">
                     <label for="day" >Tuesday</label>                    
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td><div class="form-group mx-sm-3 mb-2">
                     <label for="startTime" >Start Time  </label>
-                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                    <input id="startTime" type="time" class="st" name="startTime" placeholder="start time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td><div class="form-group mx-sm-3 mb-2">
                     <label for="endTime" >End Time  </label>
-                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                    <input id="endTime" type="time" class="et" name="endTime" placeholder="end time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+    </tr>
+     <tr>
+      <td><div class="form-group mx-sm-3 mb-2">
                     <label for="day" >Wednesday</label>                    
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td>                <div class="form-group mx-sm-3 mb-2">
                     <label for="startTime" >Start Time  </label>
-                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                    <input id="startTime" type="time" class="st" name="startTime" placeholder="start time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td><div class="form-group mx-sm-3 mb-2">
                     <label for="endTime" >End Time  </label>
-                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                    <input id="endTime" type="time" class="et" name="endTime" placeholder="end time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+    </tr>
+     <tr>
+      <td> <div class="form-group mx-sm-3 mb-2">
                     <label for="day" >Thursday</label>                    
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td><div class="form-group mx-sm-3 mb-2">
                     <label for="startTime" >Start Time  </label>
-                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                    <input id="startTime" type="time" class="st" name="startTime" placeholder="start time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td> <div class="form-group mx-sm-3 mb-2">
                     <label for="endTime" >End Time  </label>
-                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                    <input id="endTime" type="time" class="et" name="endTime" placeholder="end time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+    </tr>
+     <tr>
+      <td><div class="form-group mx-sm-3 mb-2">
                     <label for="day" >Friday</label>                    
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td><div class="form-group mx-sm-3 mb-2">
                     <label for="startTime" >Start Time  </label>
-                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                    <input id="startTime" type="time" class="st" name="startTime" placeholder="start time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td> <div class="form-group mx-sm-3 mb-2">
                     <label for="endTime" >End Time  </label>
-                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                    <input id="endTime" type="time" class="et" name="endTime" placeholder="end time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+    </tr>
+     <tr>
+      <td> <div class="form-group mx-sm-3 mb-2">
                     <label for="day" >Saturday</label>                    
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td> <div class="form-group mx-sm-3 mb-2">
                     <label for="startTime" >Start Time  </label>
-                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                    <input id="startTime" type="time" class="st" name="startTime" placeholder="start time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td> <div class="form-group mx-sm-3 mb-2">
                     <label for="endTime" >End Time  </label>
-                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                    <input id="endTime" type="time" class="et" name="endTime" placeholder="end time"
                            required autofocus>
                 </div>
-                <div class="form-group mx-sm-3 mb-2">
+              </td>
+      
+    </tr>
+     <tr>
+      <td> <div class="form-group mx-sm-3 mb-2">
                     <label for="day" >Sunday</label>                    
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td> <div class="form-group mx-sm-3 mb-2">
                     <label for="startTime" >Start Time  </label>
-                    <input id="startTime" type="time" class="form-control" name="startTime" placeholder="start time"
+                    <input id="startTime" type="time" class="st" name="startTime" placeholder="start time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      <td><div class="form-group mx-sm-3 mb-2">
                     <label for="endTime" >End Time  </label>
-                    <input id="endTime" type="time" class="form-control" name="endTime" placeholder="end time"
+                    <input id="endTime" type="time" class="et" name="endTime" placeholder="end time"
                            required autofocus>
-                </div>
-                <div class="form-group mx-sm-3 mb-2">
+                </div></td>
+      
+    </tr>
+     
+     </table>
+<div class="form-group mx-sm-3 mb-2">
                     <label for="duration" >Average Duration of Appointment  </label>
                     <input id="duration" type="number" class="form-control" name="duration" placeholder="15"
                            required autofocus>
@@ -435,6 +463,10 @@ $('#submitPatient').on('click', function () {
         var charges = values[17].value;
         var userID = lastIndex + 1;
         console.log(values);
+        if(name==""||speciality==""||charges==""){
+            alert("Please fill the required fields");
+            }
+            else {
         firebase.database().ref('doctors/'+userID).set({
             id: userID,
             name: name,
@@ -447,8 +479,9 @@ $('#submitPatient').on('click', function () {
         lastIndex = userID;
         $("#addPatient input").val("");
         window.location.reload();
-    });
-
+    
+}
+});
 var doctors = firebase.database().ref('doctors');
 
 doctors.on('child_added',function(data){

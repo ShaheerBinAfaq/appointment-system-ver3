@@ -70,14 +70,14 @@ require '../vendor/autoload.php';
         $mail->addAddress($_POST["user_email"]);
 
         //Set the subject line
-        $mail->Subject = 'Order Confirmed';
+        $mail->Subject = 'Appointment Confirmed';
 
         //Read an HTML message body from an external file, convert referenced images to embedded,
         //convert HTML into a basic plain-text alternative body
-        $mail->msgHTML(file_get_contents('EmailHTML.html'), __DIR__);
+        $mail->msgHTML(file_get_contents('EmailHTMLap.html'), __DIR__);
 
         //Replace the plain text body with one created manually
-        $mail->AltBody = 'Your order is confirmed';
+        $mail->AltBody = 'Your appointment is confirmed';
 
         //Attach an image file
         // $mail->addAttachment('images/phpmailer_mini.png');

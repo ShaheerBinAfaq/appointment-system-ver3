@@ -1,4 +1,5 @@
 <style><?php include public_path('css/StyleChooseDr.css') ?></style>
+<style><?php include public_path('css/Style.css') ?></style>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,16 +23,13 @@
                         class="image-fit" alt="Care X" style="height:120px; top: 1px;">
                 </a> -->
             </div>
-            <div class="nav_logo_btn">
-                <input type="text" placeholder="Search any thing">
-                <button><i class="fa fa-search" aria-hidden="true"></i></button>
-            </div>
-            <div class="all_nav_btn">
+            
+            <!-- <div class="all_nav_btn">
                 <button class="search_display_btm"><i class="fa fa-search" aria-hidden="true"></i></button>
                 <button class="heart_btn"><i class="fa fa-heart" aria-hidden="true"></i></button>
                 <button><i class="fa fa-user" aria-hidden="true"></i></button>
                 <button><i class="fa fa-sign-in" aria-hidden="true"></i></button>
-            </div>
+            </div> -->
         </div>
 
         <div class="our_dr_main">
@@ -40,8 +38,8 @@
             </div>
             <div class="our_dr_text">
                 <p>
-                    <a class="home_link" href="#">Home</a>
-                    <a class="dr_link" href="#">Our Doctors</a>
+                    <button class="home_link" onClick="goToIndex()">Back</button>
+                    <!-- <a class="dr_link" href="#">Our Doctors</a> -->
                 </p>
             </div>
         </div>
@@ -56,10 +54,10 @@
 
     <!-- ********** | JOIN SECTION | ********** -->
 
-    <div class="main_join">
+    <!-- <div class="main_join">
         <div class="main_join_text">
             <h1>Join Our Newsletter</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            <p>Join our pages and social media link you for using CareX online appointment system</p>
         </div>
         <div class="main_join_input">
             <div>
@@ -67,81 +65,38 @@
                 <button>Subscriber</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- ********** | FOOTER | ********** -->
 
-    <footer class="main_foot">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="footer-box mb-md-40">
-                        <div class="logo_foot logo">
-                            <!-- <a href="https://slidesigma.com/themes/wp/genmed/">
-                                <img src="Capture1-.png"
-                                    class="image-fit" alt="Care X" style="height: 100px;">
-                            </a>
-                        </div> -->
-                        <div class="text-custom-black no-margin">
-                            <div id="custom_html-2" class="widget_text widget widget_custom_html">
-                                <div class="textwidget custom-html-widget">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="footer-info mb-md-40">
-                        <div id="custom_html-3" class="widget_text widget widget_custom_html">
-                            <h4 class="widget-title">Working Time</h4>
-                            <div class="textwidget custom-html-widget">
-                                <p class="no-margin text-custom-black fs-14">
-                                    Mon - Wed: <span class="text-custom-black fw-600">9:00 AM - 7:00 PM</span><br>
-                                    Thursday: <span class="text-custom-black fw-600">9:00 AM - 6:30 PM</span><br>
-                                    Friday: <span class="text-custom-black fw-600">9:00 AM - 6:00 PM</span><br>
-                                    Sat - Sun: <span class="text-custom-black fw-600">Closed</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="footer-info mb-sm-40">
-                        <div id="custom_html-6" class="widget_text widget widget_custom_html">
-                            <h4 class="widget-title">Emergency Cases</h4>
-                            <div class="textwidget custom-html-widget">
-                                <h4 class="text-light-blue fw-600">1-800-123-4567</h4>
-                                <p class="no-margin text-custom-black fs-14">Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit, sed do eiusmod tempor
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="footer-info">
-                        <div id="custom_html-5" class="widget_text widget widget_custom_html">
-                            <h4 class="widget-title">Our Location</h4>
-                            <div class="textwidget custom-html-widget">
-                                <p class="text-custom-black fs-14">9000 Regency Parkway,<br>Suite 400 Cary</p>
-                                <p class="no-margin text-custom-black fs-14">
-                                    Email: <a href="#"
-                                        class="text-custom-black_link text-custom-black fw-600">info@domain.com</a><br>
-                                    Phone: <a href="#" class="text-custom-black_link text-custom-black fw-600">+(347)
-                                        123 456 7890</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+   <section id="footer">
+            <img src="\images\img\care X logo.png" class="footer-img">
+            <div class="title-text">
+          <p>CONTACT US</p>
+          <h1>Feel Free To Contact Us</h1>
             </div>
+        <div class="footer-row">
+            <div class="footer-left">
+                <h1>Opening Hours</h1>
+                <p><i class="fa fa-clock-o"></i>Monday to Friday - 9am to 9pm</p>
+                <p><i class="fa fa-clock-o"></i>Saturday to Sunday - 8am to 11pm</p>
+            </div>
+            <div class="footer-right">
+                <h1>Get In Touch</h1>
+                <p>ST-13 Abul Hasan Isphahani Rd, Block 7 Gulshan-e-Iqbal, Karachi, Karachi City<i class="fa fa-map-marker"></i></p>
+                <p>CareXAppointmentSystem70@gmail.com <i class="fa fa-paper-plane"></i></p>
+                <p> (021)34994305<i class="fa fa-phone"></i></p>
+            </div>
+            
         </div>
-    </footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/Care-X-109315344832188/" target="_blank"><i  class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/_care_x_/" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="https://twitter.com/CareAppointment" target="_blank">  <i class="fa fa-twitter"></i></a>
+            <p>Copyright</p>
+
+        </div>
+         </section>
 
     <!-- ********** | FOOTER END | ********** -->
 
@@ -166,6 +121,10 @@
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script>
+    function goToIndex() {
+	window.history.back();
+}
+
     // Initialize Firebase
     var config = {
         apiKey: "{{ config('services.firebase.api_key') }}",

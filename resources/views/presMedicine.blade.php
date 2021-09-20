@@ -31,20 +31,17 @@
                 </div>
                 <div class="form-group mb-2">
                     <label for="name" class="sr-only">Power (mg)</label>
-                    <input id="power" type="text" class="form-control" name="name" placeholder="Power (mg)"
+                    <input id="power" type="number" class="form-control" name="name" placeholder="Power (mg)"
                            required autofocus>
                 </div>
                 <div class="form-group mb-2">
-                    <label for="name" class="sr-only">Timing</label>
-                    <select id="timing" type="text" placeholder="--/--/--">
-                        <option value="1/0/0">1/0/0</option>
-                        <option value="0/1/0">0/1/0</option>
-                        <option value="0/0/1">0/0/1</option>
-                        <option value="1/1/0">1/1/0</option>
-                        <option value="1/0/1">1/0/1</option>
-                        <option value="0/1/1">0/1/1</option>
-                        <option value="1/1/1">1/1/1</option>
-                    </select>
+                    <label for="name" class="">Timing</label>
+                    <input id="morning" type="number" class="form-control" name="name" placeholder="Morning"
+                           required autofocus>
+                           <input id="afternoon" type="number" class="form-control" name="name" placeholder="Afternoon"
+                           required autofocus>
+                           <input id="evening" type="number" class="form-control" name="name" placeholder="Evening"
+                           required autofocus>
                 </div>
                 <button id="submitPatient" type="button" class="btn btn-primary mb-2">Add</button>
             </form>
@@ -110,7 +107,7 @@ var presid;
                 \
         	    </tr>');
             }
-            lastIndex = index;
+            // lastIndex = index;
         });
         $('#tbody').html(htmls);
         $("#submitPatient").removeClass('desabled');
@@ -128,15 +125,32 @@ var presid;
         $('#med-name').html(htmls);
         $("#submitPatient").removeClass('desabled');
     });
+    var lastIndexpm = 0;
+    // Get Data
+    firebase.database().ref('presMedicine/').on('value', function (snapshot) {
+        var value = snapshot.val();
+        var htmls = [];
+        $.each(value, function (index, value) {
+            if (value ) {
+                // htmls.push('<option value="' + value.Name + '">' + value.Name + '</option>');
+            }
+            lastIndexpm = index;
+        });
+        // $('#med-name').html(htmls);
+        // $("#submitPatient").removeClass('desabled');
+    });
     // Add Data
     $('#submitPatient').on('click', function () {
         var values = $("#addPatient").serializeArray();
         var pId = getPresId();
         var name = document.getElementById('med-name').value;
         var power = values[0].value;
-        var timing = document.getElementById('timing').value;
+        var morning = document.getElementById('morning').value;
+        var afternoon = document.getElementById('afternoon').value;
+        var evening = document.getElementById('evening').value;
+        var timing = morning + "/" + afternoon + "/" + evening;
         
-        var userID = lastIndex + 1;
+        var userID = lastIndexpm + 1;
         console.log(values);
         firebase.database().ref('presMedicine/' + userID).set({
             pres_id: pId,
@@ -145,7 +159,7 @@ var presid;
             timing: timing
         });
         // Reassign lastID value
-        lastIndex = userID;
+        lastIndexpm = userID;
         $("#addPatient input").val("");
     });
     

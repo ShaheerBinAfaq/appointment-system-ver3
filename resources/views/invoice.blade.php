@@ -5,6 +5,26 @@
 		<title>Care X Pharmacy</title>
 
 		<style>
+		.btn {
+  display: block;
+  width: 40%;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  border-color: #fff;
+  background-image: linear-gradient(to right, #009688, #38d39f, #009688);
+  background-size: 200%;
+    text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+ 
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: .6s;
+  margin-top: 50px;
+  margin-left: 25px;
+}
 			.invoice-box {
 				max-width: 800px;
 				margin: auto;
@@ -105,6 +125,11 @@
 	</head>
 
 	<body>
+	<div class="col-md-12 text-right mb-3">
+        <button class="btn" id="download"> download pdf</button>
+    </div>
+	<div id="invoice">
+
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0">
 				<tr class="top">
@@ -112,7 +137,7 @@
 						<table>
 							<tr>
 								<td class="title">
-									<img src="images/img/home/care X logo.png" style="width: 100%; max-width: 200px" />
+									<img src="images/img/home/care X logo.png" style="width: 80%; max-width: 120px" />
 								</td>
 								<td style="font-weight: bold;">
 									<br />
@@ -165,10 +190,12 @@
 
 			<div >
 				<h2 style="margin-left: 17%;">Thanks For Purchasing with Care X Pharmacy</h2>
-				<img src="images/img/order.png" style="width: 100%; max-width: 200px; margin-left: 35%;">
+				<img src="images/img/order.png" style="width: 50%; max-width: 100px; margin-left: 35%;">
 				<h1 style="margin-left: 23%; ">Your Order Is Confirmed</h1>
 			</div>
 		</div>
+
+	</div>
 	</body>
 </html>
 
@@ -181,9 +208,26 @@
 <!--<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>-->
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 
 <script>
+	
+// 	window.onload = function () {
+//     // document.getElementById("download")
+//     //     .addEventListener("click", () => {
+//     //         const invoice = this.document.getElementById("invoice");
+//     //         console.log(invoice);
+//     //         console.log(window);
+//     //         var opt = {
+//     //             margin: 1,
+//     //             filename: 'Invoice.pdf',
+//     //             image: { type: 'jpeg', quality: 0.98 },
+//     //             html2canvas: { scale: 2 },
+//     //             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+//     //         };
+//     //         html2pdf().from(invoice).set(opt).save();
+//     //     })
+// }
 
 	//FIREBASE
 
@@ -208,6 +252,21 @@
 			var params = window.location.search.split('?')[1];
 			Order_Id = params.split('=')[1]; 
         }
+
+		document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("invoice");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'Invoice.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
     };
 
 

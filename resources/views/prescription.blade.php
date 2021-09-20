@@ -1,11 +1,13 @@
 <style><?php include public_path('css/StylePres.css') ?></style>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="care X logo.png" type="image/icon type">
     <title>Prescription Form</title>
-    <!-- <link rel="stylesheet" href="Stylepp.css" /> -->
+     <link rel="stylesheet" href="StylePres.css" />
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
@@ -41,19 +43,31 @@
               <label for="">PRESCRIBER</label>
               <span>PRESCRIBER</span>
             </div>
-            <div class="input-container textarea">
-              <textarea style="color: aliceblue;" id="REASON" placeholder="REASON" class="input"></textarea>
-              <label for=""></label>
-              <span></span>
+            <div class="input-container ">
+              <textarea style="color:#fff;" id="REASON"class="input"></textarea>
+              <label for="">Reason</label>
+              <span>Reason</span>
             </div>
           </form>
         </div>
+        <table>
+          <tr>
+            <th><button id="save" class="btn">Save</button></th>
+            <th><button onclick="medicine()" class="btn">Enter Medicines</button></th>
+          </tr>
+          <tr>
+            <th><button onclick="test()" class="btn">Enter Tests</button></th>
+            <th><button onclick="surgery()" class="btn">Enter Surgery</button></th>
+          </tr>
+          <tr>
+            <th> <button onclick="SubmitAll()" class="btn">Generate Report</button></th>
+          </tr>
+        </table>
             <!-- <input type="submit" value="Generate Report" class="btn"/> -->
-            <button id="save" class="btn">Save</button>
-            <button onclick="medicine()" class="btn">Enter Medicines</button>
-            <button onclick="test()" class="btn">Enter Tests</button>
-            <button onclick="surgery()" class="btn">Enter Surgery</button>
-            <button onclick="SubmitAll()" class="btn">Generate Report</button>
+          
+            
+            
+           
           </form>
         </div>
       </div>
@@ -150,6 +164,7 @@ var presID;
         console.log(values);
         firebase.database().ref('prescriptions/' + presID).set({
             appointment_id: appointment_id,
+            id: presID,
             date_written: date_written,
             pat_name: pat_name,
             doc_name: doc_name,
