@@ -131,7 +131,7 @@
     firebase.initializeApp(config);
     var database = firebase.database();
     var senderName;
-    var adminId = "ZSI2IAfkuUVBW6xZTTT3Qbue3S93";
+    var adminId = "oDuFXD8ZWdhUavo1OBl8rH6e4WY2";
     var adminName = "Admin";
 
     firebase.database().ref('users/').on('value', function (snapshot) {

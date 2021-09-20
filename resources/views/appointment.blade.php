@@ -40,16 +40,18 @@
                 
             </select>
             <br><br>
-            <label>The Doctors is available on the following days:</label>
+            <label><strong> The Doctors is available on the following days:</strong></label>
             <label id="days"></label>
+            <label><strong>Charges : </strong></label>
+            <label id="charges"></label>
         <label>
-            Choose Appointment Date <br>
+        <strong>Choose Appointment Date</strong> <br>
         </label>
             <input type="text" id="datepicker" name="date" placeholder="Choose Appointment Date" readonly="readonly">
          <br><br>
         
         <label>
-            Choose Appointment Time <br>
+        <strong>Choose Appointment Time</strong> <br>
         </label>
             
             <input type="text" id="time" name="time" placeholder="Choose Appointment Time" readonly="readonly" required pattern="00:00">
@@ -180,6 +182,8 @@ var duration;
             if(value && index==docid) {
                 doctorSchedule = value.schedule
                 htmls.push('<option value="' + index + '" fromtime='+value.startTime+' endtime='+value.endTime+'>' + value.name + '</option>');
+                document.getElementById('charges').innerHTML = value.charges;
+                console.log('value.charge', value.charge)
                 duration = value.duration;
             }        
         });

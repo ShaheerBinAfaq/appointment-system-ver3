@@ -406,3 +406,23 @@ body {
     margin-top: 15px;
     font-size: 14px ;
 }
+.bookapp {
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    border-color: #fff;
+    background-image: linear-gradient(to right, #009688, #38d39f, #009688);
+    background-size: 200%;
+      text-transform: uppercase;
+    font-size: 100%;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+   
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: .6s;
+    margin-top: 50px;
+    margin-left: 25px;
+  }
