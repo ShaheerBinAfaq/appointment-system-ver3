@@ -22,6 +22,7 @@ Route::view('/signup', 'register');
 Route::view('/home', 'home1');
 Route::view('/viewappointment', 'viewappointment');
 Route::view('/viewprescription', 'prescription-patient');
+Route::view('/viewinvoice', 'invoice-order');
 Route::view('/pharmacy', 'pharmacy');
 Route::view('/cart', 'cart');
 Route::view('/invoice', 'invoice');

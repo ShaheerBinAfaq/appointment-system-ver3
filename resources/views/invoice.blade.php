@@ -206,44 +206,46 @@
         
 		if (window.location.search.split('?').length > 0) {
 			var params = window.location.search.split('?')[1];
-			Order_Id = params.split('=')[1];                                
+			Order_Id = params.split('=')[1]; 
         }
     };
 
 
 
-	firebase.database().ref('orders/'+Order_Id).on('value', function(snapshot){
-
+	firebase.database().ref("orders/").on('value', function(snapshot){
+        var value = snapshot.val();
+        $.each(value, function (index, value) {
+        if(value && index==Order_Id) {
                     $('#table_tbody1').append( `
 
 			<tr>
                 <td style="font-weight: bold;">Order Id:</td>
-                <td>${snapshot.val().order}</td>
+                <td>${value.order}</td>
             </tr>
             <tr>
                 <td style="font-weight: bold;">Name:</td>
-                <td>${snapshot.val().userName}</td>
+                <td>${value.userName}</td>
             </tr>
             <tr>
                 <td style="font-weight: bold;">Address:</td>
-                <td>${snapshot.val().userAddress}</td>
+                <td>${value.userAddress}</td>
             </tr>
             
             <tr>
                 <td style="font-weight: bold;">Date:</td>
-                <td>${snapshot.val().date}</td>
+                <td>${value.date}</td>
             </tr>
             <tr>
                 <td style="font-weight: bold;">Time:</td>
-                <td>${snapshot.val().hour}</td>
+                <td>${value.hour}</td>
             </tr>
 			<tr>
                 <td style="font-weight: bold;">Year:</td>
-                <td>${snapshot.val().year}</td>
+                <td>${value.year}</td>
             </tr>
             <tr>
                 <td style="font-weight: bold;">Products:</td>
-                <td>${snapshot.val().products.map(function(product){
+                <td>${value.products.map(function(product){
                     return `<ul>
                             <li>Name: ${product.name}</li>
                             <li>Power: ${product.power}</li>
@@ -256,15 +258,17 @@
 
 			<tr>
                 <td style="font-weight: bold;">Payment Method:</td>
-                <td style="font-weight: bold;">${snapshot.val().payment}</td>
+                <td style="font-weight: bold;">${value.payment}</td>
             </tr>
             
             <tr>
                 <td style="font-weight: bold;">Total Amount:</td>
-                <td style="font-weight: bold;">${snapshot.val().total}</td>
+                <td style="font-weight: bold;">${value.total}</td>
             </tr>
         
     ` )
+        }
+        });
 					
                 });
 

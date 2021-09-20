@@ -294,22 +294,6 @@ document.getElementById('formCart').addEventListener('submit',function(e){
     var d = new Date();
     var t = d.getTime();
     var order = t-300;
-    // Get User Data
-    firebase.database().ref('users/').on('value', function (snapshot) {
-        var value = snapshot.val();
-        var htmls = [];
-        $.each(value, function (index, value) {
-            if (value && uid == index) {
-                document.getElementById('PatientId').value = index;
-                document.getElementById('userName').value = value.fname + " " + value.lname;
-                document.getElementById('userEmail').value = value.email;
-                document.getElementById('userAddress').value = value.address;
-            }
-            // lastIndex = index;
-        });
-        // $('#tbody').html(htmls);
-        // $("#submitPatient").removeClass('desabled');
-    });
     firebase.database().ref('orders/'+order).set({
         id: t+1,
         order:order,
